@@ -1,2 +1,2 @@
-# generation-o2
-Wordpress Theme
+# blankCanvas
+Empty Wordpress Theme
