@@ -1,2 +1,1 @@
-# blankCanvas
-Empty Wordpress Theme
+# Generation-O2 Wordpress Theme
