@@ -23,13 +23,9 @@ function gp_init() {
 }
 add_action('after_setup_theme', 'gp_init');
 
+add_theme_support( 'post-thumbnails' );
 
-
-
-
-
-
-
+add_post_type_support( 'page', 'excerpt' );  
 
 
 
@@ -70,15 +66,13 @@ function excerpt($charNumber){
 
 
 
-
- function register_menus() {
-   // register_nav_menu('navBar',__( 'Header' ));
-   // register_nav_menu('navBarMobile',__( 'Header Mobile' ));
-   // register_nav_menu('contactMenu',__( 'Contact Menu' ));
-   // add_post_type_support( 'page', 'excerpt' );
- }
- add_action( 'init', 'register_menus' );
-
+function register_menus() {
+  register_nav_menu('header',__( 'Menu principal ordenador' ));
+  register_nav_menu('footerNav',__( 'Pie de página' ));
+  register_nav_menu('navBarMobile',__( 'Menu principal movil' ));
+  // add_post_type_support( 'page', 'excerpt' );
+}
+add_action( 'init', 'register_menus' );
 
 
 
