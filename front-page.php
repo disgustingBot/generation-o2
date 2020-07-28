@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
+<section class="ATF front_page_ATF">
+  
+</section>
 
-<h1>front-page.php</h1>
+
 
 
 <?php get_footer(); ?>
