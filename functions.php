@@ -25,6 +25,8 @@ add_action('after_setup_theme', 'gp_init');
 
 add_theme_support( 'post-thumbnails' );
 
+add_post_type_support( 'page', 'excerpt' );  
+
 
 
 

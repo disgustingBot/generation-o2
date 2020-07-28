@@ -27,6 +27,7 @@ Version: 1.1
 
 5) =ESTRUCTURA:
 5.1) =ATF:
+5.1.1) =Front Page ATF:
 
 6) =COMPONENTES:
 6.0) =load:
@@ -117,6 +118,11 @@ FIN DE MAPA DE CONTENIDOS */
   --onlyDesktopG:none;
   --onlyMobileF:flex;
   --onlyMobileG:grid;
+
+  --txtCenterLeft: center;
+  --txtCenterRight: center;
+  --TxtLeftCenter: left;
+  --txtCenter: center;
 
   /* ?HEADER */
   /* ?FOOTER */
@@ -276,13 +282,63 @@ main ul,main ol{list-style:unset}
 
 .ATF {display: grid}
 
+.grid {display: grid}
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                              5.1.1) =Front Page ATF:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
 .front_page_ATF {
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 1fr);
   grid-gap: 10px;
   height: calc(100vh - 90px);
 }
 
+.front_Page_ATF_img_container {
+  grid-column: 1/8;
+}
+
+.front_page_ATF_CTA {
+  display: grid;
+  grid-column: 8/11;
+  text-align: var(----txtCenter)!important;
+  padding: 1rem;
+  grid-gap: .5rem;
+  justify-content: center;
+}
+
+.front_page_ATF_CTA_title {
+  text-align: center;
+  font-size: 18px;
+}
+
+.CTA_container {
+  display: grid;
+  box-shadow: var(--DP8);
+  padding: 1rem;
+  border-radius: 8px;
+  grid-gap: .5rem;
+  background: var(--grey00);
+}
+
+.CTA_txt {
+  font-weight: bolder;
+  margin: auto;
+  text-align: center;
+  font-size: 32px;
+}
+
+.CTA_link {
+  font-size: 24px!important;
+}
+
+.front_page_ATF_projects {
+  grid-column: span 2;
+  grid-row: span 2;
+}
 
 
 /* ---------------------------------------------------------------------------
@@ -290,6 +346,25 @@ main ul,main ol{list-style:unset}
                               6) =COMPONENTES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+.overlay {background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.130903) 69.79%, rgba(0, 0, 0, 0.331771) 76.56%, rgba(0, 0, 0, 0.7) 100%);  }
+
+.img_overlaid_container {
+  color: white;
+}
+
+.img_overlaid_hgroup {
+  padding: 8px;
+  margin: auto auto 0 0;
+  z-index: 1;
+}
+
+.img_overlaid_title {
+  font-size: 24px;
+}
+.img_overlaid_excerpt {
+  font-size: 18px;
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -410,6 +485,31 @@ main ul,main ol{list-style:unset}
                           6.6) =BUTTONS:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+.btn {
+  color: var(--grey00);
+  background: var(--secondaryColor);
+  border:none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 700;
+  height: min-content;
+  justify-content: center;
+  margin: auto;
+  padding: .4rem .75rem;
+  text-transform: uppercase;
+  transition: .35s;
+  width: max-content;
+}
+
+.btn:hover {
+  color: var(--grey99);
+  background: var(--primaryColor);
+}
+
+
 
 
 .donaBtn {
