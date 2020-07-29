@@ -1,8 +1,8 @@
 <?php
 
 // Built by www.lattedev.com
-add_action( 'init', 'lattedev_custom_posts' );
-function lattedev_custom_posts() {
+add_action( 'init', 'lt_custom_posts' );
+function lt_custom_posts() {
 
 
 	// PROYECTOS

@@ -1,17 +1,18 @@
 <?php
 
 require_once 'customPosts.php';
+require_once 'inc/user-meta.php';
 
-function lattte_setup(){
+function lt_scripts(){
   wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
   wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 }
-add_action('wp_enqueue_scripts', 'lattte_setup');
+add_action('wp_enqueue_scripts', 'lt_scripts');
 
 // Adding Theme Support
 
-function gp_init() {
-  // add_theme_support('post-thumbnails');
+function lt_setup_theme() {
+  add_theme_support('post-thumbnails');
   add_theme_support('title-tag');
   add_theme_support('html5',
     array('comment-list', 'comment-form', 'search-form')
@@ -20,12 +21,34 @@ function gp_init() {
   // add_theme_support( 'wc-product-gallery-zoom' );
   // add_theme_support( 'wc-product-gallery-lightbox' );
   // add_theme_support( 'wc-product-gallery-slider' );
+  add_post_type_support( 'page', 'excerpt' );  
 }
-add_action('after_setup_theme', 'gp_init');
+add_action('after_setup_theme', 'lt_setup_theme');
 
-add_theme_support( 'post-thumbnails' );
 
-add_post_type_support( 'page', 'excerpt' );  
+function lt_init() {
+  if ( get_option( 'custom_roles_version' ) < 1 ) {
+
+
+    add_role( 'socio', 'Socio', array(
+      'read' => true,
+      'level_0' => true
+    ) );
+
+    add_role( 'voluntario', 'Voluntario', array(
+      'read' => true,
+      'level_0' => true
+    ) );
+
+    // $wp_roles = new WP_Roles(); // create new role objects
+    // $wp_roles->remove_role('doner');
+    update_option( 'custom_roles_version', 1 );
+  }
+}
+add_action( 'init', 'lt_init' );
+
+
+
 
 
 

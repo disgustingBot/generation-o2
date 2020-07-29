@@ -1,5 +1,18 @@
 <?php get_header(); ?>
 
+
+<?php
+
+
+
+$user_meta = get_userdata( '1' );
+$current_user_role_slug = $user_meta->roles[0];
+echo $current_user_role_slug;
+
+
+
+?>
+
 <section class="ATF front_page_ATF">
   <div class="grid img_overlaid_container front_Page_ATF_img_container">
     <img class="rowcol1 img_overlaid front_Page_ATF_img lazy" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
