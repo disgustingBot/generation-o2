@@ -5,24 +5,24 @@ add_action( 'init', 'lattedev_custom_posts' );
 function lattedev_custom_posts() {
 
 
-	// PROYECTOS
+	// departamentos
 
 
 
     /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
 	$labels = array(
-		'name'               => _x( 'Proyectos', 'post type general name', 'text-domain' ),
-		'singular_name'      => _x( 'Proyecto', 'post type singular name', 'text-domain' ),
-		'menu_name'          => _x( 'Proyectos', 'admin menu', 'text-domain' ),
-		'add_new'            => _x( 'Añadir nuevo', 'proyecto', 'text-domain' ),
-		'add_new_item'       => __( 'Añadir nuevo proyecto', 'text-domain' ),
-		'new_item'           => __( 'Nuevo proyecto', 'text-domain' ),
-		'edit_item'          => __( 'Editar proyecto', 'text-domain' ),
-		'view_item'          => __( 'Ver proyecto', 'text-domain' ),
-		'all_items'          => __( 'Todos los proyectos', 'text-domain' ),
-		'search_items'       => __( 'Buscar proyectos', 'text-domain' ),
-		'not_found'          => __( 'No hay proyectos proyectos.', 'text-domain' ),
-		'not_found_in_trash' => __( 'Ningun proyecto en la papelera.', 'text-domain' )
+		'name'               => _x( 'Departamentos', 'post type general name', 'text-domain' ),
+		'singular_name'      => _x( 'Departamento', 'post type singular name', 'text-domain' ),
+		'menu_name'          => _x( 'Departamentos', 'admin menu', 'text-domain' ),
+		'add_new'            => _x( 'Añadir nuevo', 'departamento', 'text-domain' ),
+		'add_new_item'       => __( 'Añadir nuevo departamento', 'text-domain' ),
+		'new_item'           => __( 'Nuevo departamento', 'text-domain' ),
+		'edit_item'          => __( 'Editar departamento', 'text-domain' ),
+		'view_item'          => __( 'Ver departamento', 'text-domain' ),
+		'all_items'          => __( 'Todos los departamentos', 'text-domain' ),
+		'search_items'       => __( 'Buscar departamentos', 'text-domain' ),
+		'not_found'          => __( 'No hay departamentos departamentos.', 'text-domain' ),
+		'not_found_in_trash' => __( 'Ningun departamento en la papelera.', 'text-domain' )
 	);
 
 
@@ -37,7 +37,7 @@ function lattedev_custom_posts() {
 		'show_in_menu'       => true,
     'show_in_rest'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'proyecto' ),
+		'rewrite'            => array( 'slug' => 'departamento' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -46,7 +46,7 @@ function lattedev_custom_posts() {
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 	);
-	register_post_type( 'proyectos', $args );
+	register_post_type( 'departamentos', $args );
 
 
 

@@ -10,7 +10,7 @@
 
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body class="body" id="body" <?php body_class(); ?>>
 
 	<view id="load" class="load">
 			<div class="circle"></div>
@@ -39,5 +39,11 @@
     <?php  include 'socialmedia.php'; ?>
 
     <a href="#" class="donaBtn">(Dona)</a>
+
+    <div class="hamburgerMenu" onclick="altClassFromSelector('mobileNavMenu','#body')">
+      <span class="hamStripe"></span>
+      <span class="hamStripe"></span>
+      <span class="hamStripe"></span>
+    </div>
 
   </header>

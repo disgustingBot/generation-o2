@@ -34,7 +34,10 @@ Version: 1.1
 6.1) =header:
 6.2) =social media:
 
+
 6.4) =multiCards:
+6.4.1) =card:
+6.4.2) =overlaid:
 
 6.6) =BUTTONS:
 
@@ -61,6 +64,13 @@ FIN DE MAPA DE CONTENIDOS */
 
   --lateral:1rem;
 
+  --extraSmallTxt: 12px;
+  --smallTxt: 14px;
+  --mediumTxt: 16px;
+  --bigTxt: 20px;
+  --extraBigTxt: 28px;
+
+
   /* COLORS */
   /* Al editar colores siempre usar HEX y nunca
   dejar espacio entre los dos puntos y el color */
@@ -75,8 +85,15 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-  --grey00:#F5F5F5;
-  --grey99:#333333;
+  --grey0:#000000;
+  --grey2:#222222;
+  --grey3:#333333;
+  --grey4:#444444;
+  --grey6:#666666;
+  --grey8:#888888;
+  --greyA:#aaaaaa;
+  --greyC:#cccccc;
+  --greyF:#ffffff;
 
 
 
@@ -125,7 +142,25 @@ FIN DE MAPA DE CONTENIDOS */
   --txtCenter: center;
 
   /* ?HEADER */
+
+  --headerLogoHeight: 50px;
+  --headerGTC: min-content 1fr min-content;
+
+
+  /* ATFS */
+
+
+
+  /* FRONT PAGE ATF */
+
+  --frontPageATFGTC: repeat(10, 1fr);
+  --overlaidBigGC: 1/-1;
+  --frontPageCTAGC: 2/10;
+  --overlaidGC: span 5;
+  --frontPageCTAGTC: auto;
   /* ?FOOTER */
+
+
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -157,6 +192,10 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 576px) {
   :root {
     /* ?HEADER */
+
+    /* FRONT PAGE ATF */
+
+    --frontPageCTAGTC: 1fr 1fr;
     /* ?FOOTER */
   }
 }
@@ -175,6 +214,18 @@ FIN DE MAPA DE CONTENIDOS */
     --onlyMobileG:none;
 
     /* ?HEADER */
+    --navBarPadding: 0;
+    --headerGTC: max-content 1fr max-content max-content;
+
+    /* ATFS */
+
+    /* FRONT PAGE ATF */
+
+    --frontPageATFGTC: repeat(9, 1fr);
+    --frontPageCTAGC: 2/9;
+    --overlaidGC: span 3;
+
+
     /* ?FOOTER */
   }
 }
@@ -187,7 +238,32 @@ FIN DE MAPA DE CONTENIDOS */
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 992px) {
   :root {
+
+    --extraSmallTxt: 14px;
+    --smallTxt: 16px;
+    --mediumTxt: 18px;
+    --bigTxt: 24px;
+    --extraBigTxt: 32px;
+
+
+
     /* ?HEADER */
+    --navBarPadding: 0 2rem;
+    --headerLogoHeight: 70px;
+
+
+
+    /* ATFS */
+
+    /* FRONT PAGE ATF */
+
+    --frontPageATFGTC: repeat(10, 1fr);
+    --overlaidBigGC: 1/8;
+    --frontPageCTAGC: 8/11;
+    --overlaidGC: span 2;
+    --frontPageCTAGTC: auto;
+
+
     /* ?FOOTER */
   }
 }
@@ -201,6 +277,26 @@ FIN DE MAPA DE CONTENIDOS */
   :root {
     --lateral: 2rem;
     --sizeR: calc(var(--sizeRd) * 1px);
+
+
+    /* ?HEADER */
+    --navBarPadding: 0 4rem;
+    /* ?FOOTER */
+  }
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          2.5) min-width:  =1366px
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+@media  screen and (min-width: 1366px) {
+  :root {
+    --lateral: 2rem;
+    --sizeR: calc(var(--sizeRd) * 1px);
+
+
+
 
     /* ?HEADER */
     /* ?FOOTER */
@@ -292,27 +388,31 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 
 .front_page_ATF {
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: var(--frontPageATFGTC);
   grid-gap: 10px;
-  height: calc(100vh - 90px);
-}
-
-.front_Page_ATF_img_container {
-  grid-column: 1/8;
+  grid-row-gap: 3rem;
 }
 
 .front_page_ATF_CTA {
   display: grid;
-  grid-column: 8/11;
-  text-align: var(----txtCenter)!important;
-  padding: 1rem;
+  grid-column: var(--frontPageCTAGC);
+  text-align: var(--txtCenter)!important;
+  padding: .5rem;
   grid-gap: .5rem;
   justify-content: center;
+  grid-template-columns: var(--frontPageCTAGTC);
 }
 
 .front_page_ATF_CTA_title {
   text-align: center;
-  font-size: 18px;
+  font-size: var(--mediumTxt);
+  height: max-content;
+  margin: auto;
+}
+
+.front_page_ATF .ATFCards {
+  grid-column: var(--overlaidGC);
+  grid-template-rows: min-content min-content;
 }
 
 .CTA_container {
@@ -321,25 +421,20 @@ main ul,main ol{list-style:unset}
   padding: 1rem;
   border-radius: 8px;
   grid-gap: .5rem;
-  background: var(--grey00);
+  background: var(--grey20);
+  color: var(--grey2);
 }
 
 .CTA_txt {
   font-weight: bolder;
   margin: auto;
   text-align: center;
-  font-size: 32px;
+  font-size: var(--extraBigTxt);
 }
 
 .CTA_link {
-  font-size: 24px!important;
+  font-size: var(--bigTxt)!important;
 }
-
-.front_page_ATF_projects {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -347,24 +442,6 @@ main ul,main ol{list-style:unset}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.overlay {background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.130903) 69.79%, rgba(0, 0, 0, 0.331771) 76.56%, rgba(0, 0, 0, 0.7) 100%);  }
-
-.img_overlaid_container {
-  color: white;
-}
-
-.img_overlaid_hgroup {
-  padding: 8px;
-  margin: auto auto 0 0;
-  z-index: 1;
-}
-
-.img_overlaid_title {
-  font-size: 24px;
-}
-.img_overlaid_excerpt {
-  font-size: 18px;
-}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -401,21 +478,26 @@ main ul,main ol{list-style:unset}
 .header {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: max-content 1fr max-content max-content;
+  grid-template-columns: var(--headerGTC);
   height: 90px;
   padding: 8px var(--lateral);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 5;
 }
 
 .header_logo {
-  height: 70px;
+  height: var(--headerLogoHeight);
   width: auto;
+  margin: auto;
 }
 
 .navBar {
   align-items: center;
-  display: flex;
+  display: var(--onlyDesktopF);
   justify-content: space-between;
-  padding: 0 4rem;
+  padding: var(--navBarPadding);
 }
 
 .menu-item {
@@ -424,14 +506,14 @@ main ul,main ol{list-style:unset}
 }
 
 .menu-item  a{
-  font-size: 16px;
+  font-size: var(--smallTxt);
   font-weight: bolder;
   text-decoration: none;
-  color: var(--grey99);
+  color: var(--grey3);
 }
 
 .menu-item::after {
-  background: var(--grey99);
+  background: var(--grey3);
   content: ' ';
   bottom: -2px;
   height: 2px;
@@ -447,6 +529,55 @@ main ul,main ol{list-style:unset}
   transform: scaleX(1);
 
 }
+
+
+.hamburgerMenu {
+  display: var(--onlyMobileF);
+  flex-direction: column;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  margin: auto var(--lateral) auto auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.hamStripe {
+  position: absolute;
+  height: 4.5px;
+  width: 100%;
+  background: var(--primaryColor);
+  border-radius: 4.5px;
+  left: 0;
+  transition: .25s ease-in-out;
+}
+
+.hamStripe:nth-child(1) {top: 0px}
+  .body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.hamStripe:nth-child(2) {top: 9px}
+.body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(2) {
+  opacity: 0;
+  left: -30px;
+}
+
+.hamStripe:nth-child(3) {top: 18px}
+.body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
+
 
 
 /* ---------------------------------------------------------------------------
@@ -473,12 +604,66 @@ main ul,main ol{list-style:unset}
   color: var(--secondaryColor);
 }
 
-
+.header .social_container {
+  display: var(--onlyDesktopF);
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4) =multiCards:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.1) =card:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+.card {display: grid}
+
+.card_img_rounded {
+  border-radius: 50%;
+  padding: 10px;
+  width: 200px;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.2) =overlaid:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.overlaid {
+  display: grid;
+  grid-column: var(--overlaidGC);
+}
+.overlaid_big  {grid-column: var(--overlaidBigGC)}
+
+.overlaid_caption {
+  padding: 8px;
+  padding-top: 30px;
+  margin: auto auto 0 0;
+  z-index: 1;
+  color: var(--greyF);
+  grid-column: 1;
+  grid-row: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.0473958) 0.01%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.cardCaption {
+  padding: 8px;
+  color: var(--grey2);
+}
+
+.overlaid_title {font-size: var(--mediumTxt);}
+.overlaid_big .overlaid_title {font-size: var(--bigTxt);}
+
+.overlaid_txt {font-size: var(--smallTxt);}
+.overlaid_big .overlaid_txt {font-size: var(--mediumTxt);}
+
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -487,13 +672,13 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 
 .btn {
-  color: var(--grey00);
+  color: var(--greyF);
   background: var(--secondaryColor);
   border:none;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
-  font-size: 16px;
+  font-size: var(--smallTxt);
   font-weight: 700;
   height: min-content;
   justify-content: center;
@@ -505,16 +690,13 @@ main ul,main ol{list-style:unset}
 }
 
 .btn:hover {
-  color: var(--grey99);
+  color: var(--grey2);
   background: var(--primaryColor);
 }
 
-
-
-
 .donaBtn {
   color: var(--secondaryColor);
-  font-size: 28px;
+  font-size: var(--extraBigTxt);
   font-weight: bolder;
   height: max-content;
   padding: 4px;
@@ -524,7 +706,7 @@ main ul,main ol{list-style:unset}
 }
 
 .donaBtn:hover {
-  color: var(--grey00);
+  color: var(--greyF);
 }
 
 .donaBtn::after {
