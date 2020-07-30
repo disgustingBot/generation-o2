@@ -26,11 +26,9 @@
     <article class="card ATFCards">
       <img data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="card_img card_img_rounded lazy">
       <hgroup class="cardCaption">
-        <h4 class="overlaid_title"><?php echo get_the_title() ?></h4>
-        <h5 class="overlaid_txt"><?php echo get_the_excerpt() ?></h5>
+        <h4 class="cardCaption_title"><?php echo get_the_title() ?></h4>
+        <h5 class="cardCaption_txt"><?php echo get_the_excerpt() ?></h5>
       </hgroup>
-
-
     </article>
   <?php } ?>
 
