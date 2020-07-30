@@ -5,24 +5,21 @@ add_action( 'init', 'lt_custom_posts' );
 function lt_custom_posts() {
 
 
-	// PROYECTOS
-
-
-
+		// departamentos
     /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
 	$labels = array(
-		'name'               => _x( 'Proyectos', 'post type general name', 'text-domain' ),
-		'singular_name'      => _x( 'Proyecto', 'post type singular name', 'text-domain' ),
-		'menu_name'          => _x( 'Proyectos', 'admin menu', 'text-domain' ),
-		'add_new'            => _x( 'Añadir nuevo', 'proyecto', 'text-domain' ),
-		'add_new_item'       => __( 'Añadir nuevo proyecto', 'text-domain' ),
-		'new_item'           => __( 'Nuevo proyecto', 'text-domain' ),
-		'edit_item'          => __( 'Editar proyecto', 'text-domain' ),
-		'view_item'          => __( 'Ver proyecto', 'text-domain' ),
-		'all_items'          => __( 'Todos los proyectos', 'text-domain' ),
-		'search_items'       => __( 'Buscar proyectos', 'text-domain' ),
-		'not_found'          => __( 'No hay proyectos proyectos.', 'text-domain' ),
-		'not_found_in_trash' => __( 'Ningun proyecto en la papelera.', 'text-domain' )
+		'name'               => _x( 'Departamentos', 'post type general name', 'text-domain' ),
+		'singular_name'      => _x( 'Departamento', 'post type singular name', 'text-domain' ),
+		'menu_name'          => _x( 'Departamentos', 'admin menu', 'text-domain' ),
+		'add_new'            => _x( 'Añadir nuevo', 'departamento', 'text-domain' ),
+		'add_new_item'       => __( 'Añadir nuevo departamento', 'text-domain' ),
+		'new_item'           => __( 'Nuevo departamento', 'text-domain' ),
+		'edit_item'          => __( 'Editar departamento', 'text-domain' ),
+		'view_item'          => __( 'Ver departamento', 'text-domain' ),
+		'all_items'          => __( 'Todos los departamentos', 'text-domain' ),
+		'search_items'       => __( 'Buscar departamentos', 'text-domain' ),
+		'not_found'          => __( 'No hay departamentos departamentos.', 'text-domain' ),
+		'not_found_in_trash' => __( 'Ningun departamento en la papelera.', 'text-domain' )
 	);
 
 
@@ -37,7 +34,7 @@ function lt_custom_posts() {
 		'show_in_menu'       => true,
     'show_in_rest'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'proyecto' ),
+		'rewrite'            => array( 'slug' => 'departamento' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -46,7 +43,7 @@ function lt_custom_posts() {
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 	);
-	register_post_type( 'proyectos', $args );
+	register_post_type( 'departamentos', $args );
 
 
 
@@ -81,3 +78,86 @@ function lt_custom_posts() {
   ));
 
 }
+// FIN Departamentos
+
+
+// EQUIPO
+    /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
+	$labels = array(
+		'name'               => _x( 'Equipo', 'post type general name', 'text-domain' ),
+		'singular_name'      => _x( 'Equipo', 'post type singular name', 'text-domain' ),
+		'menu_name'          => _x( 'Equipo', 'admin menu', 'text-domain' ),
+		'add_new'            => _x( 'Añadir nuevo', 'miembro', 'text-domain' ),
+		'add_new_item'       => __( 'Añadir nuevo miembro', 'text-domain' ),
+		'new_item'           => __( 'Nuevo miembro', 'text-domain' ),
+		'edit_item'          => __( 'Editar miembro', 'text-domain' ),
+		'view_item'          => __( 'Ver miembro', 'text-domain' ),
+		'all_items'          => __( 'Todos los miembros', 'text-domain' ),
+		'search_items'       => __( 'Buscar miembros', 'text-domain' ),
+		'not_found'          => __( 'No hay miembros.', 'text-domain' ),
+		'not_found_in_trash' => __( 'No hay miembros en la papelera.', 'text-domain' )
+	);
+  /* Configuro el comportamiento y funcionalidades del nuevo custom post type */
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Desctription.', 'text-domain' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_nav_menus'  => true,
+		'show_in_menu'       => true,
+    'show_in_rest'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'miembros' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+    'taxonomies'         => array('loc'),
+		'menu_icon'          => 'dashicons-groups',
+		'menu_position'      => 5,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
+	);
+	register_post_type( 'Miembros', $args );
+
+	// FIN EQUIPO
+
+
+	// COLABORADORES
+	    /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
+		$labels = array(
+			'name'               => _x( 'Colaboradores', 'post type general name', 'text-domain' ),
+			'singular_name'      => _x( 'Colaborador', 'post type singular name', 'text-domain' ),
+			'menu_name'          => _x( 'Colaboradores', 'admin menu', 'text-domain' ),
+			'add_new'            => _x( 'Añadir nuevo', 'colaborador', 'text-domain' ),
+			'add_new_item'       => __( 'Añadir nuevo colaborador', 'text-domain' ),
+			'new_item'           => __( 'Nuevo colaborador', 'text-domain' ),
+			'edit_item'          => __( 'Editar colaborador', 'text-domain' ),
+			'view_item'          => __( 'Ver colaborador', 'text-domain' ),
+			'all_items'          => __( 'Todos los colaboradores', 'text-domain' ),
+			'search_items'       => __( 'Buscar colaboradores', 'text-domain' ),
+			'not_found'          => __( 'No hay colaboradores.', 'text-domain' ),
+			'not_found_in_trash' => __( 'No hay colaboradores en la papelera.', 'text-domain' )
+		);
+	  /* Configuro el comportamiento y funcionalidades del nuevo custom post type */
+		$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Desctription.', 'text-domain' ),
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_nav_menus'  => true,
+			'show_in_menu'       => true,
+	    'show_in_rest'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'colaboradores' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+	    'taxonomies'         => array('loc'),
+			'menu_icon'          => 'dashicons-heart',
+			'menu_position'      => 5,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
+		);
+		register_post_type( 'colaboradores', $args );
+
+		// FIN COLABORADORES
