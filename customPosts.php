@@ -108,16 +108,43 @@ function lt_custom_posts() {
 		'show_in_menu'       => true,
     'show_in_rest'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'miembros' ),
+		'rewrite'            => array( 'slug' => 'equipo' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-    'taxonomies'         => array('loc'),
+    'taxonomies'         => array('area'),
 		'menu_icon'          => 'dashicons-groups',
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 	);
-	register_post_type( 'Miembros', $args );
+	register_post_type( 'equipo', $args );
+
+	/* Configuramos las etiquetas que mostraremos en el escritorio de WordPress */
+	$labels = array(
+		'name'             => _x( 'Áreas', 'taxonomy general name' ),
+		'singular_name'    => _x( 'Área', 'taxonomy singular name' ),
+		'search_items'     => __( 'Buscar por área' ),
+		'all_items'        => __( 'Todas las áreas' ),
+		'parent_item'      => __( 'Área principal' ),
+		'parent_item_colon'=> __( 'Área principal:' ),
+		'edit_item'        => __( 'Editar Área' ),
+		'update_item'      => __( 'Actualizar Área' ),
+		'add_new_item'     => __( 'Agregar nueva Área' ),
+		'new_item_name'    => __( 'Nombre de la nueva área' ),
+	);
+
+	/* Registramos la taxonomía y la configuramos como jerárquica (al estilo de las categorías) */
+	register_taxonomy( 'area', array( 'equipo' ), array(
+		'labels'             => $labels,
+		'public'             => true,
+		'hierarchical'       => true,
+		'show_ui'            => true,
+		'query_var'          => true,
+		'show_in_nav_menus'  => true,
+		'show_admin_column'  => true,
+		'show_in_rest'       => true, // Needed for tax to appear in Gutenberg editor.
+		'rewrite'            => array( 'slug' => 'area' ),
+	));
 
 	// FIN EQUIPO
 
@@ -149,15 +176,42 @@ function lt_custom_posts() {
 			'show_in_menu'       => true,
 	    'show_in_rest'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'colaboradores' ),
+			'rewrite'            => array( 'slug' => 'colaborador' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-	    'taxonomies'         => array('loc'),
+	    'taxonomies'         => array('entidad'),
 			'menu_icon'          => 'dashicons-heart',
 			'menu_position'      => 5,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 		);
-		register_post_type( 'colaboradores', $args );
+		register_post_type( 'colaborador', $args );
+
+		/* Configuramos las etiquetas que mostraremos en el escritorio de WordPress */
+		$labels = array(
+			'name'             => _x( 'Entidad', 'taxonomy general name' ),
+			'singular_name'    => _x( 'Entidad', 'taxonomy singular name' ),
+			'search_items'     => __( 'Buscar por entidad' ),
+			'all_items'        => __( 'Todas las entidad' ),
+			'parent_item'      => __( 'Entidad principal' ),
+			'parent_item_colon'=> __( 'Entidad principal:' ),
+			'edit_item'        => __( 'Editar entidad' ),
+			'update_item'      => __( 'Actualizar entidad' ),
+			'add_new_item'     => __( 'Agregar nueva entidad' ),
+			'new_item_name'    => __( 'Nombre de la nueva entidad' ),
+		);
+
+		/* Registramos la taxonomía y la configuramos como jerárquica (al estilo de las categorías) */
+		register_taxonomy( 'entidad', array( 'colaborador' ), array(
+			'labels'             => $labels,
+			'public'             => true,
+			'hierarchical'       => true,
+			'show_ui'            => true,
+			'query_var'          => true,
+			'show_in_nav_menus'  => true,
+			'show_admin_column'  => true,
+			'show_in_rest'       => true, // Needed for tax to appear in Gutenberg editor.
+			'rewrite'            => array( 'slug' => 'entidad' ),
+		));
 
 		// FIN COLABORADORES
