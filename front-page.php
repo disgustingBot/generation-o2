@@ -1,16 +1,9 @@
 <?php get_header(); ?>
 
-
 <?php
-
-
-
-$user_meta = get_userdata( '1' );
-$current_user_role_slug = $user_meta->roles[0];
-echo $current_user_role_slug;
-
-
-
+// $user_meta = get_userdata( '1' );
+// $current_user_role_slug = $user_meta->roles[0];
+// echo $current_user_role_slug;
 ?>
 
 <section class="ATF front_page_ATF">
@@ -52,6 +45,9 @@ echo $current_user_role_slug;
 
 
 </section>
+
+
+
 
 
 
