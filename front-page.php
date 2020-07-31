@@ -7,13 +7,12 @@
 ?>
 
 <section class="ATF front_page_ATF">
-  <div class="grid img_overlaid_container front_Page_ATF_img_container">
-    <img class="rowcol1 img_overlaid front_Page_ATF_img lazy" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
-    <hgroup class="rowcol1 img_overlaid_hgroup">
-      <h1 class="img_overlaid_title"><?php echo get_the_title() ?></h1>
-      <h2 class="img_overlaid_excerpt"><?php echo get_the_excerpt() ?></h2>
+  <div class="card overlaid overlaid_big">
+    <img class="rowcol1 lazy" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
+    <hgroup class="overlaid_caption">
+      <h1 class="overlaid_title"><?php echo get_the_title() ?></h1>
+      <h2 class="overlaid_txt"><?php echo get_the_excerpt() ?></h2>
     </hgroup>
-    <div class="rowcol1 overlay"></div>
   </div>
 
   <aside class="front_page_ATF_CTA">
@@ -26,19 +25,16 @@
 
   <?php
   $args = array(
-    'post_type'=>'proyectos',
+    'post_type'=>'departamentos',
   );
-  $proyectos=new WP_Query($args);
-  while($proyectos->have_posts()){$proyectos->the_post();?>
-    <article class="grid front_page_ATF_projects">
-      <img data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="rowcol1 lazy">
-      <div class="rowcol1 overlay"></div>
-      <hgroup class="rowcol1 img_overlaid_hgroup">
-        <h4 class="img_overlaid_title"><?php echo get_the_title() ?></h4>
-        <h5 class="img_overlaid_excerpt"><?php echo get_the_excerpt() ?></h5>
+  $departamento=new WP_Query($args);
+  while($departamento->have_posts()){$departamento->the_post();?>
+    <article class="card ATFCards">
+      <img data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="card_img card_img_rounded lazy">
+      <hgroup class="cardCaption">
+        <h4 class="cardCaption_title"><?php echo get_the_title() ?></h4>
+        <h5 class="cardCaption_txt"><?php echo get_the_excerpt() ?></h5>
       </hgroup>
-
-
     </article>
   <?php } ?>
 
