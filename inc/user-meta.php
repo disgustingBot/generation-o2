@@ -213,47 +213,45 @@ add_action(
 /*** Sort and Filter Users ***/
 add_action('restrict_manage_users', 'filter_by_meta');
 
-function filter_by_meta($which)
+function filter_by_meta( $which )
 {
- // template for filtering
-    // $st = '<select name="job_role_%s" style="float:none;margin-left:10px;">
+    // template for filtering
     $st = '<select name="lt_select_filter_%s" style="float:none;margin-left:10px;">
         <option value="">%s</option>%s</select>';
 
- // generate options
- $options = '<option value="option_1">option_1</option>
-    <option value="option_2">option_2</option>
-    <option value="option_3">option_3</option>
-    <option value="option_4">option_4</option>';
- 
- // combine template and options
- $select = sprintf( $st, $which, __( 'Options...' ), $options );
+    // generate options
+    $options = '<option value="option_1">option_1</option>
+        <option value="option_2">option_2</option>
+        <option value="option_3">option_3</option>
+        <option value="option_4">option_4</option>';
 
- // output <select> and submit button
- echo $select;
- submit_button(__( 'Filter' ), null, $which, false);
+    // combine template and options
+    $select = sprintf( $st, $which, __( 'Options...' ), $options );
+
+    // output <select> and submit button
+    echo $select;
+    submit_button(__( 'Filter' ), null, $which, false);
 }
 
-add_filter('pre_get_users', 'filter_users_by_job_role_section');
 
+add_filter('pre_get_users', 'filter_users_by_job_role_section');
 function filter_users_by_job_role_section($query)
 {
- global $pagenow;
- if (is_admin() && 'users.php' == $pagenow) {
-  // figure out which button was clicked. The $which in filter_by_job_role()
-  $top = $_GET['lt_select_filter_top'] ? $_GET['lt_select_filter_top'] : null;
-  $bottom = $_GET['lt_select_filter_bottom'] ? $_GET['lt_select_filter_bottom'] : null;
-  if (!empty($top) OR !empty($bottom))
-  {
-   $section = !empty($top) ? $top : $bottom;
-   
-   // change the meta query based on which option was chosen
-   $meta_query = array (array (
-      'key' => 'lt_select',
-      'value' => $section,
-      'compare' => 'LIKE'
-   ));
-   $query->set('meta_query', $meta_query);
-  }
- }
+    global $pagenow;
+    if ( is_admin() && $pagenow == 'users.php' ) {
+    // figure out which button was clicked. The $which in filter_by_job_role()
+        $top = $_GET['lt_select_filter_top'] ? $_GET['lt_select_filter_top'] : null;
+        $bottom = $_GET['lt_select_filter_bottom'] ? $_GET['lt_select_filter_bottom'] : null;
+        if (!empty($top) OR !empty($bottom)){
+            $section = !empty($top) ? $top : $bottom;
+
+            // change the meta query based on which option was chosen
+            $meta_query = array (array (
+                'key' => 'lt_select',
+                'value' => $section,
+                'compare' => 'LIKE'
+            ));
+            $query->set('meta_query', $meta_query);
+        }
+    }
 }
