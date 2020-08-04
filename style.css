@@ -927,6 +927,25 @@ main ul,main ol{list-style:unset}
   margin:auto;
   margin-bottom: 10rem;
 }
+.sumate_imp{
+  position:relative;
+  display: grid;
+  height:44px;
+  border-radius:4px;
+  border: 2px solid var(--secondaryColor);
+}
+.sumate_label{
+  position: absolute;
+  left: 8px;
+  top: -12px;
+  font-size: 12px;
+  padding:3px;
+  background: white;
+}
+.sumate_input{
+  height:40px;
+  padding: 4px;
+}
 
 
 /* ---------------------------------------------------------------------------

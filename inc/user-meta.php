@@ -12,7 +12,7 @@ function wporg_usermeta_form_field_birthday( $user )
     ?>
     <h3>Informacion adicional</h3>
     <table class="form-table">
-        <tr>
+        <!-- <tr>
             <th>
                 <label for="lt_date">Fecha</label>
             </th>
@@ -29,27 +29,118 @@ function wporg_usermeta_form_field_birthday( $user )
                     Please enter your birthday date.
                 </p>
             </td>
-        </tr>
+        </tr> -->
+        
         
         <tr>
             <th>
-                <label for="lt_text">Texto</label>
+                <label for="lt_dni">DNI / NIE</label>
             </th>
             <td>
                 <input type="text"
                     class="regular-text ltr"
-                    id="lt_text"
-                    name="lt_text"
-                    value="<?= esc_attr( get_user_meta( $user->ID, 'lt_text', true ) ) ?>"
-                    title="Enter some text."
+                    id="lt_dni"
+                    name="dni"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'dni', true ) ) ?>"
+                    title="Ingresa el DNI o NIE."
                     required>
                 <p class="description">
-                    Please enter your text.
+                    Por favor ingrese aqui el DNI o NIE del socio y/o voluntario.
                 </p>
             </td>
         </tr>
         
         <tr>
+            <th>
+                <label for="lt_ciudad">Ciudad</label>
+            </th>
+            <td>
+                <input type="text"
+                    class="regular-text ltr"
+                    id="lt_ciudad"
+                    name="ciudad"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'ciudad', true ) ) ?>"
+                    title="Ciudad de residencia."
+                    required>
+                <p class="description">
+                    Por favor ingrese aqui la ciudad de residencia del socio y/o voluntario.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_codigo_postal">Codigo Postal</label>
+            </th>
+            <td>
+                <input type="text"
+                    class="regular-text ltr"
+                    id="lt_codigo_postal"
+                    name="codigo_postal"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'codigo_postal', true ) ) ?>"
+                    title="Codigo Postal."
+                    required>
+                <p class="description">
+                    Por favor ingrese aqui el codigo postal del socio y/o voluntario.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_domicilio">Domicilio</label>
+            </th>
+            <td>
+                <input type="text"
+                    class="regular-text ltr"
+                    id="lt_domicilio"
+                    name="domicilio"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'domicilio', true ) ) ?>"
+                    title="Domicilio."
+                    required>
+                <p class="description">
+                    Por favor ingrese aqui el domicilio del socio y/o voluntario.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_cuenta">Cuenta Bancaria</label>
+            </th>
+            <td>
+                <input type="text"
+                    class="regular-text ltr"
+                    id="lt_cuenta"
+                    name="cuenta"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'cuenta', true ) ) ?>"
+                    title="Cuenta Bancaria."
+                    required>
+                <p class="description">
+                    Por favor ingrese aqui la cuenta bancaria del socio.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_telefono">Telefono</label>
+            </th>
+            <td>
+                <input type="text"
+                    class="regular-text ltr"
+                    id="lt_telefono"
+                    name="telefono"
+                    value="<?= esc_attr( get_user_meta( $user->ID, 'telefono', true ) ) ?>"
+                    title="Telefono del socio y/o voluntario."
+                    required>
+                <p class="description">
+                    Por favor ingrese aqui el telefono del socio y/o voluntario.
+                </p>
+            </td>
+        </tr>
+        
+        <!-- <tr>
             <th>
                 <label for="lt_number">Numero</label>
             </th>
@@ -65,46 +156,106 @@ function wporg_usermeta_form_field_birthday( $user )
                     Please enter your number.
                 </p>
             </td>
-        </tr>
+        </tr> -->
         
         <tr>
             <th>
-                <label for="lt_checkbox">Checkbox</label>
+                <label for="lt_socio">Socio</label>
             </th>
             <td>
                 <input type="checkbox"
                     class="regular-text ltr"
-                    id="lt_checkbox"
-                    name="lt_checkbox"
-                    title="Enter some checkbox."
-                    <?php if ( get_user_meta( $user->ID, 'lt_checkbox', true ) ) { echo "checked"; } ?>
+                    id="lt_socio"
+                    name="socio"
+                    title="Es la parsona un socio?."
+                    <?php if ( get_user_meta( $user->ID, 'socio', true ) ) { echo "checked"; } ?>
                     required>
                 <p class="description">
-                    Please enter your checkbox., <?= esc_attr( get_user_meta( $user->ID, 'lt_checkbox', true ) ) ?>
+                    Tildado si la persona se registra como socio y quiere donar.
                 </p>
             </td>
         </tr>
         
         <tr>
             <th>
-                <label for="lt_select">Select</label>
+                <label for="lt_voluntario">Voluntario</label>
+            </th>
+            <td>
+                <input type="checkbox"
+                    class="regular-text ltr"
+                    id="lt_voluntario"
+                    name="voluntario"
+                    title="Es la parsona un voluntario?."
+                    <?php if ( get_user_meta( $user->ID, 'voluntario', true ) ) { echo "checked"; } ?>
+                    required>
+                <p class="description">
+                    Tildado si la persona se registra como voluntario.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_cantidad">Cantidad a donar</label>
             </th>
             <td>
 
                 
-                <select name="lt_select" id="lt_select">
-                    <option value="option_1" <?php if ( get_user_meta( $user->ID, 'lt_select', true ) == "option_1" ) { echo "selected"; } ?>>option_1</option>
-                    <option value="option_2" <?php if ( get_user_meta( $user->ID, 'lt_select', true ) == "option_2" ) { echo "selected"; } ?>>option_2</option>
-                    <option value="option_3" <?php if ( get_user_meta( $user->ID, 'lt_select', true ) == "option_3" ) { echo "selected"; } ?>>option_3</option>
-                    <option value="option_4" <?php if ( get_user_meta( $user->ID, 'lt_select', true ) == "option_4" ) { echo "selected"; } ?>>option_4</option>
+                <select name="cantidad" id="lt_cantidad">
+                    <option value="10" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "10" ) { echo "selected"; } ?>>10 euros al mes</option>
+                    <option value="20" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "20" ) { echo "selected"; } ?>>20 euros al mes</option>
+                    <option value="otro" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "otro" ) { echo "selected"; } ?>>otro</option>
                 </select>
 
 
                 <p class="description">
-                    Please enter select an option. Current option: <?php echo get_user_meta( $user->ID, 'lt_select', true ); ?>
+                    Por favor ingrese aqui la cantidad que el socio quiere donar.
                 </p>
             </td>
         </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_dia_de_pago">Dia de pago</label>
+            </th>
+            <td>
+
+                
+                <select name="dia_de_pago" id="lt_dia_de_pago">
+                    <option value="05" <?php if ( get_user_meta( $user->ID, 'dia_de_pago', true ) == "05" ) { echo "selected"; } ?>>El 05 de cada mes</option>
+                    <option value="10" <?php if ( get_user_meta( $user->ID, 'dia_de_pago', true ) == "10" ) { echo "selected"; } ?>>El 10 de cada mes</option>
+                    <option value="15" <?php if ( get_user_meta( $user->ID, 'dia_de_pago', true ) == "15" ) { echo "selected"; } ?>>El 15 de cada mes</option>
+                </select>
+
+
+                <p class="description">
+                    Por favor ingrese aqui el día del mes que el socio quiere donar.
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label for="lt_departamento">Departamento</label>
+            </th>
+            <td>
+
+                
+                <select name="departamento" id="lt_departamento">
+                    <option value="d_ela" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_ela" ) { echo "selected"; } ?>>Departamento ELA</option>
+                    <option value="i_ela" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_ela" ) { echo "selected"; } ?>>Investigacion ELA</option>
+                    <option value="i_vih" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_vih" ) { echo "selected"; } ?>>Investigacion VIH</option>
+                    <option value="i_nma" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_nma" ) { echo "selected"; } ?>>Investigacion Niños mariposa</option>
+                    <option value="e_prp" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "e_prp" ) { echo "selected"; } ?>>Eleccion propia</option>
+                </select>
+
+
+                <p class="description">
+                    Por favor ingrese aqui eel departamento para el cual el socio/voluntario quiere contribuir.
+                </p>
+            </td>
+        </tr>
+        
     </table>
     <?php
 }
@@ -124,12 +275,33 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
     }
 
     $metas = array( 
-        'lt_date'    => $_POST['lt_date'],
-        'lt_text'    => $_POST['lt_text'],
-        'lt_number'  => $_POST['lt_number'],
-        'lt_select'  => $_POST['lt_select'],
-        'lt_checkbox'=> $_POST['lt_checkbox'],
+        'dni'       => $_POST['dni'],
+        'ciudad'    => $_POST['ciudad'],
+        'codigo_postal'  => $_POST['codigo_postal'],
+        'domicilio'  => $_POST['domicilio'],
+        'cuenta'=> $_POST['cuenta'],
+        'telefono'=> $_POST['telefono'],
+        'socio'=> $_POST['socio'],
+        'voluntario'=> $_POST['voluntario'],
+        'cantidad'=> $_POST['cantidad'],
+        'dia_de_pago'=> $_POST['dia_de_pago'],
+        'departamento'=> $_POST['departamento'],
     );
+
+    
+    // update_user_meta( $user_id, 'dni', $dni );
+    // update_user_meta( $user_id, 'ciudad', $ciudad );
+    // update_user_meta( $user_id, 'codigo_postal', $codigo_postal );
+    // update_user_meta( $user_id, 'domicilio', $domicilio );
+    // update_user_meta( $user_id, 'cuenta', $cuenta );
+    // update_user_meta( $user_id, 'telefono', $telefono );
+    // update_user_meta( $user_id, 'socio', $socio );
+    // update_user_meta( $user_id, 'voluntario', $voluntario );
+    // update_user_meta( $user_id, 'cantidad', $cantidad );
+    // update_user_meta( $user_id, 'dia_de_pago', $dia_de_pago );
+    // update_user_meta( $user_id, 'departamento', $departamento );
+    
+    // update_user_meta( $user_id, 'nota', $nota );
 
     foreach($metas as $key => $value) {
         update_user_meta( $user_id, $key, $value );
