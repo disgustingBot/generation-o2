@@ -5,21 +5,21 @@ add_action( 'init', 'lt_custom_posts' );
 function lt_custom_posts() {
 
 
-		// departamentos
+		// Proyectos
     /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
 	$labels = array(
-		'name'               => _x( 'Departamentos', 'post type general name', 'text-domain' ),
-		'singular_name'      => _x( 'Departamento', 'post type singular name', 'text-domain' ),
-		'menu_name'          => _x( 'Departamentos', 'admin menu', 'text-domain' ),
-		'add_new'            => _x( 'Añadir nuevo', 'departamento', 'text-domain' ),
-		'add_new_item'       => __( 'Añadir nuevo departamento', 'text-domain' ),
-		'new_item'           => __( 'Nuevo departamento', 'text-domain' ),
-		'edit_item'          => __( 'Editar departamento', 'text-domain' ),
-		'view_item'          => __( 'Ver departamento', 'text-domain' ),
-		'all_items'          => __( 'Todos los departamentos', 'text-domain' ),
-		'search_items'       => __( 'Buscar departamentos', 'text-domain' ),
-		'not_found'          => __( 'No hay departamentos departamentos.', 'text-domain' ),
-		'not_found_in_trash' => __( 'Ningun departamento en la papelera.', 'text-domain' )
+		'name'               => _x( 'Proyectos', 'post type general name', 'text-domain' ),
+		'singular_name'      => _x( 'Proyecto', 'post type singular name', 'text-domain' ),
+		'menu_name'          => _x( 'Proyectos', 'admin menu', 'text-domain' ),
+		'add_new'            => _x( 'Añadir nuevo', 'proyecto', 'text-domain' ),
+		'add_new_item'       => __( 'Añadir nuevo proyecto', 'text-domain' ),
+		'new_item'           => __( 'Nuevo proyecto', 'text-domain' ),
+		'edit_item'          => __( 'Editar proyecto', 'text-domain' ),
+		'view_item'          => __( 'Ver proyecto', 'text-domain' ),
+		'all_items'          => __( 'Todos los proyectos', 'text-domain' ),
+		'search_items'       => __( 'Buscar proyectos', 'text-domain' ),
+		'not_found'          => __( 'No hay proyectos departamentos.', 'text-domain' ),
+		'not_found_in_trash' => __( 'Ningun proyecto en la papelera.', 'text-domain' )
 	);
 
 
@@ -43,29 +43,24 @@ function lt_custom_posts() {
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 	);
-	register_post_type( 'departamentos', $args );
-
-
-
-
-
+	register_post_type( 'proyectos', $args );
 
   /* Configuramos las etiquetas que mostraremos en el escritorio de WordPress */
   $labels = array(
-    'name'             => _x( 'Locations', 'taxonomy general name' ),
-    'singular_name'    => _x( 'Location', 'taxonomy singular name' ),
+    'name'             => _x( 'Departamentos', 'taxonomy general name' ),
+    'singular_name'    => _x( 'Departamento', 'taxonomy singular name' ),
     'search_items'     => __( 'Search by Location' ),
-    'all_items'        => __( 'All Locations' ),
+    'all_items'        => __( 'Todos los departamentos' ),
     'parent_item'      => __( 'Parent location' ),
     'parent_item_colon'=> __( 'Parent location:' ),
-    'edit_item'        => __( 'Edit Location' ),
-    'update_item'      => __( 'Update Location' ),
-    'add_new_item'     => __( 'Add new Location' ),
-    'new_item_name'    => __( 'Name of new Location' ),
+    'edit_item'        => __( 'Editar departamento' ),
+    'update_item'      => __( 'Actualizar departamentos' ),
+    'add_new_item'     => __( 'Añadir nuevo departamentos' ),
+    'new_item_name'    => __( 'Nombre del nuevo departamento' ),
   );
 
   /* Registramos la taxonomía y la configuramos como jerárquica (al estilo de las categorías) */
-  register_taxonomy( 'loc', array( 'restaurant' ), array(
+  register_taxonomy( 'proyectos', array( 'proyectos' ), array(
     'labels'             => $labels,
     'public'             => true,
     'hierarchical'       => true,
@@ -74,11 +69,11 @@ function lt_custom_posts() {
     'show_in_nav_menus'  => true,
     'show_admin_column'  => true,
     'show_in_rest'       => true, // Needed for tax to appear in Gutenberg editor.
-    'rewrite'            => array( 'slug' => 'loc' ),
+    'rewrite'            => array( 'slug' => 'proyectos' ),
   ));
 
 }
-// FIN Departamentos
+// FIN proyectos
 
 
 // EQUIPO
@@ -115,7 +110,7 @@ function lt_custom_posts() {
     'taxonomies'         => array('area'),
 		'menu_icon'          => 'dashicons-groups',
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions', 'custom-fields' )
 	);
 	register_post_type( 'equipo', $args );
 
