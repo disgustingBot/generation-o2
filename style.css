@@ -28,24 +28,20 @@ Version: 1.1
 5) =ESTRUCTURA:
 5.1) =ATF:
 5.1.1) =Front Page ATF:
+5.1.2) =Equipo ATF:
 
 6) =COMPONENTES:
 6.0) =load:
 6.1) =header:
 6.2) =social media:
 6.31) =sumate_form:
-
-
 6.4) =multiCards:
 6.4.1) =card:
 6.4.2) =overlaid:
-
 6.5) = forms
 6.5.1) =footer form
-
 6.6) =BUTTONS:
-
-
+6.7) =hgroup, titles, text:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -155,7 +151,6 @@ FIN DE MAPA DE CONTENIDOS */
   /* ATFS */
 
 
-
   /* FRONT PAGE ATF */
 
   --frontPageATFGTC: repeat(10, 1fr);
@@ -164,7 +159,17 @@ FIN DE MAPA DE CONTENIDOS */
   --overlaidGC: span 5;
   --frontPageCTAGTC: auto;
   --CTAContainerPadding: 1rem;
+
+  /* EQUIPO ATF */
+
+  --equipoATFDisplay: flex;
+  --equipoATFImgWidth: 100%;
+  --equipoATFHgroupWidth: 100%;
+
+
   /* ?FOOTER */
+  --footerGTC: 1fr;
+  --footerFormGC: unset;
 
 
 }
@@ -203,6 +208,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     --frontPageCTAGTC: 1fr 1fr;
     /* ?FOOTER */
+
+
   }
 }
 
@@ -231,8 +238,14 @@ FIN DE MAPA DE CONTENIDOS */
     --frontPageCTAGC: 2/9;
     --overlaidGC: span 3;
 
+    /* EQUIPO ATF */
+    --equipoATFDisplay: grid;
+
+
 
     /* ?FOOTER */
+    --footerGTC: 1fr 2fr;
+    --footerFormGC: 2/4;
   }
 }
 
@@ -270,6 +283,11 @@ FIN DE MAPA DE CONTENIDOS */
     --frontPageCTAGTC: auto;
     --CTAContainerPadding: 2rem;
 
+  /* EQUIPO ATF */
+
+    --equipoATFImgWidth: 55%;
+    --equipoATFHgroupWidth: 40%;
+
 
 
     /* ?FOOTER */
@@ -290,6 +308,13 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?HEADER */
     --navBarPadding: 0 4rem;
     /* ?FOOTER */
+
+
+    /* ATFS */
+
+    /* EQUIPO ATF */
+    --equipoATFImgWidth: 55%;
+    --equipoATFHgroupWidth: 40%;
   }
 }
 
@@ -303,11 +328,15 @@ FIN DE MAPA DE CONTENIDOS */
     --lateral: 2rem;
     --sizeR: calc(var(--sizeRd) * 1px);
 
-
-
-
     /* ?HEADER */
+
     /* ?FOOTER */
+
+    /* ATFS */
+
+    /* EQUIPO ATF */
+    --equipoATFImgWidth: 60%;
+    --equipoATFHgroupWidth: 50%;
   }
 }
 /* ---------------------------------------------------------------------------
@@ -375,6 +404,13 @@ main ul,main ol{list-style:unset}
 .flex2>*{flex:2 1 calc(50% - 1rem)}
 .flex3>*{flex:3 1 calc(33% - 1rem)}
 .flex4>*{flex:4 1 calc(25% - 1rem)}
+
+.primary_color {color: var(--primaryColor)}
+.primary_color_bg {background: var(--primaryColor)}
+.secondary_color {color: var(--secondaryColor)}
+.secondary_color_bg {background: var(--secondaryColor)}
+
+.section_padding {padding: 1rem var(--lateral)}
 
 
 /* ---------------------------------------------------------------------------
@@ -446,11 +482,44 @@ main ul,main ol{list-style:unset}
   font-size: var(--bigTxt)!important;
 }
 
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                              5.1.2) =Equipo ATF:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.equipo_ATF {
+  min-height: 450px;
+  flex-direction: column;
+  display: var(--equipoATFDisplay);
+}
+
+.equipo_ATF_img {
+  width: var(--equipoATFImgWidth);
+  margin: auto 0 0 auto;
+}
+
+.equipo_ATF .hgroup {
+  margin: 2rem auto auto 2rem;
+  width: var(--equipoATFHgroupWidth);
+}
+
+
+.equipo_section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: .8rem;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               6) =COMPONENTES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+
+
 
 
 /* ---------------------------------------------------------------------------
@@ -715,7 +784,7 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 
 .footer .form {
-  grid-column: 2/4;
+  grid-column: var(--footerFormGC);
 }
 
 .footer .form .form_title {
@@ -806,6 +875,46 @@ main ul,main ol{list-style:unset}
 }
 
 
+.know_us_btn {
+  margin: auto auto 1rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.know_us_SVG {
+  width: 90px;
+  height: 90px;
+  animation: know_us_bounce 5s infinite ease-in-out;
+  animation-delay: 2s;
+}
+
+@keyframes know_us_bounce {
+  0% {
+      transform: translate(0, 0px);
+    }
+  5% {
+      transform: translate(0, -10px);
+    }
+  10% {
+      transform: translate(0, 0);
+    }
+
+  15% {
+      transform: translate(0, -10px);
+    }
+
+  /* Finish changes by here */
+  25% {
+    transform: translate(0, 0);
+  }
+
+  /* Between 20% and 100%, nothing changes */
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -818,6 +927,25 @@ main ul,main ol{list-style:unset}
   margin:auto;
   margin-bottom: 10rem;
 }
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.7) =hgroup, titles, text:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.hgroup {}
+
+.hgroup .title {
+  margin-bottom: 1rem;
+}
+
+.txt {
+  font-weight: normal;
+  line-height: 28px;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.99) =footer
@@ -825,7 +953,7 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 .footer {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: var(--footerGTC);
   padding: 1rem var(--lateral);
   background: var(--primaryColor);
 }
@@ -864,7 +992,7 @@ main ul,main ol{list-style:unset}
 
 .copyright {
   grid-column: 1/-1;
-  margin: 0 auto;
+  margin: 1rem auto;
   font-size: var(--smallTxt);
 }
 
