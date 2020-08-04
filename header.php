@@ -36,7 +36,7 @@
     wp_nav_menu($args);
     ?>
 
-    <?php  include 'socialmedia.php'; ?>
+    <?php  include 'inc/socialmedia.php'; ?>
 
     <a href="#" class="donaBtn">(Dona)</a>
 
