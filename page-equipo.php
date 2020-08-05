@@ -41,6 +41,13 @@
 
 <section class="section_padding equipo_section">
 
+  <div class="hamburger_menu_equipo">
+    <div class="hamburger_menu" onclick="altClassFromSelector('mobileNavMenu','#body')">
+      <span class="hamStripe"></span>
+      <span class="hamStripe"></span>
+      <span class="hamStripe"></span>
+    </div>
+  </div>
 
 
   <?php
@@ -56,9 +63,14 @@
       $terms = get_the_terms( get_the_id(), 'area' );
       ?>
 
-      <article class="card teamCard <?php echo $terms[0]->slug; ?>">
-        <img class="teamCardImg teamCardImg2 rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-      </article>
+      <article class="card hover_card">
+        <img class="hover_card_img hover_card_img2 rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+        <div class="hover_card_info rowcol1">
+          <a class="hover_card_info_txt" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>
+          <p> <?php get_the_terms( $equipo, 'cargos'); ?>  </p>
+
+          </div>
+        </article>
 
     <?php } wp_reset_query(); ?>
 

@@ -14,7 +14,7 @@
       wp_nav_menu($args);
       ?>
 
-      <?php include 'socialmedia.php'; ?>
+      <?php include 'inc/socialmedia.php'; ?>
     </div>
 
     <form class="form contact_form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST">
