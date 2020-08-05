@@ -47,16 +47,25 @@
     </div>
 
     <div>
-        <p>Sumarme como</p>
-        <label for="sumate_tipo_socio">Socio</label>
-        <input type="checkbox" id="sumate_tipo_socio" name="socio">
-        <label for="sumate_tipo_voluntario">Voluntario</label>
-        <input type="checkbox" id="sumate_tipo_voluntario" name="voluntario">
+        <p>Sumarme como:</p>
+            <div>
+                <input type="radio" id="lt_socio"
+                name="subscription_type" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?>>
+                <label for="lt_socio">Socio</label>
+
+                <input type="radio" id="lt_voluntario"
+                name="subscription_type" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?>>
+                <label for="lt_voluntario">Volunario</label>
+
+                <input type="radio" id="lt_socio_voluntario"
+                name="subscription_type" value="socio_voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio_voluntario' ) { echo "checked"; } ?>>
+                <label for="lt_socio_voluntario">Ambos</label>
+            </div>
     </div>
 
     <div>
         <label for="sumate_cantidad">Donar</label>
-        <select name="sumate_cantidad" id="sumate_cantidad" name="cantidad">
+        <select id="sumate_cantidad" name="cantidad">
             <option value="10">Cuota 10 euros</option>
             <option value="20">Cuota 20 euros</option>
             <option value="otro">Otra cantidad</option>
@@ -65,7 +74,7 @@
 
     <div>
         <label for="sumate_dia_pago">Dia de pago</label>
-        <select name="sumate_dia_pago" id="sumate_dia_pago" name="dia_de_pago">
+        <select id="sumate_dia_pago" name="dia_de_pago">
             <option value="05">El 05 de cada mes</option>
             <option value="10">El 10 de cada mes</option>
             <option value="15">El 15 de cada mes</option>
@@ -79,7 +88,7 @@
 
     <div>
         <label for="sumate_departamento">Elige</label>
-        <select name="sumate_departamento" id="sumate_departamento" name="departamento">
+        <select id="sumate_departamento" name="departamento">
             <option value="d_ela">Departamento ELA</option>
             <option value="i_ela">Investigacion ELA</option>
             <option value="i_vih">Investigacion VIH</option>

@@ -243,18 +243,39 @@ function lt_sumate(){
       //     'nickname'        =>    $nombre,
       //   )
       // );
-      update_user_meta( $user_id, 'telefono', $telefono );
-      update_user_meta( $user_id, 'dni', $dni );
-      update_user_meta( $user_id, 'ciudad', $ciudad );
-      update_user_meta( $user_id, 'codigo_postal', $codigo_postal );
-      update_user_meta( $user_id, 'domicilio', $domicilio );
-      update_user_meta( $user_id, 'socio', $socio );
-      update_user_meta( $user_id, 'voluntario', $voluntario );
-      update_user_meta( $user_id, 'cantidad', $cantidad );
-      update_user_meta( $user_id, 'dia_de_pago', $dia_de_pago );
-      update_user_meta( $user_id, 'cuenta', $cuenta );
-      update_user_meta( $user_id, 'departamento', $departamento );
-      update_user_meta( $user_id, 'nota', $nota );
+
+      
+
+      $metas = array( 
+        'dni'           => $_POST[ 'dni' ],
+        'ciudad'        => $_POST[ 'ciudad' ],
+        'codigo_postal' => $_POST[ 'codigo_postal' ],
+        'domicilio'     => $_POST[ 'domicilio' ],
+        'cuenta'        => $_POST[ 'cuenta' ],
+        'telefono'      => $_POST[ 'telefono' ],
+        'socio'         => $_POST[ 'socio' ],
+        'voluntario'    => $_POST[ 'voluntario' ],
+        'cantidad'      => $_POST[ 'cantidad' ],
+        'dia_de_pago'   => $_POST[ 'dia_de_pago' ],
+        'departamento'  => $_POST[ 'departamento' ],
+    );
+    foreach($metas as $key => $value) {
+        update_user_meta( $user_id, $key, $value );
+    }
+
+
+      // update_user_meta( $user_id, 'telefono', $telefono );
+      // update_user_meta( $user_id, 'dni', $dni );
+      // update_user_meta( $user_id, 'ciudad', $ciudad );
+      // update_user_meta( $user_id, 'codigo_postal', $codigo_postal );
+      // update_user_meta( $user_id, 'domicilio', $domicilio );
+      // update_user_meta( $user_id, 'socio', $socio );
+      // update_user_meta( $user_id, 'voluntario', $voluntario );
+      // update_user_meta( $user_id, 'cantidad', $cantidad );
+      // update_user_meta( $user_id, 'dia_de_pago', $dia_de_pago );
+      // update_user_meta( $user_id, 'cuenta', $cuenta );
+      // update_user_meta( $user_id, 'departamento', $departamento );
+      // update_user_meta( $user_id, 'nota', $nota );
 
       
       // $hash = hash ( 'sha256' , time() . $mail );

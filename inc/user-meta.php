@@ -163,33 +163,21 @@ function wporg_usermeta_form_field_birthday( $user )
                 <label for="lt_socio">Socio</label>
             </th>
             <td>
-                <input type="checkbox"
-                    class="regular-text ltr"
-                    id="lt_socio"
-                    name="socio"
-                    title="Es la parsona un socio?."
-                    <?php if ( get_user_meta( $user->ID, 'socio', true ) ) { echo "checked"; } ?>
-                    required>
+            <div>
+                <input type="radio" id="lt_socio"
+                name="subscription_type" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?>>
+                <label for="lt_socio">Socio</label>
+
+                <input type="radio" id="lt_voluntario"
+                name="subscription_type" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?>>
+                <label for="lt_voluntario">Volunario</label>
+
+                <input type="radio" id="lt_socio_voluntario"
+                name="subscription_type" value="socio_voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio_voluntario' ) { echo "checked"; } ?>>
+                <label for="lt_socio_voluntario">Ambos</label>
+            </div>
                 <p class="description">
-                    Tildado si la persona se registra como socio y quiere donar.
-                </p>
-            </td>
-        </tr>
-        
-        <tr>
-            <th>
-                <label for="lt_voluntario">Voluntario</label>
-            </th>
-            <td>
-                <input type="checkbox"
-                    class="regular-text ltr"
-                    id="lt_voluntario"
-                    name="voluntario"
-                    title="Es la parsona un voluntario?."
-                    <?php if ( get_user_meta( $user->ID, 'voluntario', true ) ) { echo "checked"; } ?>
-                    required>
-                <p class="description">
-                    Tildado si la persona se registra como voluntario.
+                    Tildado si la persona se registra como socio, voluntario o ambos.
                 </p>
             </td>
         </tr>
@@ -259,7 +247,7 @@ function wporg_usermeta_form_field_birthday( $user )
     </table>
     <?php
 }
-  
+
 /**
  * The save action.
  *
@@ -275,17 +263,16 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
     }
 
     $metas = array( 
-        'dni'       => $_POST['dni'],
-        'ciudad'    => $_POST['ciudad'],
-        'codigo_postal'  => $_POST['codigo_postal'],
-        'domicilio'  => $_POST['domicilio'],
-        'cuenta'=> $_POST['cuenta'],
-        'telefono'=> $_POST['telefono'],
-        'socio'=> $_POST['socio'],
-        'voluntario'=> $_POST['voluntario'],
-        'cantidad'=> $_POST['cantidad'],
-        'dia_de_pago'=> $_POST['dia_de_pago'],
-        'departamento'=> $_POST['departamento'],
+        'dni'                => $_POST[ 'dni' ],
+        'ciudad'             => $_POST[ 'ciudad' ],
+        'codigo_postal'      => $_POST[ 'codigo_postal' ],
+        'domicilio'          => $_POST[ 'domicilio' ],
+        'cuenta'             => $_POST[ 'cuenta' ],
+        'telefono'           => $_POST[ 'telefono' ],
+        'cantidad'           => $_POST[ 'cantidad' ],
+        'dia_de_pago'        => $_POST[ 'dia_de_pago' ],
+        'departamento'       => $_POST[ 'departamento' ],
+        'subscription_type'  => $_POST[ 'subscription_type' ],
     );
 
     
@@ -388,20 +375,38 @@ add_action('restrict_manage_users', 'filter_by_meta');
 function filter_by_meta( $which )
 {
     // template for filtering
-    $st = '<select name="lt_select_filter_%s" style="float:none;margin-left:10px;">
+    $st = '<select name="lt_departamento_filter_%s" style="float:none;margin-left:10px;">
         <option value="">%s</option>%s</select>';
 
     // generate options
-    $options = '<option value="option_1">option_1</option>
-        <option value="option_2">option_2</option>
-        <option value="option_3">option_3</option>
-        <option value="option_4">option_4</option>';
+    $options = '<option value="d_ela">Departamento ELA</option>
+                <option value="i_ela">Investigacion ELA</option>
+                <option value="i_vih">Investigacion VIH</option>
+                <option value="i_nma">Investigacion Niños mariposa</option>
+                <option value="e_prp">Eleccion propia</option>';
 
     // combine template and options
     $select = sprintf( $st, $which, __( 'Options...' ), $options );
 
     // output <select> and submit button
     echo $select;
+
+
+    
+    // template for filtering
+    $st = '<select name="lt_subscription_type_filter_%s" style="float:none;margin-left:10px;">
+        <option value="">%s</option>%s</select>';
+
+    // generate options
+    $options = '<option value="socio">Socio</option>
+                <option value="voluntario">Voluntario</option>';
+
+    // combine template and options
+    $select = sprintf( $st, $which, __( 'Options...' ), $options );
+
+    // output <select> and submit button
+    echo $select;
+    
     submit_button(__( 'Filter' ), null, $which, false);
 }
 
@@ -412,14 +417,14 @@ function filter_users_by_job_role_section($query)
     global $pagenow;
     if ( is_admin() && $pagenow == 'users.php' ) {
     // figure out which button was clicked. The $which in filter_by_job_role()
-        $top = $_GET['lt_select_filter_top'] ? $_GET['lt_select_filter_top'] : null;
-        $bottom = $_GET['lt_select_filter_bottom'] ? $_GET['lt_select_filter_bottom'] : null;
+        $top = $_GET['lt_departamento_filter_top'] ? $_GET['lt_departamento_filter_top'] : null;
+        $bottom = $_GET['lt_departamento_filter_bottom'] ? $_GET['lt_departamento_filter_bottom'] : null;
         if (!empty($top) OR !empty($bottom)){
             $section = !empty($top) ? $top : $bottom;
 
             // change the meta query based on which option was chosen
             $meta_query = array (array (
-                'key' => 'lt_select',
+                'key' => 'departamento',
                 'value' => $section,
                 'compare' => 'LIKE'
             ));
