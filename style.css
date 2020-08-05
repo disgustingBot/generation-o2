@@ -505,11 +505,36 @@ main ul,main ol{list-style:unset}
   width: var(--equipoATFHgroupWidth);
 }
 
-
 .equipo_section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: .8rem;
+  grid-gap: 2rem;
+}
+
+.hamburger_menu_equipo {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+  width: min-content;
+  margin: auto 0 auto auto;
+  background: var(--primaryColor);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: var(--DP8);
+  position: sticky;
+  top: 0;
+}
+
+.hamburger_menu_equipo .hamburger_menu {
+  display: flex;
+  margin: 0;
+}
+
+.hamburger_menu_equipo .hamburger_menu .hamStripe  {
+  background: var(--grey3);
 }
 
 /* ---------------------------------------------------------------------------
@@ -610,7 +635,7 @@ main ul,main ol{list-style:unset}
 }
 
 
-.hamburgerMenu {
+.hamburger_menu {
   display: var(--onlyMobileF);
   flex-direction: column;
   width: 30px;
@@ -639,19 +664,19 @@ main ul,main ol{list-style:unset}
 }
 
 .hamStripe:nth-child(1) {top: 0px}
-  .body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(1) {
+  .body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(1) {
   top: 9px;
   transform: rotate(135deg);
 }
 
 .hamStripe:nth-child(2) {top: 9px}
-.body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(2) {
+.body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(2) {
   opacity: 0;
   left: -30px;
 }
 
 .hamStripe:nth-child(3) {top: 18px}
-.body.mobileNavMenu .hamburgerMenu .hamStripe:nth-child(3) {
+.body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(3) {
   top: 9px;
   transform: rotate(-135deg);
 }
@@ -749,6 +774,27 @@ main ul,main ol{list-style:unset}
 
 .overlaid_txt {font-size: var(--smallTxt);}
 .overlaid_big .overlaid_txt {font-size: var(--mediumTxt);}
+
+.hover_card_img {
+  box-shadow: var(--DP4);
+  border-radius: 16px;
+}
+
+.hover_card_info {
+  background: rgba(255,255,255, 0.7);
+  opacity: 0;
+  transition: .25s;
+  border-radius: 16px;
+}
+
+.hover_card_info:hover {
+  opacity: 1;
+}
+
+.hover_card_info_txt {
+  font-size: var(--extraSmallTxt);
+}
+
 
 
 /* ---------------------------------------------------------------------------
@@ -975,6 +1021,7 @@ main ul,main ol{list-style:unset}
   grid-template-columns: var(--footerGTC);
   padding: 1rem var(--lateral);
   background: var(--primaryColor);
+  grid-gap: 1rem;
 }
 
 .footer_links_container {
@@ -986,6 +1033,12 @@ main ul,main ol{list-style:unset}
 .footer_navBar {
   font-size: var(--mediumTxt);
   text-align: center;
+  font-size: var(--mediumTxt);
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .footer_navBar .menu-item {

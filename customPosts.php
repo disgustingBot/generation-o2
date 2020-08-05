@@ -141,6 +141,66 @@ function lt_custom_posts() {
 		'rewrite'            => array( 'slug' => 'area' ),
 	));
 
+
+
+//TAG DEPARTAMENTO
+
+/* Configuramos las etiquetas que mostraremos en el escritorio de WordPress */
+$labels = array(
+	'name'             => _x( 'Departamentos', 'taxonomy general name' ),
+	'singular_name'    => _x( 'Departamento', 'taxonomy singular name' ),
+	'search_items'     => __( 'Buscar por departamento' ),
+	'all_items'        => __( 'Todos las departamentos' ),
+	'parent_item'      => __( 'Departamento principal' ),
+	'parent_item_colon'=> __( 'Departamento principal:' ),
+	'edit_item'        => __( 'Editar departamento' ),
+	'update_item'      => __( 'Actualizar departamento' ),
+	'add_new_item'     => __( 'Agregar nuevo departamento' ),
+	'new_item_name'    => __( 'Nombre de la nuevo departamento' ),
+);
+
+/* Registramos la taxonomía y la configuramos como jerárquica (al estilo de las categorías) */
+register_taxonomy( 'departamentos', array( 'equipo' ), array(
+	'labels'             => $labels,
+	'public'             => true,
+	'hierarchical'       => false,
+	'show_ui'            => true,
+	'query_var'          => true,
+	'show_in_nav_menus'  => true,
+	'show_admin_column'  => true,
+	'show_in_rest'       => true, // Needed for tax to appear in Gutenberg editor.
+	'rewrite'            => array( 'slug' => 'departamento' ),
+));
+
+//TAG CARGO
+/* Configuramos las etiquetas que mostraremos en el escritorio de WordPress */
+$labels = array(
+	'name'             => _x( 'Cargos', 'taxonomy general name' ),
+	'singular_name'    => _x( 'Cargo', 'taxonomy singular name' ),
+	'search_items'     => __( 'Buscar por cargo' ),
+	'all_items'        => __( 'Todos las cargos' ),
+	'parent_item'      => __( 'Cargo principal' ),
+	'parent_item_colon'=> __( 'Cargo principal:' ),
+	'edit_item'        => __( 'Editar cargo' ),
+	'update_item'      => __( 'Actualizar cargo' ),
+	'add_new_item'     => __( 'Agregar nuevo cargo' ),
+	'new_item_name'    => __( 'Nombre de la nuevo cargo' ),
+);
+
+/* Registramos la taxonomía y la configuramos como jerárquica (al estilo de las categorías) */
+register_taxonomy( 'cargos', array( 'equipo' ), array(
+	'labels'             => $labels,
+	'public'             => true,
+	'hierarchical'       => false,
+	'show_ui'            => true,
+	'query_var'          => true,
+	'show_in_nav_menus'  => true,
+	'show_admin_column'  => true,
+	'show_in_rest'       => true, // Needed for tax to appear in Gutenberg editor.
+	'rewrite'            => array( 'slug' => 'cargo' ),
+));
+
+
 	// FIN EQUIPO
 
 

@@ -40,7 +40,7 @@
 
     <a href="#" class="donaBtn">(Dona)</a>
 
-    <div class="hamburgerMenu" onclick="altClassFromSelector('mobileNavMenu','#body')">
+    <div class="hamburger_menu" onclick="altClassFromSelector('mobileNavMenu','#body')">
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
