@@ -42,6 +42,8 @@ Version: 1.1
 6.5.1) =footer form
 6.6) =BUTTONS:
 6.7) =hgroup, titles, text:
+6.8) =Menus
+6.8.1) =hidden_list_menu:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -503,6 +505,7 @@ main ul,main ol{list-style:unset}
 .equipo_ATF .hgroup {
   margin: 2rem auto auto 2rem;
   width: var(--equipoATFHgroupWidth);
+  padding: unset;
 }
 
 .equipo_section {
@@ -591,6 +594,10 @@ main ul,main ol{list-style:unset}
   z-index: 5;
 }
 
+.logo_link {
+  display: flex;
+}
+
 .header_logo {
   height: var(--headerLogoHeight);
   width: auto;
@@ -631,7 +638,6 @@ main ul,main ol{list-style:unset}
 
 .menu-item:hover::after{
   transform: scaleX(1);
-
 }
 
 
@@ -738,14 +744,11 @@ main ul,main ol{list-style:unset}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.overlaid {
-  display: grid;
-  grid-column: var(--overlaidGC);
-}
+
 .overlaid_big  {grid-column: var(--overlaidBigGC)}
 
 .overlaid_caption {
-  padding: 8px;
+  padding: 16px;
   padding-top: 30px;
   margin: auto auto 0 0;
   z-index: 1;
@@ -753,6 +756,11 @@ main ul,main ol{list-style:unset}
   grid-column: 1;
   grid-row: 1;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.0473958) 0.01%, rgba(0, 0, 0, 0.7) 100%);
+}
+.overlaid_img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
 }
 
 .cardCaption {
@@ -851,6 +859,75 @@ main ul,main ol{list-style:unset}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                          6.31) =sumate_form:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.sumate_form {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin:auto;
+  margin-bottom: 10rem;
+  padding: 1rem var(--lateral);
+  width: 70%;
+  margin-top: -100px;
+  padding: 1rem;
+  background: var(--greyF);
+  border-radius: 8px;
+}
+.sumate_imp {
+  position:relative;
+  display: grid;
+  height: 44px;
+  border-radius:4px;
+  border: 2px solid var(--secondaryColor);
+  width: 100%;
+}
+.sumate_label {
+  position: absolute;
+  left: 8px;
+  top: -12px;
+  font-size: 12px;
+  padding:3px;
+  background: white;
+}
+.sumate_input {
+  height:40px;
+  padding: 4px;
+}
+.sumate_form_title {
+  grid-column: 1/-1;
+  text-align: center;
+  margin: 1rem auto;
+  font-weight: bold;
+}
+.sumarme_como {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: bold;
+}
+.sumarme_como_txt {
+  font-size: var(--smallTxt);
+}
+.sumarme_como_options {
+  display: flex;
+  flex-direction: column;
+}
+.sumarme_como_option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: var(--smallTxt);
+  width: max-content;
+}
+.sumarme_como_radio {margin-right: 8px;}
+.sumarme_select_container {position: relative;}
+.sumarme_select_container .sumate_label {z-index: 1;}
+.sumarme_textarea {grid-column: 1/-1;}
+.sumarme_textarea .sumate_imp {min-height: 200px;}
+.sumate_form .btn {grid-column: 1/-1;}
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
                           6.6) =BUTTONS:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
@@ -886,6 +963,7 @@ main ul,main ol{list-style:unset}
   padding: 4px;
   margin: auto;
   position: relative;
+  cursor: pointer;
   transition: .25s;
 }
 
@@ -962,36 +1040,6 @@ main ul,main ol{list-style:unset}
 
 
 
-/* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.31) =sumate_form:
-------------------------------------------------------------------------------
---------------------------------------------------------------------------- */
-.sumate_form{
-  display:grid;
-  grid-gap:.5rem;
-  margin:auto;
-  margin-bottom: 10rem;
-}
-.sumate_imp{
-  position:relative;
-  display: grid;
-  height:44px;
-  border-radius:4px;
-  border: 2px solid var(--secondaryColor);
-}
-.sumate_label{
-  position: absolute;
-  left: 8px;
-  top: -12px;
-  font-size: 12px;
-  padding:3px;
-  background: white;
-}
-.sumate_input{
-  height:40px;
-  padding: 4px;
-}
 
 
 /* ---------------------------------------------------------------------------
@@ -1000,7 +1048,10 @@ main ul,main ol{list-style:unset}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.hgroup {}
+.hgroup {
+  padding: 1rem var(--lateral);
+  text-align: center;
+}
 
 .hgroup .title {
   margin-bottom: 1rem;
@@ -1009,6 +1060,60 @@ main ul,main ol{list-style:unset}
 .txt {
   font-weight: normal;
   line-height: 28px;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8) =Menus:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8.1) =hidden_list_menu:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+
+.hidden_list_menu {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  background: var(--greyF);
+  padding: 20px;
+  width: max-content;
+  border: 1px solid var(--grey8);
+  border-radius: 4px;
+  transform: translateX(105%);
+  transition: .25s;
+  opacity: 0;
+}
+
+.hidden_list_menu.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.close_hidden_list {
+  transform: rotate(45deg);
+  font-size: var(--bigTxt);
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: var(--grey3);
+}
+
+.hidden_list_menu_item {
+  font-size: var(--bigTxt);
+  margin-bottom: 5px;
+}
+
+.hidden_list_menu_item a {
+  color: var(--grey3);
 }
 
 /* ---------------------------------------------------------------------------
