@@ -399,7 +399,8 @@ function filter_by_meta( $which )
 
     // generate options
     $options = '<option value="socio">Socio</option>
-                <option value="voluntario">Voluntario</option>';
+                <option value="voluntario">Voluntario</option>
+                <option value="socio_voluntario">Ambos</option>';
 
     // combine template and options
     $select = sprintf( $st, $which, __( 'Options...' ), $options );
@@ -417,14 +418,14 @@ function filter_users_by_job_role_section($query)
     global $pagenow;
     if ( is_admin() && $pagenow == 'users.php' ) {
     // figure out which button was clicked. The $which in filter_by_job_role()
-        $top = $_GET['lt_departamento_filter_top'] ? $_GET['lt_departamento_filter_top'] : null;
-        $bottom = $_GET['lt_departamento_filter_bottom'] ? $_GET['lt_departamento_filter_bottom'] : null;
+        $top = $_GET['lt_subscription_type_filter_top'] ? $_GET['lt_subscription_type_filter_top'] : null;
+        $bottom = $_GET['lt_subscription_type_filter_bottom'] ? $_GET['lt_subscription_type_filter_bottom'] : null;
         if (!empty($top) OR !empty($bottom)){
             $section = !empty($top) ? $top : $bottom;
 
             // change the meta query based on which option was chosen
             $meta_query = array (array (
-                'key' => 'departamento',
+                'key' => 'subscription_type',
                 'value' => $section,
                 'compare' => 'LIKE'
             ));
