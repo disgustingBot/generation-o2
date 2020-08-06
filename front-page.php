@@ -7,8 +7,8 @@
 ?>
 
 <section class="ATF front_page_ATF">
-  <div class="card overlaid overlaid_big">
-    <img class="rowcol1 lazy" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
+  <div class="card overlaid_big">
+    <img class="rowcol1 lazy overlaid_img" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
     <hgroup class="overlaid_caption">
       <h1 class="overlaid_title"><?php echo get_the_title() ?></h1>
       <h2 class="overlaid_txt"><?php echo get_the_excerpt() ?></h2>
