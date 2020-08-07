@@ -41,7 +41,7 @@
 
     <?php  include 'inc/socialmedia.php'; ?>
 
-    <p href="#" class="donaBtn" onclick="altClassFromSelector('active', '.hidden_list_menu')">(Dona)</p>
+    <p href="#" class="btn_dona" onclick="altClassFromSelector('active', '.hidden_list_menu')">(Dona)</p>
     <ul class="hidden_list_menu">
       <p class="close_hidden_list" onclick="altClassFromSelector('active', '.hidden_list_menu')">+</p>
       <li class="hidden_list_menu_item">
