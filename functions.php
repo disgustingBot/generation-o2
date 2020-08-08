@@ -55,8 +55,7 @@ add_action( 'init', 'lt_init' );
 
 
 
-
-
+// NICE FUNCTIONALITIES
 // this removes the "Archive" word from the archive title in the archive page
 add_filter('get_the_archive_title',function($title){
   if(is_category()){$title=single_cat_title('',false);
@@ -64,6 +63,28 @@ add_filter('get_the_archive_title',function($title){
   }elseif(is_author()){$title='<span class="vcard">'.get_the_author().'</span>';
   }return $title;
 });
+
+function get_img_id_by_slug( $slug ) {
+  $args = array(
+    'post_type' => 'attachment',
+    'name' => sanitize_title($slug),
+    'posts_per_page' => 1,
+    'post_status' => 'inherit',
+  );
+  $_header = get_posts( $args );
+  $header = $_header ? array_pop($_header) : null;
+  return $header ? $header->ID : '';
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
