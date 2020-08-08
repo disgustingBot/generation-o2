@@ -93,7 +93,7 @@ function lt_new_custom_post($name, $icon = '', $taxonomies = array() ){
 
 add_action( 'init', 'lt_custom_posts' );
 function lt_custom_posts() {
-	lt_new_custom_post( 'proyecto', 'dashicons-admin-site-alt3', array('departamento') );
-	lt_new_custom_post( 'equipo', 'dashicons-groups', array( 'area', 'departamento', 'cargo' ) );
-	lt_new_custom_post( 'colaborador', 'dashicons-heart', array('entidad') );
+	lt_new_custom_post( 'proyecto', 'dashicons-admin-site-alt3', array( 'departamento' ) );
+	lt_new_custom_post( 'equipo', 'dashicons-groups', array( 'area' ) );
+	lt_new_custom_post( 'colaborador', 'dashicons-heart', array( 'entidad' ) );
 }
