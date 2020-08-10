@@ -27,23 +27,24 @@ add_action('after_setup_theme', 'lt_setup_theme');
 
 
 function lt_init() {
-  if ( get_option( 'custom_roles_version' ) < 1 ) {
+  // if ( get_option( 'custom_roles_version' ) < 1 ) {
 
 
-    add_role( 'socio', 'Socio', array(
-      'read' => true,
-      'level_0' => true
-    ) );
+  //   add_role( 'socio', 'Socio', array(
+  //     'read' => true,
+  //     'level_0' => true
+  //   ) );
 
-    add_role( 'voluntario', 'Voluntario', array(
-      'read' => true,
-      'level_0' => true
-    ) );
+  //   add_role( 'voluntario', 'Voluntario', array(
+  //     'read' => true,
+  //     'level_0' => true
+  //   ) );
 
-    // $wp_roles = new WP_Roles(); // create new role objects
-    // $wp_roles->remove_role('doner');
-    update_option( 'custom_roles_version', 1 );
-  }
+  //   update_option( 'custom_roles_version', 1 );
+  // }
+  $wp_roles = new WP_Roles(); // create new role objects
+  $wp_roles->remove_role('socio');
+  $wp_roles->remove_role('voluntario');
 }
 add_action( 'init', 'lt_init' );
 
@@ -374,21 +375,6 @@ function lt_sumate(){
     foreach($metas as $key => $value) {
         update_user_meta( $user_id, $key, $value );
     }
-
-
-      // update_user_meta( $user_id, 'telefono', $telefono );
-      // update_user_meta( $user_id, 'dni', $dni );
-      // update_user_meta( $user_id, 'ciudad', $ciudad );
-      // update_user_meta( $user_id, 'codigo_postal', $codigo_postal );
-      // update_user_meta( $user_id, 'domicilio', $domicilio );
-      // update_user_meta( $user_id, 'socio', $socio );
-      // update_user_meta( $user_id, 'voluntario', $voluntario );
-      // update_user_meta( $user_id, 'cantidad', $cantidad );
-      // update_user_meta( $user_id, 'dia_de_pago', $dia_de_pago );
-      // update_user_meta( $user_id, 'cuenta', $cuenta );
-      // update_user_meta( $user_id, 'departamento', $departamento );
-      // update_user_meta( $user_id, 'nota', $nota );
-
       
       // $hash = hash ( 'sha256' , time() . $mail );
       // update_user_meta( $user_id, 'confirmation', $hash );
