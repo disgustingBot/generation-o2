@@ -30,6 +30,7 @@ Version: 1.1
 5.1.1) =Front Page ATF:
 5.1.2) =Equipo ATF:
 5.1.3) =Noticias ATF:
+5.1.4) =dpto_ATF:
 
 6) =COMPONENTES:
 6.0) =load:
@@ -486,6 +487,16 @@ main ul,main ol{list-style:unset}
 .section_greyE0 {background: var(--greyE0;)}
 .section_greyF  {background: var(--greyF)}
 
+
+.grid_123 {
+  display: grid;
+  grid-template-columns: var(--noticias_containerGTC);
+  grid-gap: 1rem;
+}
+.grid_123_title {
+  grid-column:1/-1;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5.1) =ATF:
@@ -638,12 +649,42 @@ main ul,main ol{list-style:unset}
   grid-row: var(--noticiasFeaturedPost3GR);
 }
 
-.noticias_container {
-  display: grid;
-  grid-template-columns: var(--noticias_containerGTC);
-  grid-gap: 1rem;
-}
 
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                              5.1.4) =dpto_ATF:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.depto_ATF{
+  display: grid;
+  height:12rem;
+}
+.depto_ATF_img{
+  height:12rem;
+}
+.depto_ATF_transp{
+  display:flex;
+  background: var(--background_from_php);
+  padding:1rem;
+  width: 100%;
+  align-items:center;
+  margin-top:auto;
+  color:white;
+}
+.depto_ATF_icon{
+  background:white;
+  border-radius:50%;
+  width: 3rem;
+  height: 3rem;
+}
+.depto_ATF_caption{
+  margin-left: 1rem;
+  border-left: 2px white solid;
+  display: grid;
+  align-items:center;
+  padding: 0 1rem;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               6) =COMPONENTES:

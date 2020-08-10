@@ -2,6 +2,7 @@
 
 require_once 'inc/customPosts.php';
 require_once 'inc/user-meta.php';
+require_once 'inc/multi-cards.php';
 
 function lt_scripts(){
   wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
@@ -62,6 +63,10 @@ add_filter('get_the_archive_title',function($title){
   if(is_category()){$title=single_cat_title('',false);
   }elseif(is_tag()){$title=single_tag_title('',false);
   }elseif(is_author()){$title='<span class="vcard">'.get_the_author().'</span>';
+  }elseif(is_tax()){ //for custom post types
+    $title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+  }elseif(is_post_type_archive()) {
+    $title = post_type_archive_title( '', false );
   }return $title;
 });
 
@@ -130,6 +135,11 @@ add_action( 'init', 'register_menus' );
         <input type="text" name="lt_meta_img" id="lt_meta_img">
         <p class="description"><?php _e('Imagen destacada de categoria, insertar title de imagen de galeria de medios', 'lt'); ?></p>
     </div>
+    <div class="form-field">
+        <label for="lt_meta_icon"><?php _e('Icono destacada', 'lt'); ?></label>
+        <input type="text" name="lt_meta_icon" id="lt_meta_icon">
+        <p class="description"><?php _e('Icono destacada de categoria, insertar title de icono de galeria de medios', 'lt'); ?></p>
+    </div>
     <?php
 }
 
@@ -140,13 +150,21 @@ function lt_taxonomy_edit_meta_field($term) {
     $term_id = $term->term_id;
 
     // retrieve the existing value(s) for this meta field.
-    $lt_meta_img = get_term_meta($term_id, 'lt_meta_img', true);
+    $lt_meta_img  = get_term_meta($term_id, 'lt_meta_img', true);
+    $lt_meta_icon = get_term_meta($term_id, 'lt_meta_icon', true);
     ?>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="lt_meta_img"><?php _e('Imagen destacada', 'lt'); ?></label></th>
         <td>
           <input type="text" name="lt_meta_img" id="lt_meta_img" value="<?php echo get_term_meta($term_id, 'lt_meta_img', true); ?>">
             <p class="description"><?php _e('Imagen destacada de categoria, insertar title de imagen de galeria de medios', 'lt'); ?></p>
+        </td>
+    </tr>
+    <tr class="form-field">
+        <th scope="row" valign="top"><label for="lt_meta_icon"><?php _e('Icono destacada', 'lt'); ?></label></th>
+        <td>
+          <input type="text" name="lt_meta_icon" id="lt_meta_icon" value="<?php echo get_term_meta($term_id, 'lt_meta_icon', true); ?>">
+            <p class="description"><?php _e('Icono destacada de categoria, insertar title de icono de galeria de medios', 'lt'); ?></p>
         </td>
     </tr>
     <?php
@@ -164,8 +182,10 @@ function lt_save_taxonomy_custom_meta($term_id) {
   // }
 
     $lt_meta_img = filter_input(INPUT_POST, 'lt_meta_img');
+    $lt_meta_icon = filter_input(INPUT_POST, 'lt_meta_icon');
 
     update_term_meta($term_id, 'lt_meta_img', $lt_meta_img);
+    update_term_meta($term_id, 'lt_meta_icon', $lt_meta_icon);
     // update_term_meta(4, 'lt_meta_img', 'sin testear no se llega a ningun lado');
 }
 // function saveCategoryFields() {
