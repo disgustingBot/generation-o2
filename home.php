@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section class="ATF noticias_ATF section_greyF5">
-  <hgroup class="headline_hgroup">
+  <hgroup class="headline_hgroup section_padding">
     <h2 class="hedline_title">Noticias</h2>
     <h5 class="hedline_txt">Sed dictum turpis at mauris dictum, cursus eleifend odio interdum. Sed ut lacus eu enim dignissim tristique id ut sapien.</h5>
   </hgroup>

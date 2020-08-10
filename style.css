@@ -1197,12 +1197,9 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 
 .headline_hgroup {
-  padding: 1rem var(--lateral);
   text-align: center;
-}
-
-.headline_hgroup .hedline_title {
-  margin-bottom: 1rem;
+  display: grid;
+  grid-gap: 1rem;
 }
 
 .hedline_txt {
