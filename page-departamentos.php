@@ -2,12 +2,16 @@
 
 
 <section class="departamentos">
-  <h1><?php echo get_the_title(); ?></h1>
+  <h1></h1>
+  <hgroup class="headline_hgroup rowcol1">
+    <h1 class="title"><?php echo get_the_title(); ?></h1>
+    <h5 class="txt">Proin convallis at urna at euismod. Donec rutrum non nunc eget tristique. Suspendisse cursus purus id risus convallis commodo. Vivamus lobortis justo quis sodales facilisis. Morbi a convallis ligula, ut pretium elit. Donec imperdiet elementum dui, hendrerit auctor ante hendrerit eu.</h5>
+  </hgroup>
 <?php
 
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
-  'hide_empty' => false, 
+  'hide_empty' => false,
 ));
 
 // var_dump($terms);
