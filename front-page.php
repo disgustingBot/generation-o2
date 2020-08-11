@@ -41,8 +41,8 @@ foreach( $terms as $term ) { ?>
     <img class="card_img card_img_rounded lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( $term->term_id, 'lt_meta_img', true ))); ?>" alt="Ilustración de departamento de Generación O2">
     </a>
     <hgroup class="card_caption">
-      <a href="<?php the_permalink(); ?>"><h4 class="card_caption_title"><?php echo $term->name; ?></h4></a>
-      <a href="<?php the_permalink(); ?>"><h5 class="card_caption_txt"><?php echo $term->description; ?></h5></a>
+      <a href="<?php echo get_term_link($term->term_id); ?>"><h4 class="card_caption_title"><?php echo $term->name; ?></h4></a>
+      <a href="<?php echo get_term_link($term->term_id); ?>"><h5 class="card_caption_txt"><?php echo $term->description; ?></h5></a>
     </hgroup>
   </article>
 <?php } ?>
