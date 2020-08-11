@@ -91,9 +91,74 @@ function lt_new_custom_post($name, $icon = '', $taxonomies = array() ){
 
 }
 
+// custom metadata for custom taxonomies
+function lt_add_meta_fields_to_taxonomy( $taxonomy_slug , $meta_fields = array() ){
+	// Edit taxonomy page extra fields
+	add_action( $taxonomy_slug . '_edit_form_fields', function ($term) use( $taxonomy_slug, $meta_fields ) {
+		//getting term ID
+		$term_id = $term->term_id;
+		foreach ( $meta_fields as $name => $labels ) { ?>
+			<tr class="form-field">
+				<th scope="row" valign="top"><label for="<?php echo $name ?>"><?php echo $labels['label']; ?></label></th>
+				<td>
+				<input type="text" name="<?php echo $name ?>" id="<?php echo $name ?>" value="<?php echo get_term_meta($term_id, $name, true); ?>">
+					<p class="description"><?php echo $labels['description']; ?></p>
+				</td>
+			</tr>
+		<?php }
+	} );
+
+	// Add new taxonomy page extra fields
+	add_action( $taxonomy_slug . '_add_form_fields' , function () use($taxonomy_slug, $meta_fields) {
+		// var_dump($meta_fields);
+		foreach ( $meta_fields as $name => $labels ) { ?>
+			<div class="form-field">
+				<label for="<?php echo $name ?>"><?php echo _e($labels['label'], 'lt'); ?></label>
+				<input type="text" name="<?php echo $name ?>" id="<?php echo $name ?>">
+				<p class="description"><?php echo _e($labels['description'], 'lt'); ?></p>
+			</div>
+		<?php }
+	} );
+
+	// Save extra taxonomy fields callback function.
+	add_action('edited_' . $taxonomy_slug , function ($term_id) use($meta_fields) {
+		foreach ( $meta_fields as $name => $labels ) {
+			update_term_meta($term_id, $name, filter_input(INPUT_POST, $name));
+		}
+	}, 10, 1);
+	add_action('create_' . $taxonomy_slug , function ($term_id) use($meta_fields) {
+		foreach ( $meta_fields as $name => $labels ) {
+			update_term_meta($term_id, $name, filter_input(INPUT_POST, $name));
+		}
+	}, 10, 1);
+}
+
+
+
+
 add_action( 'init', 'lt_custom_posts' );
 function lt_custom_posts() {
 	lt_new_custom_post( 'proyecto', 'dashicons-admin-site-alt3', array( 'departamento' ) );
 	lt_new_custom_post( 'equipo', 'dashicons-groups', array( 'area' ) );
 	lt_new_custom_post( 'colaborador', 'dashicons-heart', array( 'entidad' ) );
+
+
+
+	$lt_meta_img_labels = array(
+		'label'       => 'Imagen destacada',
+		'description' => 'Imagen destacada de categoria, insertar title de imagen de galeria de medios',
+	);
+	$lt_meta_icon_labels = array(
+		'label'       => 'Icono destacado',
+		'description' => 'Icono destacado de categoria, insertar title de icono de galeria de medios',
+	);
+	$lt_meta_banner_labels = array(
+		'label'       => 'Imagen de banner',
+		'description' => 'Imagen para banner de categoria, insertar title de imagen de galeria de medios',
+	);
+	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'departamento', $meta_fields = array(
+		'lt_meta_img'    => $lt_meta_img_labels,
+		'lt_meta_icon'   => $lt_meta_icon_labels,
+		'lt_meta_banner' => $lt_meta_banner_labels,
+	) );
 }
