@@ -16,8 +16,10 @@
 </section>
 
 <section class="section_padding grid_123">
-  <h1 class="grid_123_title">Proyectos <?php echo get_the_archive_title(); ?></h1>
-
+  <hgroup class="headline_hgroup section_padding grid_123_title">
+    <h1 class="hedline_title">Proyectos <?php echo get_the_archive_title(); ?></h1>
+    <h5 class="hedline_txt">Sed dictum turpis at mauris dictum, cursus eleifend odio interdum. Sed ut lacus eu enim dignissim tristique id ut sapien.</h5>
+  </hgroup>
   <?php while(have_posts()){the_post(); ?>
 
     <?php sharing_card(); ?>

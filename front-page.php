@@ -31,46 +31,21 @@
 
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
-  'hide_empty' => false, 
+  'hide_empty' => false,
 ));
 
 // Loop through all terms with a foreach loop
 foreach( $terms as $term ) { ?>
-  <article class="card ATFCards">
-    <img data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( $term->term_id, 'lt_meta_img', true ))); ?>" alt="" class="card_img card_img_rounded lazy">
-    <hgroup class="cardCaption">
-      <h4 class="cardCaption_title"><?php echo $term->name; ?></h4>
-      <h5 class="cardCaption_txt"><?php echo $term->description; ?></h5>
+  <article class="card standard_card">
+    <a href="<?php echo get_term_link($term->term_id); ?>">
+    <img class="card_img card_img_rounded lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( $term->term_id, 'lt_meta_img', true ))); ?>" alt="Ilustración de departamento de Generación O2">
+    </a>
+    <hgroup class="card_caption">
+      <a href="<?php the_permalink(); ?>"><h4 class="card_caption_title"><?php echo $term->name; ?></h4></a>
+      <a href="<?php the_permalink(); ?>"><h5 class="card_caption_txt"><?php echo $term->description; ?></h5></a>
     </hgroup>
   </article>
-<?php }
-
-// echo '</ul>';
-
-
-
-
-
-
-  $args = array(
-    'post_type'=>'departamentos',
-  );
-  $departamento=new WP_Query($args);
-  while($departamento->have_posts()){$departamento->the_post();?>
-    <article class="card ATFCards">
-      <img data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="card_img card_img_rounded lazy">
-      <hgroup class="cardCaption">
-        <h4 class="cardCaption_title"><?php echo get_the_title() ?></h4>
-        <h5 class="cardCaption_txt"><?php echo get_the_excerpt() ?></h5>
-      </hgroup>
-    </article>
-  <?php } ?>
-
-
-
-
-
-
+<?php } ?>
 
 </section>
 

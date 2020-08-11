@@ -195,6 +195,17 @@ FIN DE MAPA DE CONTENIDOS */
   --noticiasFeaturedPost3GC: 1/-1;
   --noticiasFeaturedPost3GR: 4;
 
+  /* DPTOS ATF */
+
+  --depto_ATF_display: flex;
+  --depto_ATF_transp_GG: 2rem;
+  --depto_ATF_transp_FD: column;
+
+  /* SUMATE */
+
+  --sumate_form_width: 90%;
+  --sumate_form_GTC: 1fr;
+
 
 
   /* ?FOOTER */
@@ -252,6 +263,11 @@ FIN DE MAPA DE CONTENIDOS */
     --noticiasFeaturedPost3GC: 2;
     --noticiasFeaturedPost3GR: 3;
 
+    /* SUMATE */
+
+    --sumate_form_width: 90%;
+    --sumate_form_GTC: 1fr 1fr;
+
     /* ?FOOTER */
 
 
@@ -299,7 +315,20 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* NOTICIAS ATF */
-  --noticias_containerGTC: 1fr 1fr;
+
+    --noticias_containerGTC: 1fr 1fr;
+
+    /* DPTOS ATF */
+
+    --depto_ATF_display: grid;
+    --depto_ATF_transp_GG: unset;
+    --depto_ATF_transp_FD: unset;
+
+
+    /* SUMATE */
+
+    --sumate_form_width: 70%;
+
 
     /* ?FOOTER */
     --footerGTC: 1fr 2fr;
@@ -539,7 +568,7 @@ main ul,main ol{list-style:unset}
   margin: auto;
 }
 
-.front_page_ATF .ATFCards {
+.front_page_ATF .standard_card {
   grid-column: var(--overlaidGC);
   grid-template-rows: max-content max-content;
   padding: 10px;
@@ -657,11 +686,13 @@ main ul,main ol{list-style:unset}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .depto_ATF{
-  display: grid;
-  height:12rem;
+  display: var(--depto_ATF_display);
+  height: auto;
+  flex-direction: column;
 }
 .depto_ATF_img{
-  height:12rem;
+  height:auto;
+  order: 2;
 }
 .depto_ATF_transp{
   display:flex;
@@ -671,12 +702,17 @@ main ul,main ol{list-style:unset}
   align-items:center;
   margin-top:auto;
   color:white;
+  order: 1;
+  grid-gap: var(--depto_ATF_transp_GG);
+  flex-direction: var(--depto_ATF_transp_FD);
+  z-index: 1;
 }
 .depto_ATF_icon{
-  background:white;
-  border-radius:50%;
-  width: 3rem;
-  height: 3rem;
+  background: white;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid #ffffff;
 }
 .depto_ATF_caption{
   margin-left: 1rem;
@@ -914,15 +950,15 @@ main ul,main ol{list-style:unset}
 .overlaid_img_2 {
   height: 100%;
 }
-.cardCaption {
+.card_caption {
   padding: 8px;
   color: var(--grey2);
 }
-.cardCaption_title {
+.card_caption_title {
   font-size: var(--smallTxt);
   font-weight: 700;
 }
-.cardCaption_txt {
+.card_caption_txt {
   font-size: var(--smallTxt);
   font-weight: 500;
 }
@@ -1008,12 +1044,13 @@ main ul,main ol{list-style:unset}
 }
 .deep{
   display:grid;
-  height:10rem;
+  height: auto;
 }
 .deep_img{
   grid-column: 1;
   grid-row:1;
-  height:10rem;
+  height: auto;
+  border-radius: 8px;
 }
 .deep_btn{
   grid-column: 1;
@@ -1089,12 +1126,12 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 .sumate_form {
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:var(--sumate_form_GTC);
   grid-gap: 1rem;
   margin:auto;
   margin-bottom: 10rem;
   padding: 1rem var(--lateral);
-  width: 70%;
+  width: var(--sumate_form_width);
   margin-top: -100px;
   padding: 1rem;
   background: var(--greyF);
