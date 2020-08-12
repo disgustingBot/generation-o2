@@ -26,9 +26,6 @@
   <?php
 
 
-
-
-
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
   'hide_empty' => false,

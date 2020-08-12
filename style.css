@@ -36,20 +36,20 @@ Version: 1.1
 6.0) =load:
 6.1) =header:
 6.2) =social media:
-6.31) =sumate_form:
 6.4) =multiCards:
 6.4.1) =card:
 6.4.2) =overlaid:
 6.4.3) =hover card:
 6.4.4) =sharing card:
 6.4.5) =deep:
-6.5) = forms
-6.5.1) =footer form
-6.6) =BUTTONS:
+6.5) =forms:
+6.5.1) =form:
+6.6) =buttons:
 6.7) =hgroup, titles, text:
 6.8) =Menus
 6.8.1) =hidden_list_menu:
 6.8.2) =navigation_menu:
+6.8.3) =column_nav_bar:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -202,7 +202,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   /* NOTICIAS ATF */
 
-  --noticias_containerGTC: 1fr;
+  --grid_1_2_3_GTC: 1fr;
 
   --noticiasFeaturedPost1GC: 1/-1;
   --noticiasFeaturedPost1GR: 2;
@@ -221,13 +221,13 @@ FIN DE MAPA DE CONTENIDOS */
 
   /* SUMATE */
 
-  --sumate_form_width: 90%;
-  --sumate_form_GTC: 1fr;
+  --form_width: 90%;
+  --form_GTC: 1fr;
 
 
 
   /* ?FOOTER */
-  --footerGTC: 1fr;
+  --grid_1_1-2_GTC: 1fr;
   --footerFormGC: unset;
 
 
@@ -283,8 +283,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* SUMATE */
 
-    --sumate_form_width: 90%;
-    --sumate_form_GTC: 1fr 1fr;
+    --form_width: 90%;
+    --form_GTC: 1fr 1fr;
 
     /* ?FOOTER */
 
@@ -352,7 +352,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* NOTICIAS ATF */
 
-    --noticias_containerGTC: 1fr 1fr;
+    --grid_1_2_3_GTC: 1fr 1fr;
 
     /* DPTOS ATF */
 
@@ -363,11 +363,11 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* SUMATE */
 
-    --sumate_form_width: 70%;
+    --form_width: 70%;
 
 
     /* ?FOOTER */
-    --footerGTC: 1fr 2fr;
+    --grid_1_1-2_GTC: 1fr 2fr;
     --footerFormGC: 2/4;
   }
 }
@@ -412,7 +412,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* NOTICIAS ATF */
 
-    --noticias_containerGTC: 1fr 1fr 1fr;
+    --grid_1_2_3_GTC: 1fr 1fr 1fr;
 
 
 
@@ -494,7 +494,7 @@ FIN DE MAPA DE CONTENIDOS */
   font-family: 'Montserrat', sans-serif;
 }
 
-body{display:grid; overflow-x: hidden;}
+body{display:grid;}
 img{object-fit:cover;width:100%}
 a{text-decoration:none}
 ul,ol{list-style:none}
@@ -553,15 +553,19 @@ main ul,main ol{list-style:unset}
 .section_greyF  {background: var(--greyF)}
 
 
-.grid_123 {
+.grid_1_2_3 {
   display: grid;
-  grid-template-columns: var(--noticias_containerGTC);
+  grid-template-columns: var(--grid_1_2_3_GTC);
   grid-gap: 1rem;
 }
-.grid_123_title {
+.grid_1_2_3_title {
   grid-column:1/-1;
 }
-
+.grid_1_1-2 {
+  display: grid;
+  grid-template-columns: var(--grid_1_1-2_GTC);
+  grid-gap: 1rem;
+}
 .dady_break {
   display: flex;
   flex-wrap: wrap;
@@ -825,6 +829,7 @@ main ul,main ol{list-style:unset}
   top: 0;
   background: white;
   z-index: 5;
+  overflow-x: hidden;
 }
 
 /* Modificadores del header */
@@ -1117,75 +1122,30 @@ main ul,main ol{list-style:unset}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                          6.5) = forms
+                          6.5) =forms
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5.1) =form:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
 
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form  > *  {
-  width: 90%;
-}
-
-.form input, .form textarea {
-  padding: 6px;
-  border-radius: 4px;
-  border: none;
-}
-
-
-
-
-/* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.5.1) =footer form
-------------------------------------------------------------------------------
---------------------------------------------------------------------------- */
-
-.footer .form {
-  grid-column: var(--footerFormGC);
-}
-
-.footer .form .form_title {
-  text-align: center;
-}
-
-.footer .form textarea {
-  min-height: 200px;
-}
-
-
-.footer .form label {
-  margin-top: .5rem;
-  font-size: var(--smallTxt);
-}
-
-
-
-/* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.31) =sumate_form:
-------------------------------------------------------------------------------
---------------------------------------------------------------------------- */
-.sumate_form {
   display:grid;
-  grid-template-columns:var(--sumate_form_GTC);
+  grid-template-columns:var(--form_GTC);
   grid-gap: 1rem;
   margin:auto;
-  margin-bottom: 10rem;
   padding: 1rem var(--lateral);
-  width: var(--sumate_form_width);
-  margin-top: -100px;
+  width: var(--form_width);
   padding: 1rem;
   background: var(--greyF);
   border-radius: 8px;
 }
-.sumate_imp {
+.form_imp {
   position:relative;
   display: grid;
   height: 44px;
@@ -1193,49 +1153,49 @@ main ul,main ol{list-style:unset}
   border: 2px solid var(--secondaryColor);
   width: 100%;
 }
-.sumate_label {
+.form_label {
   position: absolute;
   left: 8px;
   top: -12px;
   font-size: 12px;
   padding:3px;
   background: white;
+  border-radius: 4px;
 }
-.sumate_input {
+.form_input {
   height:40px;
   padding: 4px;
 }
-.sumate_form_title {
+.form_title {
   grid-column: 1/-1;
   text-align: center;
   margin: 1rem auto;
   font-weight: bold;
 }
-.sumarme_como {
+.form_sumarme_como {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-weight: bold;
 }
-.sumarme_como_txt {
+.form_sumarme_como_txt {
   font-size: var(--smallTxt);
 }
-.sumarme_como_options {
+.form_sumarme_como_options {
   display: flex;
   flex-direction: column;
 }
-.sumarme_como_option {
+.form_sumarme_como_option {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: var(--smallTxt);
   width: max-content;
 }
-.sumarme_como_radio {margin-right: 8px;}
-.sumarme_select_container {position: relative;}
-.sumarme_select_container .sumate_label {z-index: 1;}
-.sumarme_textarea {grid-column: 1/-1;}
-.sumarme_textarea .sumate_imp {min-height: 200px;}
-.sumate_form .btn {grid-column: 1/-1;}
+.form_sumarme_como_radio {margin-right: 8px;}
+.sumarme_textarea {grid-column: 1/-1;min-height: 200px;}
+.sumarme_textarea .form_input {height: 100%; padding: 8px;}
+.form .btn {grid-column: 1/-1;}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.6) =BUTTONS:
@@ -1389,7 +1349,7 @@ main ul,main ol{list-style:unset}
 
 
 .hidden_list_menu {
-  position: absolute;
+  position: fixed;
   top: 90px;
   right: 0;
   background: var(--greyF);
@@ -1453,72 +1413,65 @@ main ul,main ol{list-style:unset}
   transform: translateX(0);
 }
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8.3) =column_nav_bar:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
-
+.column_nav_bar {
+  font-size: var(--mediumTxt);
+  text-align: center;
+  display: grid;
+  grid-gap: 1rem;
+}
+.column_nav_bar .menu-item {
+  width: max-content;
+  margin: 0 auto;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.99) =footer
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .footer {
-  display: grid;
-  grid-template-columns: var(--footerGTC);
   padding: 1rem var(--lateral);
   background: var(--primaryColor);
-  grid-gap: 1rem;
+  align-items: center;
 }
-
-.footer_links_container {
-  height: min-content;
-  margin: auto 0;
-}
-
-
-.footer_navBar {
-  font-size: var(--mediumTxt);
-  text-align: center;
-  font-size: var(--mediumTxt);
-  text-align: center;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.footer_navBar .menu-item {
-  width: max-content;
-  margin: .5rem auto;
-}
-
 .footer .social_container {
   width: max-content;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
-
 .footer .social_container .social_svg {
   color: var(--secondaryColor);
   width: 30px;
   height: auto;
 }
-
 .footer .social_container .social_svg:hover {
   color: var(--grey3);
 }
-
-
 .copyright {
   grid-column: 1/-1;
-  margin: 1rem auto;
+  margin: auto;
   font-size: var(--smallTxt);
 }
-
+.latteLink {
+  color: var(--secondaryColor);
+}
+.footer .form {
+ width: 90%;
+ max-width: 800px;
+ background: transparent;
+}
+.footer .form_label {
+  left: 1px;
+  padding: 4px 8px;
+  border-radius: 4px 4px 0 0;
+}
 .signature {
   text-align: right;
   font-size: var(--extraSmallTxt);
   background: var(--primaryColor);
-  padding-right: var(--lateral);
-}
-
-.latteLink {
-  color: var(--secondaryColor);
+  padding:  1rem var(--lateral);
 }
