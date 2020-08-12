@@ -30,7 +30,7 @@
   <?php } wp_reset_query(); ?>
 </section>
 
-<section class="section_padding grid_123">
+<section class="section_padding grid_1_2_3">
 
   <?php while(have_posts()){the_post(); ?>
 
