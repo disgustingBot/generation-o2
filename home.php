@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="ATF noticias_ATF section_greyF5">
+<section class="grid noticias_ATF section_greyF5">
   <hgroup class="headline_hgroup section_padding">
     <h2 class="hedline_title">Noticias</h2>
     <h5 class="hedline_txt">Sed dictum turpis at mauris dictum, cursus eleifend odio interdum. Sed ut lacus eu enim dignissim tristique id ut sapien.</h5>
@@ -15,7 +15,7 @@
   while($atf->have_posts()){
     $atf->the_post(); ?>
 
-    <article class="card overlaid_card">
+    <article class="grid overlaid_card">
       <a class="overlaid_card_link rowcol1" href="<?php the_permalink(); ?>">
         <img class="overlaid_img_2 " src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </a>
@@ -31,7 +31,7 @@
 </section>
 
 <section class="section_padding grid_123">
-  
+
   <?php while(have_posts()){the_post(); ?>
 
     <?php sharing_card(); ?>

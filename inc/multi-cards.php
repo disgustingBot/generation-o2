@@ -3,9 +3,9 @@
 function sharing_card () { ?>
 
 
-    
 
-    <article class="card sharing_card">
+
+    <article class="grid sharing_card">
       <div class="sharing_card_top">
         <div class="sharing_card_title_cont">
           <h5 class="sharing_card_title">

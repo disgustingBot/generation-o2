@@ -49,6 +49,7 @@ Version: 1.1
 6.7) =hgroup, titles, text:
 6.8) =Menus
 6.8.1) =hidden_list_menu:
+6.8.2) =navigation_menu:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -152,15 +153,32 @@ FIN DE MAPA DE CONTENIDOS */
   --onlyMobileF:flex;
   --onlyMobileG:grid;
 
+  --desktop_0_mobile_auto: auto;
+  --desktop_auto_mobile_0: 0;
+  --desktop_row_mobile_column: column;
+  --desktop_static_mobile_fixed: fixed;
+  --desktop_column_mobile_row: row;
+
   --txtCenterLeft: center;
   --txtCenterRight: center;
   --TxtLeftCenter: left;
   --txtCenter: center;
 
+
+  /* ?COMPONENTES */
+
+  /* ?menus */
+
+  /* ?navigation_menu */
+  --navigation_menu_height: calc(100vh - 81px);
+  --navigation_menu_transform_x: translateX(100%);
+
+
+
   /* ?HEADER */
 
-  --headerLogoHeight: 50px;
-  --headerGTC: min-content 1fr min-content;
+  --logo_height: 50px;
+  --header_auto_columns: 1fr;
 
 
   /* ATFS */
@@ -287,9 +305,27 @@ FIN DE MAPA DE CONTENIDOS */
     --onlyMobileF:none;
     --onlyMobileG:none;
 
+    --desktop_row_mobile_column: row;
+    --desktop_0_mobile_auto: 0;
+    --desktop_auto_mobile_0: auto;
+    --desktop_static_mobile_fixed: static;
+    --desktop_column_mobile_row: column;
+
+    /* ?COMPONENTES */
+
+    /* ?menus */
+
+    /* ?navigation_menu */
+    --navigation_menu_height: unset;
+    --navigation_menu_transform_x: translateX(0);
+
+
+
+
+
     /* ?HEADER */
-    --navBarPadding: 0;
-    --headerGTC: max-content 1fr max-content max-content;
+    --header_auto_columns: unset;
+
 
     /* ATFS */
 
@@ -354,8 +390,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ?HEADER */
-    --navBarPadding: 0 2rem;
-    --headerLogoHeight: 70px;
+    --logo_height: 70px;
 
 
 
@@ -397,7 +432,8 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ?HEADER */
-    --navBarPadding: 0 4rem;
+
+
     /* ?FOOTER */
 
 
@@ -529,7 +565,7 @@ main ul,main ol{list-style:unset}
 .dady_break {
   display: flex;
   flex-wrap: wrap;
-  /* NO USAR, gap es genial para grid pero aun no tiene mucho soporte */ 
+  /* NO USAR, gap es genial para flex pero aun no tiene mucho soporte */
   /* gap:.5rem; */
   /* --margin: 1rem; */
   --breakpoint: 768px;
@@ -548,9 +584,9 @@ main ul,main ol{list-style:unset}
 --------------------------------------------------------------------------- */
 
 
-.ATF {display: grid}
-
 .grid {display: grid}
+.flex {display: flex}
+
 
 
 /* ---------------------------------------------------------------------------
@@ -781,7 +817,8 @@ main ul,main ol{list-style:unset}
 .header {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: var(--headerGTC);
+  grid-auto-flow: column;
+  grid-auto-columns: var(--header_auto_columns);
   height: 90px;
   padding: 8px var(--lateral);
   position: sticky;
@@ -790,35 +827,38 @@ main ul,main ol{list-style:unset}
   z-index: 5;
 }
 
-.logo_link {
+/* Modificadores del header */
+
+.header .logo {margin-left: var(--desktop_auto_mobile_0)}
+.header .hamburger_menu {margin-right: 0}
+.header .social_container {margin-right: var(--desktop_0_mobile_auto)}
+.logo {
+  margin: auto;
   display: flex;
 }
-
-.header_logo {
-  height: var(--headerLogoHeight);
+.logo_svg {
+  height: var(--logo_height);
   width: auto;
   margin: auto;
 }
-
 .navBar {
   align-items: center;
-  display: var(--onlyDesktopF);
+  display: flex;
+  flex-direction: var(--desktop_row_mobile_column);
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: var(--navBarPadding);
 }
-
 .menu-item {
   height: max-content;
   position: relative;
+  margin: auto .3rem;
 }
-
 .menu-item  a{
   font-size: var(--smallTxt);
   font-weight: bolder;
   text-decoration: none;
   color: var(--grey3);
 }
-
 .menu-item::after {
   background: var(--grey3);
   content: ' ';
@@ -831,12 +871,9 @@ main ul,main ol{list-style:unset}
   transform: scaleX(0);
   transform-origin: center center;
 }
-
 .menu-item:hover::after{
   transform: scaleX(1);
 }
-
-
 .hamburger_menu {
   display: var(--onlyMobileF);
   flex-direction: column;
@@ -854,7 +891,6 @@ main ul,main ol{list-style:unset}
   transition: .5s ease-in-out;
   cursor: pointer;
 }
-
 .hamStripe {
   position: absolute;
   height: 4.5px;
@@ -864,26 +900,21 @@ main ul,main ol{list-style:unset}
   left: 0;
   transition: .25s ease-in-out;
 }
-
 .hamStripe:nth-child(1) {top: 0px}
 .body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(1) {
   top: 9px;
   transform: rotate(135deg);
 }
-
 .hamStripe:nth-child(2) {top: 9px}
 .body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(2) {
   opacity: 0;
   left: -30px;
 }
-
 .hamStripe:nth-child(3) {top: 18px}
 .body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(3) {
   top: 9px;
   transform: rotate(-135deg);
 }
-
-
 
 
 /* ---------------------------------------------------------------------------
@@ -896,6 +927,7 @@ main ul,main ol{list-style:unset}
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 
 .social_svg {
@@ -910,9 +942,6 @@ main ul,main ol{list-style:unset}
   color: var(--secondaryColor);
 }
 
-.header .social_container {
-  display: var(--onlyDesktopF);
-}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4) =multiCards:
@@ -925,9 +954,6 @@ main ul,main ol{list-style:unset}
                           6.4.1) =card:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-
-
-.card {display: grid}
 
 .card_img_rounded {
   border-radius: 50%;
@@ -1059,12 +1085,14 @@ main ul,main ol{list-style:unset}
 .departamentos{
   padding: 1rem var(--lateral);
   display: grid;
-  grid-gap:.5rem;
+  grid-gap: 2rem;
   text-align: center;
 }
 .deep{
   display:grid;
   height: auto;
+  width: 90%;
+  margin: auto;
 }
 .deep_img{
   grid-column: 1;
@@ -1248,7 +1276,6 @@ main ul,main ol{list-style:unset}
   font-size: var(--extraBigTxt);
   font-weight: bolder;
   height: max-content;
-  padding: 4px;
   margin: auto;
   position: relative;
   cursor: pointer;
@@ -1400,6 +1427,33 @@ main ul,main ol{list-style:unset}
 .hidden_list_menu_item a {
   color: var(--grey3);
 }
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8.2) =navigation_menu:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.navigation_menu {
+  display: grid;
+  margin: auto;
+  position: var(--desktop_static_mobile_fixed);
+  grid-auto-flow: var(--desktop_column_mobile_row);
+  grid-gap: .5rem;
+  width: 100%;
+  height: var(--navigation_menu_height);
+  background: white;
+  left: 0;
+  bottom: 0;
+  transform: var(--navigation_menu_transform_x);
+  transition: .25s;
+}
+
+.navigation_menu_visible .navigation_menu {
+  transform: translateX(0);
+}
+
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------

@@ -6,8 +6,8 @@
 // echo $current_user_role_slug;
 ?>
 
-<section class="ATF front_page_ATF">
-  <div class="card overlaid_big overlaid_card">
+<section class="grid front_page_ATF">
+  <div class="grid overlaid_big overlaid_card">
     <img class="rowcol1 lazy overlaid_img" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
     <hgroup class="overlaid_caption rowcol1">
       <h1 class="overlaid_title"><?php echo get_the_title() ?></h1>
@@ -36,7 +36,7 @@ $terms = get_terms( array(
 
 // Loop through all terms with a foreach loop
 foreach( $terms as $term ) { ?>
-  <article class="card standard_card">
+  <article class="grid standard_card">
     <a href="<?php echo get_term_link($term->term_id); ?>">
     <img class="card_img card_img_rounded lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( $term->term_id, 'lt_meta_img', true ))); ?>" alt="Ilustración de departamento de Generación O2">
     </a>
