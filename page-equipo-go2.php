@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="ATF equipo_ATF">
+<div class="grid equipo_ATF">
   <img class="rowcol1 lazy equipo_ATF_img" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
   <hgroup class="headline_hgroup rowcol1">
     <h1 class="title">Equipo de Generaci<span class="secondary_color">ó</span>n O2</h1>
@@ -63,7 +63,7 @@
       $terms = get_the_terms( get_the_id(), 'area' );
       ?>
 
-      <article class="card hover_card">
+      <article class="grid hover_card">
         <img class="hover_card_img hover_card_img2 rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         <div class="hover_card_info rowcol1">
           <a class="hover_card_info_txt" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="ATF sumate_ATF">
+<section class="grid sumate_ATF">
   <hgroup class="headline_hgroup section_padding">
     <h2 class="hedline_title">¿Quieres Ayudar?</h2>
     <h5 class="hedline_txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan.</h5>
