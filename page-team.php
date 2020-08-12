@@ -49,30 +49,30 @@
     </div>
   </div>
 
-
   <?php
-    $args=array(
-      'post_type'=>'equipo',
-      'posts_per_page'=> 100,
-    );
-    $equipo=new WP_Query();
-    $equipo->query($args);
+  $args=array(
+    'post_type' => 'equipo',
+    // 'posts_per_page'=> 4,
+  );
+  $equipo=new WP_Query();
+  $equipo->query($args);
 
-    while($equipo->have_posts()){$equipo->the_post(); ?>
-      <?php
-      $terms = get_the_terms( get_the_id(), 'area' );
-      ?>
+  while($equipo->have_posts()){$equipo->the_post();
+    $terms = get_the_terms( get_the_id(), 'area' );
+    ?>
 
-      <article class="card hover_card">
-        <img class="hover_card_img hover_card_img2 rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-        <div class="hover_card_info rowcol1">
-          <a class="hover_card_info_txt" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>
-          <p> <?php get_the_terms( $equipo, 'cargos'); ?>  </p>
+    <article class="card hover_card">
+      <img class="hover_card_img rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      <div class="hover_card_info rowcol1">
+        <h5><?php the_title(); ?></h5>
+        <a class="hover_card_info_txt" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>
+        <p><?php get_the_terms( $equipo, 'depto' ); ?></p>
+        <p><?php get_the_terms( $equipo, 'cargos' ); ?></p>
+      </div>
+    </article>
 
-          </div>
-        </article>
+  <?php } wp_reset_query(); ?>
 
-    <?php } wp_reset_query(); ?>
 
 </section>
 
