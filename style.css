@@ -107,8 +107,8 @@ FIN DE MAPA DE CONTENIDOS */
   --grey8:#888888;
   --greyA:#aaaaaa;
   --greyC:#cccccc;
-  --greyF5:#F5F5F5;
   --greyE0: #E0E0E0;
+  --greyF5:#F5F5F5;
   --greyF:#ffffff;
 
 
@@ -512,8 +512,8 @@ main ul,main ol{list-style:unset}
 .section_grey8  {background: var(--grey8)}
 .section_greyA  {background: var(--greyA)}
 .section_greyC  {background: var(--greyC)}
+.section_greyE0 {background: var(--greyE0)}
 .section_greyF5 {background: var(--greyF5)}
-.section_greyE0 {background: var(--greyE0;)}
 .section_greyF  {background: var(--greyF)}
 
 
@@ -524,6 +524,21 @@ main ul,main ol{list-style:unset}
 }
 .grid_123_title {
   grid-column:1/-1;
+}
+
+.dady_break {
+  display: flex;
+  flex-wrap: wrap;
+  /* NO USAR, gap es genial para grid pero aun no tiene mucho soporte */ 
+  /* gap:.5rem; */
+  /* --margin: 1rem; */
+  --breakpoint: 768px;
+  /* margin: calc(var(--margin) * -1); */
+}
+.dady_break > * {
+  flex-basis: calc( (var(--breakpoint) - 100%) * 999);
+  flex-grow: 1;
+  /* margin: var(--margin); */
 }
 
 /* ---------------------------------------------------------------------------
@@ -851,7 +866,7 @@ main ul,main ol{list-style:unset}
 }
 
 .hamStripe:nth-child(1) {top: 0px}
-  .body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(1) {
+.body.mobileNavMenu .hamburger_menu .hamStripe:nth-child(1) {
   top: 9px;
   transform: rotate(135deg);
 }
@@ -982,6 +997,10 @@ main ul,main ol{list-style:unset}
   opacity: 0;
   transition: .25s;
   border-radius: 16px;
+  padding: .5rem;
+  display:grid;
+  grid-gap:.5rem;
+  align-items: center;
 }
 .hover_card_info:hover {
   opacity: 1;
@@ -989,6 +1008,7 @@ main ul,main ol{list-style:unset}
 .hover_card_info_txt {
   font-size: var(--extraSmallTxt);
 }
+
 
 
 /* ---------------------------------------------------------------------------
