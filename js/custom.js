@@ -13,7 +13,6 @@ w.onload=()=>{
   d.getElementById("load").style.top="-100vh";
 }
 
-
 // SLIDER:
 // TODO: mejorar modulo para poder reutilizarlo sin duplicar codigo
 var j=1,x=d.getElementsByClassName("carouselItem");
@@ -31,14 +30,6 @@ const carousel=()=>{j++;
 }
 const plusDivs=n=>{showDivs(j+=n)}
 if(x.length>0){showDivs(j);setTimeout(carousel, 8000);}
-
-
-
-
-
-
-
-
 
 
 // alternates a class from a selector of choice, example:
@@ -64,27 +55,8 @@ const altClassFromSelector = ( clase, selector, mainClass = false )=>{
 
 
 
-
-
-
-
-
-
-
-
 // GO BACK BUTTONS
 function goBack(){w.history.back()}
-
-
-
-
-
-
-
-
-
-
-
 
 
 

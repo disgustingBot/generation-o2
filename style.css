@@ -225,10 +225,15 @@ FIN DE MAPA DE CONTENIDOS */
   --form_GTC: 1fr;
 
 
+  /* CTAs */
+  --page_CTA_full_screen_Width: 100%;
 
   /* ?FOOTER */
   --grid_1_1-2_GTC: 1fr;
+  --grid_1_2_GTC: 1fr;
   --footerFormGC: unset;
+
+
 
 
 }
@@ -366,8 +371,13 @@ FIN DE MAPA DE CONTENIDOS */
     --form_width: 70%;
 
 
+    /* CTAs */
+    --page_CTA_full_screen_Width: 60%;
+
+
     /* ?FOOTER */
     --grid_1_1-2_GTC: 1fr 2fr;
+    --grid_1_2_GTC: 1fr 1fr;
     --footerFormGC: 2/4;
   }
 }
@@ -566,6 +576,27 @@ main ul,main ol{list-style:unset}
   grid-template-columns: var(--grid_1_1-2_GTC);
   grid-gap: 1rem;
 }
+.grid_1_2 {
+  display: grid;
+  grid-template-columns: var(--grid_1_2_GTC);
+  min-height: 50vh;
+  box-shadow: var(--DP8);
+}
+.grid_1_2_background-image {
+  min-height: 40vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: center;
+  position: relative;
+}
+.grid_1_2_centered_txt_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
 .dady_break {
   display: flex;
   flex-wrap: wrap;
@@ -606,7 +637,7 @@ main ul,main ol{list-style:unset}
   padding-bottom: 2rem;
 }
 
-.front_page_ATF_CTA {
+.page_CTA {
   display: grid;
   grid-column: var(--frontPageCTAGC);
   text-align: var(--txtCenter)!important;
@@ -615,12 +646,22 @@ main ul,main ol{list-style:unset}
   justify-content: center;
   grid-template-columns: var(--frontPageCTAGTC);
 }
-
-.front_page_ATF_CTA_title {
+.page_CTA_full_screen {
+  display: grid;
+  text-align: var(--txtCenter)!important;
+  padding: 3rem var(--lateral);
+  grid-gap: .5rem;
+  justify-content: center;
+  grid-template-columns: var(--frontPageCTAGTC);
+  width: var(--page_CTA_full_screen_Width);
+  margin: auto;
+}
+.page_CTA_title {
   text-align: center;
   font-size: var(--mediumTxt);
   height: max-content;
   margin: auto;
+  line-height: 24px;
 }
 
 .front_page_ATF .standard_card {
@@ -999,14 +1040,18 @@ main ul,main ol{list-style:unset}
 .card_caption {
   padding: 8px;
   color: var(--grey2);
+  text-align: center;
 }
+.card_caption a {color: var(--grey3)}
 .card_caption_title {
   font-size: var(--smallTxt);
   font-weight: 700;
+  line-height: 28px;
 }
 .card_caption_txt {
   font-size: var(--smallTxt);
   font-weight: 500;
+  line-height: 24px;
 }
 .overlaid_title {font-size: var(--bigTxt);}
 .overlaid_txt {font-size: var(--mediumTxt);}
@@ -1098,6 +1143,8 @@ main ul,main ol{list-style:unset}
   height: auto;
   width: 90%;
   margin: auto;
+  box-shadow: var(--DP8);
+  border-radius: 8px;
 }
 .deep_img{
   grid-column: 1;
@@ -1152,6 +1199,7 @@ main ul,main ol{list-style:unset}
   border-radius:4px;
   border: 2px solid var(--secondaryColor);
   width: 100%;
+  background: var(--greyF);
 }
 .form_label {
   position: absolute;
@@ -1334,6 +1382,11 @@ main ul,main ol{list-style:unset}
   line-height: 28px;
 }
 
+.hedline_txt_small {
+  font-size: var(--smallTxt);
+  line-height: 28px;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.8) =Menus:
@@ -1350,7 +1403,7 @@ main ul,main ol{list-style:unset}
 
 .hidden_list_menu {
   position: fixed;
-  top: 90px;
+  top: 100px;
   right: 0;
   background: var(--greyF);
   padding: 20px;

@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
+<?php  ?>
 <section class="grid noticias_ATF section_greyF5">
   <hgroup class="headline_hgroup section_padding">
-    <h2 class="hedline_title">Noticias</h2>
-    <h5 class="hedline_txt">Sed dictum turpis at mauris dictum, cursus eleifend odio interdum. Sed ut lacus eu enim dignissim tristique id ut sapien.</h5>
-  </hgroup>
+    <h2 class="hedline_title"><?php single_post_title(); ?></h2>
+    <h5 class="hedline_txt"><?php echo get_the_excerpt('17', '1_blog_texto', true); ?></h5>
+  </hgroup>>
+
   <?php
   $args=array(
     'post_type'=>'post',

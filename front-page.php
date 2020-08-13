@@ -15,8 +15,8 @@
     </hgroup>
   </div>
 
-  <aside class="front_page_ATF_CTA">
-    <h5 class="front_page_ATF_CTA_title"><?php echo get_post_meta($post->ID, '1-texto-superior-CTA', true); ?></h5>
+  <aside class="page_CTA">
+    <h5 class="page_CTA_title"><?php echo get_post_meta($post->ID, '1-texto-superior-CTA', true); ?></h5>
     <div class="CTA_container">
       <p class="CTA_txt"><?php echo get_post_meta($post->ID, '2-texto-central-CTA', true); ?></p>
       <a class="btn CTA_link" href="<?php echo get_post_meta($post->ID, '3-link-CTA', true); ?>" target="_blank"><?php echo get_post_meta($post->ID, '4-texto-link-CTA', true); ?></a>
@@ -39,11 +39,10 @@ foreach( $terms as $term ) { ?>
     </a>
     <hgroup class="card_caption">
       <a href="<?php echo get_term_link($term->term_id); ?>"><h4 class="card_caption_title"><?php echo $term->name; ?></h4></a>
-      <a href="<?php echo get_term_link($term->term_id); ?>"><h5 class="card_caption_txt"><?php echo $term->description; ?></h5></a>
+      <a href="<?php echo get_term_link($term->term_id); ?>"><h5 class="card_caption_txt"><?php echo (get_term_meta( $term->term_id, 'lt_meta_short_description', true )); ?></h5></a>
     </hgroup>
   </article>
 <?php } ?>
-
 </section>
 
 

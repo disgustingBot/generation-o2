@@ -2,8 +2,8 @@
 
 <section class="grid sumate_ATF">
   <hgroup class="headline_hgroup section_padding">
-    <h2 class="hedline_title">¿Quieres Ayudar?</h2>
-    <h5 class="hedline_txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan.</h5>
+    <h2 class="hedline_title"><?php echo get_post_meta($post->ID, '1_titulo', true); ?></h2>
+    <h5 class="hedline_txt"><?php echo get_post_meta($post->ID, '2_subtitulo', true); ?></h5>
   </hgroup>
   <img class="lazy" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
 </section>
@@ -11,7 +11,7 @@
 <form class="form" method="POST" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
     <input type="hidden" name="action" value="lt_sumate">
     <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
-    <h1 class="title form_title">SÚMATE!</h1>
+    <h1 class="title form_title"><?php echo get_the_title() ?></h1>
 
     <div class="form_imp">
         <label class="form_label" for="sumate_name">Nombre</label>
