@@ -2,7 +2,7 @@
 
 
 <section class="depto_ATF">
-    <img class="depto_ATF_img rowcol1 lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( get_queried_object()->term_id, 'lt_meta_img', true ))); ?>" alt="">
+    <img class="depto_ATF_img rowcol1 lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( get_queried_object()->term_id, 'lt_meta_banner', true ))); ?>" alt="">
     <div class="depto_ATF_transp rowcol1"  style="--background_from_php:rgba(var(--<?php echo get_queried_object()->slug; ?>_color_rgb), .5)">
       <img class="depto_ATF_icon rowcol1 lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( get_queried_object()->term_id, 'lt_meta_icon', true ))); ?>" alt="">
       <div class="depto_ATF_caption">

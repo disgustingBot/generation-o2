@@ -9,7 +9,7 @@ function lt_new_custom_post($name, $icon = '', $taxonomies = array() ){
 	}
 	$name_M     = ucfirst($name);
 	$name_M_pl  = ucfirst($name_pl);
-	
+
     /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
 	$labels = array(
 		'name'               => _x( $name_M_pl, 'post type general name', 'lt-domain' ),
@@ -25,7 +25,7 @@ function lt_new_custom_post($name, $icon = '', $taxonomies = array() ){
 		'not_found'          => __( 'No hay ' . $name_pl, 'lt-domain' ),
 		'not_found_in_trash' => __( 'Ningun ' . $name . ' en la papelera.', 'lt-domain' )
 	);
-	
+
     /* Configuro el comportamiento y funcionalidades del nuevo custom post type */
 	$args = array(
 		'labels'             => $labels,
@@ -144,21 +144,40 @@ function lt_custom_posts() {
 
 
 
-	$lt_meta_img_labels = array(
-		'label'       => 'Imagen destacada',
+	$lt_meta_short_description_labels = array(
+		'label'       => 'Descripción corta',
+		'description' => 'Este texto se mostrará en algunas tarjetas que requieren una descripción corta (cantidad aconsejable de 90 caracteres)',
+	);
+	$lt_meta_banner_labels = array(
+		'label'       => 'Imagen banner',
 		'description' => 'Imagen destacada de categoria, insertar title de imagen de galeria de medios',
 	);
 	$lt_meta_icon_labels = array(
 		'label'       => 'Icono destacado',
 		'description' => 'Icono destacado de categoria, insertar title de icono de galeria de medios',
 	);
-	$lt_meta_banner_labels = array(
-		'label'       => 'Imagen de banner',
-		'description' => 'Imagen para banner de categoria, insertar title de imagen de galeria de medios',
+	$lt_meta_squad_labels = array(
+		'label'       => 'Imagen cuadrada',
+		'description' => 'Imagen cuadrada para tarjetas circulares, insertar title de imagen de galeria de medios',
+	);
+	$lt_meta_img_labels = array(
+		'label'       => 'Imagen cuadrada',
+		'description' => 'Imagen cuadrada para tarjetas circulares, insertar title de imagen de galeria de medios',
+	);
+	$lt_meta_initial_founds_labels = array(
+		'label'       => 'Fondos desde la fundación',
+		'description' => 'Insertar valor numérico sin divisa',
+	);
+	$lt_meta_yearly_founds_labels = array(
+		'label'       => 'Fondos desde principio de año',
+		'description' => 'Insertar valor numérico sin divisa',
 	);
 	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'departamento', $meta_fields = array(
-		'lt_meta_img'    => $lt_meta_img_labels,
-		'lt_meta_icon'   => $lt_meta_icon_labels,
+		'lt_meta_short_description' => $lt_meta_short_description_labels,
 		'lt_meta_banner' => $lt_meta_banner_labels,
+		'lt_meta_icon'   => $lt_meta_icon_labels,
+		'lt_meta_img'    => $lt_meta_squad_labels,
+		'lt_meta_initial_founds'    => $lt_meta_initial_founds_labels,
+		'lt_meta_yearly_founds'    => $lt_meta_yearly_founds_labels,
 	) );
 }
