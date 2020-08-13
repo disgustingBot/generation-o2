@@ -42,6 +42,7 @@ Version: 1.1
 6.4.3) =hover card:
 6.4.4) =sharing card:
 6.4.5) =deep:
+6.4.6) =overlap card:
 6.5) =forms:
 6.5.1) =form:
 6.6) =buttons:
@@ -825,8 +826,6 @@ main ul,main ol{list-style:unset}
 
 
 
-
-
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               6.0) =load:
@@ -1165,7 +1164,38 @@ main ul,main ol{list-style:unset}
 }
 .deep_btn a{color:inherit}
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.6) =overlap card:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
+.overlap_card_img {
+  max-height: 70vh;
+}
+
+.overlap_card_caption {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  padding: 1rem;
+  grid-gap: 1rem;
+  width: 80%;
+  margin: auto auto 0 auto;
+  box-shadow: var(--DP4);
+  transform: translateY(50%);
+  border-radius: 4px;
+  background: var(--greyF);
+}
+
+.overlap_card_title {
+  font-size: var(--mediumTxt);
+}
+
+.vertical_line {
+  width: 2px;
+  background: var(--grey3);
+  border-radius: 2px;
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
