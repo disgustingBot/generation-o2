@@ -39,10 +39,25 @@
 </div>
 
 
-<section class="section_padding equipo_section">
+<section class="filterable" id="filterable">
+  <div class="filter_menu" id="filter_menu">
+
+    <?php $terms = get_terms( array( 
+      'taxonomy' => 'area',
+      'parent'   => 0
+    ) );
+    foreach ($terms as $term) {
+      echo '<style>';
+      echo ".$term->slug .$term->slug{display:grid}";
+      echo "[class='filterable'] .$term->slug{display:grid}";
+      echo '</style>';
+      ?>
+    <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><?php echo $term->name; ?></p>
+  <?php } ?>
+  </div>
 
   <div class="hamburger_menu_equipo">
-    <div class="hamburger_menu" onclick="altClassFromSelector('mobileNavMenu','#body')">
+    <div class="hamburger_menu" onclick="altClassFromSelector('active','#filter_menu');altClassFromSelector('mobileNavMenu','#body')">
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
@@ -61,13 +76,21 @@
     $terms = get_the_terms( get_the_id(), 'area' );
     ?>
 
-    <article class="grid hover_card">
+    <article class="hover_card <?php foreach($terms as $term) { echo ' ' . get_term($term->parent)->slug; } ?>">
       <img class="hover_card_img rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       <div class="hover_card_info rowcol1">
         <h5><?php the_title(); ?></h5>
-        <a class="hover_card_info_txt" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>
-        <p><?php get_the_terms( $equipo, 'depto' ); ?></p>
-        <p><?php get_the_terms( $equipo, 'cargos' ); ?></p>
+        
+        <?php foreach($terms as $term) { ?>
+          <p class="hover_card_txt">
+            <?php echo get_term($term->parent)->name . ' - ' . $term->name; ?>
+          </p>
+        <?php } ?>
+
+        
+        
+        
+        <a class="hover_card_txt hover_card_mail" href="mailto:<?php echo get_post_meta($post->ID, 'email', true); ?>"><?php echo get_post_meta($post->ID, 'email', true); ?></a>
       </div>
     </article>
 
