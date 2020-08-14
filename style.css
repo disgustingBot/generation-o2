@@ -626,6 +626,49 @@ main ul,main ol{list-style:unset}
   /* margin: var(--margin); */
 }
 
+
+.single_content {
+  padding-top: 4rem;
+}
+
+.single_content {
+  display: flex;
+  flex-direction: column;
+}
+.single_content p, .single_content li {
+  margin-bottom: .5rem;
+  line-height: 1.65;
+  font-size: 16px;
+  text-align: var(--textAlignJustifyLeft);
+}
+
+.single_content li {
+  padding-left: 16px;
+}
+
+.single_content a,
+.single_content h1,
+.single_content h2,
+.single_content h3,
+.single_content h4,
+.single_content h5,
+.single_content h6 {
+  margin-bottom: 1rem;
+}
+
+hr {margin: 1rem 0}
+
+.single_content a,
+.single_content h1,
+.single_content h2,
+.single_content h3,
+.single_content h4,
+.single_content h5,
+.single_content h6,
+.single_content ol,
+.single_content ul {list-style-type: circle}
+.single_content ul ul {list-style-type: square;}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5.1) =ATF:
@@ -1184,28 +1227,41 @@ main ul,main ol{list-style:unset}
 .overlap_card_img {
   max-height: 70vh;
 }
-
 .overlap_card_caption {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
   padding: 1rem;
   grid-gap: 1rem;
-  width: 80%;
+  width: 60%;
   margin: auto auto 0 auto;
   box-shadow: var(--DP4);
   transform: translateY(50%);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--greyF);
 }
-
 .overlap_card_title {
   font-size: var(--mediumTxt);
 }
-
+.overlap_card_author {
+  font-size: Var(--smallTxt);
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-top: .5rem;
+}
 .vertical_line {
   width: 2px;
   background: var(--grey3);
   border-radius: 2px;
+}
+.overlap_card_social_container .social_svg {
+  color: var(--secondaryColor);
+  height: 35px;
+  width: 35px;
+}
+.overlap_card_social_title {
+  text-align: center;
+  margin-bottom: .5rem;
+  font-weight: bolder;
 }
 
 /* ---------------------------------------------------------------------------
