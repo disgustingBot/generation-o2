@@ -51,6 +51,7 @@ Version: 1.1
 6.8.1) =hidden_list_menu:
 6.8.2) =navigation_menu:
 6.8.3) =column_nav_bar:
+6.8.4) =filter_menu:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -204,6 +205,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* NOTICIAS ATF */
 
   --grid_1_2_3_GTC: 1fr;
+  --grid_1_2_4_GTC: 1fr;
 
   --noticiasFeaturedPost1GC: 1/-1;
   --noticiasFeaturedPost1GR: 2;
@@ -267,6 +269,8 @@ FIN DE MAPA DE CONTENIDOS */
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 576px) {
   :root {
+    --grid_1_2_4_GTC: 1fr 1fr;
+
     /* ?HEADER */
 
 
@@ -423,7 +427,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* NOTICIAS ATF */
 
-    --grid_1_2_3_GTC: 1fr 1fr 1fr;
+    --grid_1_2_3_GTC:1fr 1fr 1fr;
+    --grid_1_2_4_GTC:repeat(4,1fr);
 
 
 
@@ -564,9 +569,17 @@ main ul,main ol{list-style:unset}
 .section_greyF  {background: var(--greyF)}
 
 
+.grid {display: grid}
+.flex {display: flex}
+
 .grid_1_2_3 {
   display: grid;
   grid-template-columns: var(--grid_1_2_3_GTC);
+  grid-gap: 1rem;
+}
+.grid_1_2_4 {
+  display: grid;
+  grid-template-columns: var(--grid_1_2_4_GTC);
   grid-gap: 1rem;
 }
 .grid_1_2_3_title {
@@ -618,12 +631,6 @@ main ul,main ol{list-style:unset}
                               5.1) =ATF:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-
-
-.grid {display: grid}
-.flex {display: flex}
-
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -711,16 +718,14 @@ main ul,main ol{list-style:unset}
 }
 
 .equipo_ATF .headline_hgroup {
-  margin: 2rem auto auto 2rem;
+  /* margin: 2rem auto auto 2rem; */
+  margin: 2rem auto;
   width: var(--equipoATFHgroupWidth);
-  padding: unset;
+  padding: 0 var(--lateral);
 }
 
-.equipo_section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-}
+
+
 
 .hamburger_menu_equipo {
   padding: 16px;
@@ -1062,6 +1067,9 @@ main ul,main ol{list-style:unset}
                           6.4.3) =hover card:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+.hover_card{
+  display:none;
+}
 
 .hover_card_img {
   box-shadow: var(--DP4);
@@ -1080,8 +1088,11 @@ main ul,main ol{list-style:unset}
 .hover_card_info:hover {
   opacity: 1;
 }
-.hover_card_info_txt {
+.hover_card_txt {
   font-size: var(--extraSmallTxt);
+}
+.hover_card_mail {
+  word-break: break-all;
 }
 
 
@@ -1366,33 +1377,13 @@ main ul,main ol{list-style:unset}
 }
 
 @keyframes know_us_bounce {
-  0% {
-      transform: translate(0, 0px);
-    }
-  5% {
-      transform: translate(0, -10px);
-    }
-  10% {
-      transform: translate(0, 0);
-    }
-
-  15% {
-      transform: translate(0, -10px);
-    }
-
-  /* Finish changes by here */
-  25% {
-    transform: translate(0, 0);
-  }
-
-  /* Between 20% and 100%, nothing changes */
-  100% {
-    transform: translate(0, 0);
-  }
+  0%  {transform:translate(0,0)}
+  5%  {transform:translate(0,-10px)}
+  10% {transform:translate(0,0)}
+  15% {transform:translate(0,-10px)}
+  25% {transform:translate(0,0)}
+  100%{transform:translate(0,0)}
 }
-
-
-
 
 
 /* ---------------------------------------------------------------------------
@@ -1511,6 +1502,44 @@ main ul,main ol{list-style:unset}
 .column_nav_bar .menu-item {
   width: max-content;
   margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8.4) =filter_menu:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.filterable{
+  padding:1rem var(--lateral);
+  display:grid;
+  grid-template-columns: var(--grid_1_2_4_GTC);
+  grid-gap:1rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.filter_menu{
+  display: grid;
+  position: absolute;
+  top:calc(60px + 1rem);
+  right:var(--lateral);
+  background: white;
+  border-radius: 8px;
+  border:1px solid var(--grey8);
+  padding:.7rem 1.4rem;
+  z-index: 3;
+  grid-gap:.5rem;
+  transform: translateX(105%);
+  transition: .25s;
+  opacity: 0;
+}
+.filter_menu.active{
+  transform: translateX(0);
+  opacity: 1;
+}
+.filter_menu_but{
+  cursor: pointer;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------

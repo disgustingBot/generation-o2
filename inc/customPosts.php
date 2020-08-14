@@ -44,7 +44,7 @@ function lt_new_custom_post($name, $icon = '', $taxonomies = array() ){
 		'taxonomies'         => $taxonomies,
 		'menu_icon'          => $icon,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions', 'custom-fields' )
 	);
 	register_post_type( $name, $args );
 
