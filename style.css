@@ -167,6 +167,9 @@ FIN DE MAPA DE CONTENIDOS */
   --txtCenter: center;
 
 
+  --grid_1_2_3_GTC: 1fr;
+  --grid_1_2_4_GTC: 1fr;
+
   /* ?COMPONENTES */
 
   /* ?menus */
@@ -205,9 +208,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   /* NOTICIAS ATF */
-
-  --grid_1_2_3_GTC: 1fr;
-  --grid_1_2_4_GTC: 1fr;
 
   --noticiasFeaturedPost1GC: 1/-1;
   --noticiasFeaturedPost1GR: 2;
@@ -342,6 +342,8 @@ FIN DE MAPA DE CONTENIDOS */
     --desktop_static_mobile_fixed: static;
     --desktop_column_mobile_row: column;
 
+    --grid_1_2_3_GTC: 1fr 1fr;
+
     /* ?COMPONENTES */
 
     /* ?menus */
@@ -380,10 +382,6 @@ FIN DE MAPA DE CONTENIDOS */
     --noticiasFeaturedPost3GR: 3;
 
 
-
-    /* NOTICIAS ATF */
-
-    --grid_1_2_3_GTC: 1fr 1fr;
 
     /* DPTOS ATF */
 
@@ -428,6 +426,8 @@ FIN DE MAPA DE CONTENIDOS */
     --bigTxt: 24px;
     --extraBigTxt: 32px;
 
+    --grid_1_2_3_GTC:1fr 1fr 1fr;
+    --grid_1_2_4_GTC:repeat(4,1fr);
 
 
     /* ?HEADER */
@@ -453,10 +453,7 @@ FIN DE MAPA DE CONTENIDOS */
     --equipoATFHgroupWidth: 40%;
     --know_us_btn_margin: auto auto 1rem 2rem;
 
-    /* NOTICIAS ATF */
 
-    --grid_1_2_3_GTC:1fr 1fr 1fr;
-    --grid_1_2_4_GTC:repeat(4,1fr);
 
 
 
