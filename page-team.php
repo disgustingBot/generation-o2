@@ -67,7 +67,7 @@
   <?php
   $args=array(
     'post_type' => 'equipo',
-    // 'posts_per_page'=> 4,
+    'posts_per_page'=> -1,
   );
   $equipo=new WP_Query();
   $equipo->query($args);
