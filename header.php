@@ -57,7 +57,7 @@
         <a href="#" class="hidden_list_menu_link">&#187;Donar 100€!</a>
       </li>
     </ul>
-    <div class="hamburger_menu" onclick="altClassFromSelector('navigation_menu_visible','.header')">
+    <div class="hamburger_menu" onclick="altClassFromSelector('active','.header')">
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
