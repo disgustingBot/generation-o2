@@ -198,8 +198,10 @@ FIN DE MAPA DE CONTENIDOS */
   /* EQUIPO ATF */
 
   --equipoATFDisplay: flex;
+  --equipo_ATF_headline: 1rem auto;
   --equipoATFImgWidth: 100%;
   --equipoATFHgroupWidth: 100%;
+  --know_us_btn_margin: 1rem auto;
 
 
   /* NOTICIAS ATF */
@@ -236,6 +238,16 @@ FIN DE MAPA DE CONTENIDOS */
   --grid_1_2_GTC: 1fr;
   --footerFormGC: unset;
 
+
+  /* ?overlap card */
+
+  --overlap_card_caption_width: 90%;
+  --overlap_card_caption_GTC: 1fr;
+  --vertical_line_display: none;
+  --overlap_card_caption_GG: 0;
+
+  /* ?single content */
+  --single_content_padding_top: 6rem;
 
 
 
@@ -298,6 +310,15 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ?FOOTER */
 
+    /* ?overlap card */
+
+    --overlap_card_caption_GTC: 1fr min-content 1fr;
+    --vertical_line_display: block;
+    --overlap_card_caption_GG: 1rem;
+    --single_content_padding_top: 4rem;
+
+
+
 
   }
 }
@@ -347,7 +368,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* EQUIPO ATF */
-    --equipoATFDisplay: grid;
+
 
     --noticiasFeaturedPost1GC: 1;
     --noticiasFeaturedPost1GR: 2/4;
@@ -384,6 +405,11 @@ FIN DE MAPA DE CONTENIDOS */
     --grid_1_1-2_GTC: 1fr 2fr;
     --grid_1_2_GTC: 1fr 1fr;
     --footerFormGC: 2/4;
+
+    /* overlap card */
+
+    --overlap_card_caption_width: 60%;
+
   }
 }
 
@@ -421,9 +447,11 @@ FIN DE MAPA DE CONTENIDOS */
     --CTAContainerPadding: 2rem;
 
   /* EQUIPO ATF */
-
+    --equipoATFDisplay: grid;
+    --equipo_ATF_headline:  2rem auto auto 2rem;
     --equipoATFImgWidth: 55%;
     --equipoATFHgroupWidth: 40%;
+    --know_us_btn_margin: auto auto 1rem 2rem;
 
     /* NOTICIAS ATF */
 
@@ -433,6 +461,10 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ?FOOTER */
+
+    /* ?overlap card */
+
+    --overlap_card_caption_width: 50%;
   }
 }
 
@@ -457,7 +489,6 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* EQUIPO ATF */
     --equipoATFImgWidth: 55%;
-    --equipoATFHgroupWidth: 40%;
   }
 }
 
@@ -479,7 +510,6 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* EQUIPO ATF */
     --equipoATFImgWidth: 60%;
-    --equipoATFHgroupWidth: 50%;
   }
 }
 /* ---------------------------------------------------------------------------
@@ -628,7 +658,7 @@ main ul,main ol{list-style:unset}
 
 
 .single_content {
-  padding-top: 4rem;
+  padding-top: var(--single_content_padding_top);
 }
 
 .single_content {
@@ -761,8 +791,7 @@ hr {margin: 1rem 0}
 }
 
 .equipo_ATF .headline_hgroup {
-  /* margin: 2rem auto auto 2rem; */
-  margin: 2rem auto;
+  margin: var(--equipo_ATF_headline);
   width: var(--equipoATFHgroupWidth);
   padding: 0 var(--lateral);
 }
@@ -1127,6 +1156,7 @@ hr {margin: 1rem 0}
   display:grid;
   grid-gap:.5rem;
   align-items: center;
+  z-index: 1;
 }
 .hover_card_info:hover {
   opacity: 1;
@@ -1229,10 +1259,10 @@ hr {margin: 1rem 0}
 }
 .overlap_card_caption {
   display: grid;
-  grid-template-columns: 1fr min-content 1fr;
+  grid-template-columns: var(--overlap_card_caption_GTC);
   padding: 1rem;
-  grid-gap: 1rem;
-  width: 60%;
+  grid-gap: var(--overlap_card_caption_GG);
+  width: var(--overlap_card_caption_width);
   margin: auto auto 0 auto;
   box-shadow: var(--DP4);
   transform: translateY(50%);
@@ -1249,6 +1279,7 @@ hr {margin: 1rem 0}
   margin-top: .5rem;
 }
 .vertical_line {
+  display: var(--vertical_line_display);
   width: 2px;
   background: var(--grey3);
   border-radius: 2px;
@@ -1420,7 +1451,7 @@ hr {margin: 1rem 0}
 
 
 .know_us_btn {
-  margin: auto auto 1rem 2rem;
+  margin: var(--know_us_btn_margin);
   display: flex;
   align-items: center;
 }
