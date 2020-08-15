@@ -167,6 +167,9 @@ FIN DE MAPA DE CONTENIDOS */
   --txtCenter: center;
 
 
+  --grid_1_2_3_GTC: 1fr;
+  --grid_1_2_4_GTC: 1fr;
+
   /* ?COMPONENTES */
 
   /* ?menus */
@@ -203,9 +206,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   /* NOTICIAS ATF */
-
-  --grid_1_2_3_GTC: 1fr;
-  --grid_1_2_4_GTC: 1fr;
 
   --noticiasFeaturedPost1GC: 1/-1;
   --noticiasFeaturedPost1GR: 2;
@@ -321,6 +321,8 @@ FIN DE MAPA DE CONTENIDOS */
     --desktop_static_mobile_fixed: static;
     --desktop_column_mobile_row: column;
 
+    --grid_1_2_3_GTC: 1fr 1fr;
+
     /* ?COMPONENTES */
 
     /* ?menus */
@@ -360,10 +362,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-    /* NOTICIAS ATF */
-
-    --grid_1_2_3_GTC: 1fr 1fr;
-
     /* DPTOS ATF */
 
     --depto_ATF_display: grid;
@@ -402,6 +400,8 @@ FIN DE MAPA DE CONTENIDOS */
     --bigTxt: 24px;
     --extraBigTxt: 32px;
 
+    --grid_1_2_3_GTC:1fr 1fr 1fr;
+    --grid_1_2_4_GTC:repeat(4,1fr);
 
 
     /* ?HEADER */
@@ -425,10 +425,7 @@ FIN DE MAPA DE CONTENIDOS */
     --equipoATFImgWidth: 55%;
     --equipoATFHgroupWidth: 40%;
 
-    /* NOTICIAS ATF */
 
-    --grid_1_2_3_GTC:1fr 1fr 1fr;
-    --grid_1_2_4_GTC:repeat(4,1fr);
 
 
 
