@@ -40,27 +40,30 @@
 
 
 <section class="filterable" id="filterable">
-  <div class="filter_menu" id="filter_menu">
 
-    <?php $terms = get_terms( array(
-      'taxonomy' => 'area',
-      'parent'   => 0
-    ) );
-    foreach ($terms as $term) {
-      echo '<style>';
-      echo ".$term->slug .$term->slug{display:grid}";
-      echo "[class='filterable'] .$term->slug{display:grid}";
-      echo '</style>';
-      ?>
-    <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><?php echo $term->name; ?></p>
-  <?php } ?>
-  </div>
+  <div class="filter_container" id="filter_container">
+    <div class="filter_menu" id="filter_menu">
 
-  <div class="hamburger_menu_equipo">
-    <div class="hamburger_menu" onclick="altClassFromSelector('mobileNavMenu','#body')">
-      <span class="hamStripe"></span>
-      <span class="hamStripe"></span>
-      <span class="hamStripe"></span>
+      <?php $terms = get_terms( array(
+        'taxonomy' => 'area',
+        'parent'   => 0
+      ) );
+      foreach ($terms as $term) {
+        echo '<style>';
+        echo ".$term->slug .$term->slug{display:grid}";
+        echo "[class='filterable'] .$term->slug{display:grid}";
+        echo '</style>';
+        ?>
+      <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><?php echo $term->name; ?></p>
+    <?php } ?>
+    </div>
+
+    <div class="hamburger_menu_equipo">
+      <div class="hamburger_menu" onclick="altClassFromSelector('active','#filter_container')">
+        <span class="hamStripe"></span>
+        <span class="hamStripe"></span>
+        <span class="hamStripe"></span>
+      </div>
     </div>
   </div>
 

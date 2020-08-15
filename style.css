@@ -795,7 +795,6 @@ hr {margin: 1rem 0}
 
 
 
-
 .hamburger_menu_equipo {
   padding: 16px;
   display: flex;
@@ -809,8 +808,6 @@ hr {margin: 1rem 0}
   width: 60px;
   height: 60px;
   box-shadow: var(--DP8);
-  position: sticky;
-  top: 0;
 }
 
 .hamburger_menu_equipo .hamburger_menu {
@@ -1603,7 +1600,10 @@ hr {margin: 1rem 0}
   position: relative;
   overflow-x: hidden;
 }
-
+.filter_container{
+  position: relative;
+  grid-column:1/-1;
+}
 .filter_menu{
   display: grid;
   position: absolute;
