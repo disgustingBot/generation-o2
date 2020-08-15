@@ -761,8 +761,8 @@ hr {margin: 1rem 0}
 }
 
 .equipo_ATF .headline_hgroup {
-  /* margin: 2rem auto auto 2rem; */
-  margin: 2rem auto;
+  margin: 2rem auto auto 2rem;
+  /* margin: 2rem auto; */
   width: var(--equipoATFHgroupWidth);
   padding: 0 var(--lateral);
 }
@@ -1127,6 +1127,7 @@ hr {margin: 1rem 0}
   display:grid;
   grid-gap:.5rem;
   align-items: center;
+  z-index: 1;
 }
 .hover_card_info:hover {
   opacity: 1;
