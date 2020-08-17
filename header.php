@@ -41,22 +41,25 @@
       <?php  include 'inc/socialmedia.php'; ?>
     </div>
 
-    <p href="#" class="btn_dona" onclick="altClassFromSelector('active', '.hidden_list_menu')">(Dona)</p>
-    <ul class="hidden_list_menu">
-      <p class="close_hidden_list" onclick="altClassFromSelector('active', '.hidden_list_menu')">+</p>
-      <li class="hidden_list_menu_item">
-        <a href="#" class="hidden_list_menu_link">&#187;Donar 10€</a>
-      </li>
-      <li class="hidden_list_menu_item">
-        <a href="#" class="hidden_list_menu_link">&#187;Donar 20€</a>
-      </li>
-      <li class="hidden_list_menu_item">
-        <a href="#" class="hidden_list_menu_link">&#187;Donar 50€!</a>
-      </li>
-      <li class="hidden_list_menu_item">
-        <a href="#" class="hidden_list_menu_link">&#187;Donar 100€!</a>
-      </li>
-    </ul>
+    <div class="btn_dona">
+      <p class="dona_p" onclick="altClassFromSelector('active', '.hidden_list_menu')">(Dona)</p>
+      <ul class="hidden_list_menu">
+        <p class="close_hidden_list" onclick="altClassFromSelector('active', '.hidden_list_menu')">+</p>
+        <li class="hidden_list_menu_item">
+          <a href="#" class="hidden_list_menu_link">&#187;Donar 10€</a>
+        </li>
+        <li class="hidden_list_menu_item">
+          <a href="#" class="hidden_list_menu_link">&#187;Donar 20€</a>
+        </li>
+        <li class="hidden_list_menu_item">
+          <a href="#" class="hidden_list_menu_link">&#187;Donar 50€!</a>
+        </li>
+        <li class="hidden_list_menu_item">
+          <a href="#" class="hidden_list_menu_link">&#187;Donar 100€!</a>
+        </li>
+      </ul>
+    </div>
+
     <div class="hamburger_menu" onclick="altClassFromSelector('active','.header')">
       <span class="hamStripe"></span>
       <span class="hamStripe"></span>
