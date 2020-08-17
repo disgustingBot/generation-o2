@@ -29,6 +29,7 @@
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
   'hide_empty' => false,
+  'orderby' => 'lt_meta_order'
 ));
 
 // Loop through all terms with a foreach loop
@@ -39,7 +40,7 @@ foreach( $terms as $term ) { ?>
     </a>
     <hgroup class="card_caption">
       <a href="<?php echo get_term_link($term->term_id); ?>"><h4 class="card_caption_title"><?php echo $term->name; ?></h4></a>
-      <a href="<?php echo get_term_link($term->term_id); ?>"><h5 class="card_caption_txt"><?php echo (get_term_meta( $term->term_id, 'lt_meta_short_description', true )); ?></h5></a>
+      <a href="<?php echo get_term_link($term->term_id); ?>"><h5 class="card_caption_txt"><?php echo substr(get_term_meta( $term->term_id, 'lt_meta_short_description', true ), 0, 90); ?></h5></a>
     </hgroup>
   </article>
 <?php } ?>
