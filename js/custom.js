@@ -91,7 +91,8 @@ for (i = 0; i < acc.length; i++) {
 
 
 function captchaVerified(){
-  var boton = d.querySelectorAll('.butttonSend');
+  // console.log('pepepepepepe')
+  var boton = [...d.querySelectorAll('.buttonSend')];
   boton.forEach( x => {x.removeAttribute('disabled')});
 
   // boton.removeAttribute('disabled');

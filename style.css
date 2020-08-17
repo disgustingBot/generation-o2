@@ -1769,3 +1769,12 @@ main ul ul {list-style-type: square;}
   background: var(--primaryColor);
   padding:  1rem var(--lateral);
 }
+
+
+
+
+
+
+
+
+.g-recaptcha{grid-column:1/-1}
