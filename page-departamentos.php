@@ -11,6 +11,8 @@
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
   'hide_empty' => false,
+  'orderby' => 'meta_value_num',
+  'meta_key'=> 'lt_meta_order',
 ));
 
 // var_dump($terms);

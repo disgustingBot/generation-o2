@@ -160,7 +160,7 @@ FIN DE MAPA DE CONTENIDOS */
   --desktop_0_mobile_auto: auto;
   --desktop_auto_mobile_0: 0;
   --desktop_row_mobile_column: column;
-  --desktop_static_mobile_fixed: fixed;
+  --desktop_static_mobile_fixed: absolute;
   --desktop_column_mobile_row: row;
 
   --txtCenterLeft: center;
@@ -177,8 +177,9 @@ FIN DE MAPA DE CONTENIDOS */
   /* ?menus */
 
   /* ?navigation_menu */
-  --navigation_menu_height: calc(100vh - 81px);
+  --navigation_menu_height: calc(100vh - 90px);
   --navigation_menu_transform_x: translateX(100%);
+  --navigation_menu_GTR: 1fr min-content;
 
 
 
@@ -187,6 +188,7 @@ FIN DE MAPA DE CONTENIDOS */
   --logo_height: 50px;
   --header_auto_columns: 1fr;
   --hidden_list_menu_active_top: 50px;
+  --navigation_menu_padding: 2rem 0;
 
 
   /* ATFS */
@@ -199,7 +201,6 @@ FIN DE MAPA DE CONTENIDOS */
   --frontPageCTAGC: 2/10;
   --overlaidGC: span 5;
   --frontPageCTAGTC: auto;
-  --CTAContainerPadding: 1rem;
 
   /* EQUIPO ATF */
 
@@ -354,6 +355,8 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?navigation_menu */
     --navigation_menu_height: unset;
     --navigation_menu_transform_x: translateX(0);
+    --navigation_menu_GTR: unset;
+
 
 
 
@@ -362,18 +365,20 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?HEADER */
     --header_auto_columns: unset;
     --hidden_list_menu_active_top: 70px;
+    --navigation_menu_padding: unset;
 
 
-    /* ATFS */
 
-    /* FRONT PAGE ATF */
+    /* ?ATFS */
+
+    /* ?FRONT PAGE ATF */
 
     --frontPageATFGTC: repeat(9, 1fr);
     --frontPageCTAGC: 2/9;
     --overlaidGC: span 3;
 
 
-    /* EQUIPO ATF */
+    /* ?EQUIPO ATF */
 
 
     --noticiasFeaturedPost1GC: 1;
@@ -387,19 +392,19 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-    /* DPTOS ATF */
+    /* ?DPTOS ATF */
 
     --depto_ATF_display: grid;
     --depto_ATF_transp_GG: unset;
     --depto_ATF_transp_FD: unset;
 
 
-    /* SUMATE */
+    /* ?SUMATE */
 
     --form_width: 70%;
 
 
-    /* CTAs */
+    /* ?CTAs */
     --page_CTA_full_screen_Width: 60%;
 
 
@@ -408,7 +413,7 @@ FIN DE MAPA DE CONTENIDOS */
     --grid_1_2_GTC: 1fr 1fr;
     --footerFormGC: 2/4;
 
-    /* overlap card */
+    /* ?overlap card */
 
     --overlap_card_caption_width: 60%;
 
@@ -448,7 +453,6 @@ FIN DE MAPA DE CONTENIDOS */
     --frontPageCTAGC: 8/11;
     --overlaidGC: span 2;
     --frontPageCTAGTC: auto;
-    --CTAContainerPadding: 2rem;
 
   /* EQUIPO ATF */
     --equipoATFDisplay: grid;
@@ -675,32 +679,32 @@ main ul,main ol{list-style:unset}
 
 
 
-.single_content li {
+main li {
   padding-left: 16px;
 }
 
-.single_content a,
-.single_content h1,
-.single_content h2,
-.single_content h3,
-.single_content h4,
-.single_content h5,
-.single_content h6 {
+main a,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   margin-bottom: 1rem;
 }
 
 hr {margin: 1rem 0}
 
-.single_content a,
-.single_content h1,
-.single_content h2,
-.single_content h3,
-.single_content h4,
-.single_content h5,
-.single_content h6,
-.single_content ol,
-.single_content ul {list-style-type: circle}
-.single_content ul ul {list-style-type: square;}
+main a,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
+main ol,
+main ul {list-style-type: circle}
+main ul ul {list-style-type: square;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -725,10 +729,12 @@ hr {margin: 1rem 0}
   display: grid;
   grid-column: var(--frontPageCTAGC);
   text-align: var(--txtCenter)!important;
-  padding: .5rem;
   grid-gap: .5rem;
   justify-content: center;
   grid-template-columns: var(--frontPageCTAGTC);
+  width: 90%;
+  margin: auto;
+  height: max-content;
 }
 .page_CTA_full_screen {
   display: grid;
@@ -742,7 +748,7 @@ hr {margin: 1rem 0}
 }
 .page_CTA_title {
   text-align: center;
-  font-size: var(--mediumTxt);
+  font-size: var(--smallTxt);
   height: max-content;
   margin: auto;
   line-height: 24px;
@@ -757,7 +763,7 @@ hr {margin: 1rem 0}
 .CTA_container {
   display: grid;
   box-shadow: var(--DP8);
-  padding: var(--CTAContainerPadding);
+  padding: 1rem;
   border-radius: 8px;
   grid-gap: .5rem;
   background: var(--grey20);
@@ -768,7 +774,7 @@ hr {margin: 1rem 0}
   font-weight: bolder;
   margin: auto;
   text-align: center;
-  font-size: var(--extraBigTxt);
+  font-size: var(--bigTxt);
 }
 
 .CTA_link {
@@ -1397,6 +1403,12 @@ hr {margin: 1rem 0}
 .form_sumarme_como_radio {margin-right: 8px;}
 .sumarme_textarea {grid-column: 1/-1;min-height: 200px;}
 .sumarme_textarea .form_input {height: 100%; padding: 8px;}
+@media not all and (min-resolution:.001dpcm) {
+  @media {.sumarme_textarea .form_input {height: calc(100% - 4px)}}
+}
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+  @media {.sumarme_textarea .form_input {height: calc(100% - 4px)}}
+}
 .form .btn {grid-column: 1/-1;}
 
 /* ---------------------------------------------------------------------------
@@ -1546,7 +1558,7 @@ hr {margin: 1rem 0}
   right: 50%;
   background: var(--greyF);
   padding: 20px;
-  width: max-content;
+  width: 170px;
   border: 1px solid var(--grey8);
   border-radius: 4px;
   transform: translateX(50%);
@@ -1596,9 +1608,11 @@ hr {margin: 1rem 0}
   height: var(--navigation_menu_height);
   background: white;
   left: 0;
-  bottom: 0;
+  top: 90px;
   transform: var(--navigation_menu_transform_x);
   transition: .25s;
+  grid-template-rows: var(--navigation_menu_GTR);
+  padding: var(--navigation_menu_padding);
 }
 
 .active .navigation_menu {

@@ -119,7 +119,7 @@
     </div>
     <div class="form_checkbox">
       <input type="checkbox" required>
-      <p class="termsDescription">Acepto los <a href="#" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
+      <p class="termsDescription">Acepto los <a href="https://generacion-o2.org/politica-privacidad/" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
     </div>
     <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
     <input class="recaptcha" type="text" hidden value="">

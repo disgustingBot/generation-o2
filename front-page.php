@@ -22,14 +22,16 @@
       <a class="btn CTA_link" href="<?php echo get_post_meta($post->ID, '3-link-CTA', true); ?>" target="_blank"><?php echo get_post_meta($post->ID, '4-texto-link-CTA', true); ?></a>
     </div>
   </aside>
-
+</section>
+<section class="grid front_page_ATF section_padding">
   <?php
 
 
 $terms = get_terms( array(
   'taxonomy'   => 'departamento', // Swap in your custom taxonomy name
   'hide_empty' => false,
-  'orderby' => 'lt_meta_order'
+  'orderby' => 'meta_value_num',
+  'meta_key'=> 'lt_meta_order',
 ));
 
 // Loop through all terms with a foreach loop
