@@ -6,6 +6,7 @@ require_once 'inc/multi-cards.php';
 
 function lt_scripts(){
   wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
+	wp_enqueue_script('modules', get_theme_file_uri('/js/modules.js'), NULL, microtime(), true);
   wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 }
 add_action('wp_enqueue_scripts', 'lt_scripts');

@@ -10,6 +10,8 @@ w.onload=()=>{
     lIs.forEach(lI=>{lIO.observe(lI)});lBs.forEach(lB=>{lBO.observe(lB)});
   }
 
+	growUpController.setup()
+	obseController.setup()
   d.getElementById("load").style.top="-100vh";
 }
 
