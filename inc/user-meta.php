@@ -243,6 +243,25 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
+
+
+        
+        
+        <tr>
+            <th>
+                <label for="lt_nota">Nota</label>
+            </th>
+            <td>
+                <textarea
+                    class="form_input"
+                    id="lt_nota"
+                    title="Nota del socio y/o voluntario."
+                    name="nota"><?= esc_attr( get_user_meta( $user->ID, 'nota', true ) ) ?></textarea>
+                <p class="description">
+                    Ingrese aqui comentarios respecto del voluntario/socio.
+                </p>
+            </td>
+        </tr>
         
     </table>
     <?php
@@ -273,6 +292,7 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
         'dia_de_pago'        => $_POST[ 'dia_de_pago' ],
         'departamento'       => $_POST[ 'departamento' ],
         'subscription_type'  => $_POST[ 'subscription_type' ],
+        'nota'               => $_POST[ 'nota' ],
     );
 
     

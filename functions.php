@@ -1,6 +1,7 @@
 <?php
 
 require_once 'inc/customPosts.php';
+require_once 'inc/formHandler.php';
 require_once 'inc/user-meta.php';
 require_once 'inc/multi-cards.php';
 
@@ -28,27 +29,6 @@ function lt_setup_theme() {
 add_action('after_setup_theme', 'lt_setup_theme');
 
 
-function lt_init() {
-  // if ( get_option( 'custom_roles_version' ) < 1 ) {
-
-
-  //   add_role( 'socio', 'Socio', array(
-  //     'read' => true,
-  //     'level_0' => true
-  //   ) );
-
-  //   add_role( 'voluntario', 'Voluntario', array(
-  //     'read' => true,
-  //     'level_0' => true
-  //   ) );
-
-  //   update_option( 'custom_roles_version', 1 );
-  // }
-  $wp_roles = new WP_Roles(); // create new role objects
-  $wp_roles->remove_role('socio');
-  $wp_roles->remove_role('voluntario');
-}
-add_action( 'init', 'lt_init' );
 
 
 
@@ -248,22 +228,22 @@ function lt_sumate(){
     // recaptcha
 
 
-    // $site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
-    // $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
+    $site = '6LeE7b8ZAAAAAJSXcqghZa6spv9aUCuaZm1k8hjh';
+    $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
 
-    // $response = $_POST['g-recaptcha-response'];
-    // $payload = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$scrt.'&response='.$response);
-    // // echo $payload;
-    // $result = json_decode($payload,true);
-    // if ($result['success']!=1) {
-    //    // code...
-    //    // header( "Location: https://multiviahr.info/?mail=BOT" );
-    //    // $link = add_query_arg( array( 'status' => 'bot' , ), $link );
-    //    // echo 'you are evil or a bott';
-    //    // exit;
-    //     $action='bot';
-    //    // return false;
-    // } else {
+    $response = $_POST['g-recaptcha-response'];
+    $payload = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$scrt.'&response='.$response);
+    // echo $payload;
+    $result = json_decode($payload,true);
+    if ($result['success']!=1) {
+       // code...
+       // header( "Location: https://multiviahr.info/?mail=BOT" );
+       // $link = add_query_arg( array( 'status' => 'bot' , ), $link );
+       // echo 'you are evil or a bott';
+       // exit;
+        $action='bot';
+       // return false;
+    } else {
 
 
 
@@ -314,21 +294,23 @@ function lt_sumate(){
       
 
       $metas = array( 
-        'dni'           => $_POST[ 'dni' ],
-        'ciudad'        => $_POST[ 'ciudad' ],
-        'codigo_postal' => $_POST[ 'codigo_postal' ],
-        'domicilio'     => $_POST[ 'domicilio' ],
-        'cuenta'        => $_POST[ 'cuenta' ],
-        'telefono'      => $_POST[ 'telefono' ],
-        'socio'         => $_POST[ 'socio' ],
-        'voluntario'    => $_POST[ 'voluntario' ],
-        'cantidad'      => $_POST[ 'cantidad' ],
-        'dia_de_pago'   => $_POST[ 'dia_de_pago' ],
-        'departamento'  => $_POST[ 'departamento' ],
-    );
-    foreach($metas as $key => $value) {
-        update_user_meta( $user_id, $key, $value );
-    }
+        'dni'                => $_POST[ 'dni' ],
+        'ciudad'             => $_POST[ 'ciudad' ],
+        'codigo_postal'      => $_POST[ 'codigo_postal' ],
+        'domicilio'          => $_POST[ 'domicilio' ],
+        'cuenta'             => $_POST[ 'cuenta' ],
+        'telefono'           => $_POST[ 'telefono' ],
+        'socio'              => $_POST[ 'socio' ],
+        'voluntario'         => $_POST[ 'voluntario' ],
+        'cantidad'           => $_POST[ 'cantidad' ],
+        'dia_de_pago'        => $_POST[ 'dia_de_pago' ],
+        'departamento'       => $_POST[ 'departamento' ],
+        'subscription_type'  => $_POST[ 'subscription_type' ],
+        'nota'               => $_POST[ 'nota' ],
+      );
+      foreach($metas as $key => $value) {
+          update_user_meta( $user_id, $key, $value );
+      }
       
       // $hash = hash ( 'sha256' , time() . $mail );
       // update_user_meta( $user_id, 'confirmation', $hash );
@@ -353,13 +335,13 @@ function lt_sumate(){
 
 
       $action='register';
-    // }
+    }
 
   }
 
   $link = add_query_arg( array(
     // 'status' => $status,
-    'action' => $action,
+    'status' => $action,
     // 'mail'   => $mail,
     // 'resultado' => username_exists( $mail ),
   ), $link );

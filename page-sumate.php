@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<?php
+$site = '6LeE7b8ZAAAAAJSXcqghZa6spv9aUCuaZm1k8hjh';
+$scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
+?>
+
 <section class="grid sumate_ATF">
   <hgroup class="headline_hgroup section_padding">
     <h2 class="hedline_title"><?php echo get_post_meta($post->ID, '1_titulo', true); ?></h2>
@@ -34,23 +39,18 @@
     </div>
 
     <div class="form_imp">
-        <label class="form_label" for="sumate_telefono">Ciudad de residencia</label>
+        <label class="form_label" for="sumate_telefono">Telefono</label>
         <input class="form_input" type="text" name="telefono" id="sumate_telefono">
     </div>
 
     <div class="form_imp">
-        <label class="form_label" for="sumate_residencia">Ciudad de residencia</label>
-        <input class="form_input" type="text" name="telefono" id="sumate_residencia">
-    </div>
-
-    <div class="form_imp">
-        <label class="form_label" for="sumate_ciudad">ciudad</label>
+        <label class="form_label" for="sumate_ciudad">Ciudad de residencia</label>
         <input class="form_input" type="text" name="ciudad" id="sumate_ciudad">
     </div>
 
     <div class="form_imp">
-        <label class="form_label" for="sumate_codigo_postal">codigo postal</label>
-        <input class="form_input" type="number" name="codigo_postal" id="sumate_codigo_postal">
+        <label class="form_label" for="sumate_codigo_postal">Codigo postal</label>
+        <input class="form_input" type="text" name="codigo_postal" id="sumate_codigo_postal">
     </div>
 
     <div class="form_imp">
@@ -117,12 +117,16 @@
         <label class="form_label" for="sumate_nota">Nota</label>
         <textarea class="form_input" type="text" id="sumate_nota" name="nota"></textarea>
     </div>
+
     <div class="form_checkbox">
       <input type="checkbox" required>
       <p class="termsDescription">Acepto los <a href="#" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
     </div>
+
     <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
     <input class="recaptcha" type="text" hidden value="">
+
+    
 
     <button class="btn" type="submit">Sumarme</button>
 </form>
