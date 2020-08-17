@@ -38,9 +38,9 @@
     </form>
     <p class="copyright">© Copyright 2019 - Todos los derechos reservados</p>
   </footer>
-  <sign class="signature">
+  <!-- <sign class="signature">
     <p>&#60;&#47;&#62; width ❤️ by <a href="https://lattedev.com/" target="_blank" class="latteLink">Latte</a></p>
-  </sign>
+  </sign> -->
   <?php wp_footer(); ?>
 </body>
 </html>
