@@ -184,6 +184,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   --logo_height: 50px;
   --header_auto_columns: 1fr;
+  --hidden_list_menu_active_top: 50px;
 
 
   /* ATFS */
@@ -358,6 +359,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ?HEADER */
     --header_auto_columns: unset;
+    --hidden_list_menu_active_top: 70px;
 
 
     /* ATFS */
@@ -669,6 +671,8 @@ main ul,main ol{list-style:unset}
   text-align: var(--textAlignJustifyLeft);
 }
 
+
+
 .single_content li {
   padding-left: 16px;
 }
@@ -940,7 +944,6 @@ hr {margin: 1rem 0}
   top: 0;
   background: white;
   z-index: 5;
-  overflow-x: hidden;
 }
 
 /* Modificadores del header */
@@ -1047,11 +1050,14 @@ hr {margin: 1rem 0}
   margin: auto;
 }
 
-.social_svg {
+.social_link {
   width: 20px;
   height: 20px;
-  color: var(--primaryColor);
   margin: 4px;
+}
+
+.social_svg {
+  color: var(--primaryColor);
   transition: .25s;
 }
 
@@ -1279,10 +1285,24 @@ hr {margin: 1rem 0}
   background: var(--grey3);
   border-radius: 2px;
 }
+.overlap_card_social_container  {
+  width: min-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .overlap_card_social_container .social_svg {
   color: var(--secondaryColor);
   height: 35px;
   width: 35px;
+}
+.overlap_card_social_container .social_link {
+  height: 35px;
+  width: 35px;
+}
+.overlap_card_social_container .social_container {
+  margin: unset;
 }
 .overlap_card_social_title {
   text-align: center;
@@ -1342,6 +1362,16 @@ hr {margin: 1rem 0}
   text-align: center;
   margin: 1rem auto;
   font-weight: bold;
+}
+.form_checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--extraSmallTxt);
+  grid-column: 1/-1;
+}
+.form_checkbox input {
+  margin-right: 8px;
 }
 .form_sumarme_como {
   display: grid;
@@ -1406,11 +1436,15 @@ hr {margin: 1rem 0}
   color: var(--secondaryColor);
   font-size: var(--extraBigTxt);
   font-weight: bolder;
-  height: max-content;
+  height: var(--logo_height);
   margin: auto;
   position: relative;
   cursor: pointer;
   transition: .25s;
+  display: grid;
+}
+.dona_p {
+  margin: auto;
 }
 
 .btn_dona:hover {
@@ -1505,22 +1539,22 @@ hr {margin: 1rem 0}
 
 
 .hidden_list_menu {
-  position: fixed;
-  top: 100px;
-  right: 0;
+  position: absolute;
+  top: -200px;
+  right: 50%;
   background: var(--greyF);
   padding: 20px;
   width: max-content;
   border: 1px solid var(--grey8);
   border-radius: 4px;
-  transform: translateX(105%);
+  transform: translateX(50%);
   transition: .25s;
   opacity: 0;
 }
 
 .hidden_list_menu.active {
   opacity: 1;
-  transform: translateX(0);
+  top: var(--hidden_list_menu_active_top);
 }
 
 .close_hidden_list {
@@ -1536,7 +1570,7 @@ hr {margin: 1rem 0}
 }
 
 .hidden_list_menu_item {
-  font-size: var(--bigTxt);
+  font-size: var(--smallTxt);
   margin-bottom: 5px;
 }
 
@@ -1641,9 +1675,15 @@ hr {margin: 1rem 0}
   width: max-content;
   margin: 1rem auto;
 }
+
+.footer .social_link {
+  width: 30px;
+  height: auto;
+}
+
 .footer .social_container .social_svg {
   color: var(--secondaryColor);
-  width: 30px;
+  width: 100%;
   height: auto;
 }
 .footer .social_container .social_svg:hover {

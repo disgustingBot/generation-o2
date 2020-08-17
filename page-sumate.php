@@ -117,6 +117,12 @@
         <label class="form_label" for="sumate_nota">Nota</label>
         <textarea class="form_input" type="text" id="sumate_nota" name="nota"></textarea>
     </div>
+    <div class="form_checkbox">
+      <input type="checkbox" required>
+      <p class="termsDescription">Acepto los <a href="#" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
+    </div>
+    <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+    <input class="recaptcha" type="text" hidden value="">
 
     <button class="btn" type="submit">Sumarme</button>
 </form>

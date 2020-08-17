@@ -11,7 +11,7 @@
     <div class="vertical_line"></div>
     <div class="overlap_card_social_container grid">
       <p class="overlap_card_social_title">Comparte</p>
-      <?php  include 'inc/socialmedia.php'; ?>
+      <?php  include 'inc/socialsharing.php'; ?>
     </div>
   </div>
 </section>
