@@ -6,7 +6,7 @@
     <h1 class="title">Equipo de Generaci<span class="secondary_color">ó</span>n o2</h1>
     <h5 class="txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan.</h5>
   </hgroup>
- 
+
   <div class="know_us_btn rowcol1">
     <svg class="know_us_SVG" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_ddd)">
@@ -54,7 +54,7 @@
         echo "[class='filterable'] .$term->slug{display:grid}";
         echo '</style>';
         ?>
-      <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><?php echo $term->name; ?></p>
+      <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><span style="font-weight:bolder;font-size: 12px;">>></span> <?php echo $term->name; ?></p>
     <?php } ?>
     </div>
 
