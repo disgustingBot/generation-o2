@@ -52,6 +52,8 @@ Version: 1.1
 6.8.2) =navigation_menu:
 6.8.3) =column_nav_bar:
 6.8.4) =filter_menu:
+6.9) =count:
+6.69) =redDot:
 6.99) =footer
 
 FIN DE MAPA DE CONTENIDOS */
@@ -644,7 +646,7 @@ main ul,main ol{list-style:unset}
   /* NO USAR, gap es genial para flex pero aun no tiene mucho soporte */
   /* gap:.5rem; */
   /* --margin: 1rem; */
-  --breakpoint: 768px;
+  /* --breakpoint: 768px; */
   /* margin: calc(var(--margin) * -1); */
 }
 .dady_break > * {
@@ -1627,6 +1629,46 @@ hr {margin: 1rem 0}
 .filter_menu_but{
   cursor: pointer;
 }
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.9) =count:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.count_container{
+  position: relative;
+  --breakpoint:calc(768px - var(--lateral) * 2);
+  padding: 1rem var(--lateral);
+}
+.count {
+  margin: 1rem auto;
+  min-height: 100%;
+  text-align: center;
+}
+.countNumber {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.countTxt {
+  font-size: 16px;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.69) =redDot:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+#sectioNSummaryAboutUsActivator{bottom:0}
+.redDot {
+  border-radius: 50%;
+  height: 3rem;
+  position: absolute;
+  right: 10vw;
+  width: 3rem!important;
+  z-index:12;
+}
+.redDot.test{background:red}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.99) =footer

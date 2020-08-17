@@ -15,6 +15,20 @@
   ?>
 </section>
 
+<section class="count_container dady_break">
+  <div class="redDot" id="growUpActivator"></div>
+
+  <div class="count">
+    <p class="countNumber">€<span class="GrowUp Obse" data-observe="#growUpActivator" data-unobserve="true" data-target="<?php echo get_term_meta( get_queried_object()->term_id, 'lt_meta_initial_founds', true ); ?>">0</span></p>
+    <p class="countTxt">Fondos recaudados desde la fundacion del departamento</p>
+  </div>
+  
+  <div class="count">
+    <p class="countNumber">€<span class="GrowUp Obse" data-observe="#growUpActivator" data-unobserve="true" data-target="<?php echo get_term_meta( get_queried_object()->term_id, 'lt_meta_yearly_founds', true ); ?>">0</span></p>
+    <p class="countTxt">Fondos recaudados desde principio de este año</p>
+  </div>
+</section>
+
 <section class="section_padding grid_1_2_3">
   <hgroup class="headline_hgroup section_padding grid_1_2_3_title">
     <h1 class="hedline_title">Proyectos <?php echo get_the_archive_title(); ?></h1>
