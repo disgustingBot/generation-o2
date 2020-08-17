@@ -15,9 +15,9 @@
     </div>
   </div>
 </section>
-<section class="single_content section_padding">
+<main class="single_content section_padding">
   <?php the_content() ?>
-</section>
+</main>
 
 
 
