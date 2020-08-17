@@ -1,4 +1,9 @@
 
+<?php
+// $site = '6LeE7b8ZAAAAAJSXcqghZa6spv9aUCuaZm1k8hjh';
+// $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
+?>
+
 
   <footer class="footer grid_1_1-2" id="footer">
 
@@ -38,8 +43,10 @@
         <input type="checkbox" required>
         <p class="termsDescription">Acepto los <a href="#" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
       </div>
-      <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
-      <input class="recaptcha" type="text" hidden value="">
+
+      <!-- <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div> -->
+      <!-- <input class="recaptcha" type="text" hidden value=""> -->
+
       <input class="btn contact_btn" type="submit" name="submit" value="ENVIAR">
     </form>
     <p class="copyright">© Copyright 2019 - Todos los derechos reservados</p>
@@ -48,6 +55,5 @@
     <p>&#60;&#47;&#62; width ❤️ by <a href="https://lattedev.com/" target="_blank" class="latteLink">Latte</a></p>
   </sign> -->
   <?php wp_footer(); ?>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>

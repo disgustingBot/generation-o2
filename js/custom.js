@@ -80,3 +80,21 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
+
+function captchaVerified(){
+  var boton = d.querySelectorAll('.butttonSend');
+  boton.forEach( x => {x.removeAttribute('disabled')});
+
+  // boton.removeAttribute('disabled');
+
+  // correctCaptcha('6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0');
+}
