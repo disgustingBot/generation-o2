@@ -142,6 +142,8 @@ function lt_custom_posts() {
 	lt_new_custom_post( 'equipo', 'dashicons-groups', array( 'area' ) );
 	lt_new_custom_post( 'colaborador', 'dashicons-heart', array( 'entidad' ) );
 
+	lt_new_custom_post( 'mail', 'dashicons-email' );
+
 
 
 	$lt_meta_short_description_labels = array(
