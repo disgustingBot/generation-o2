@@ -1,9 +1,3 @@
-
-<?php
-$site = '6Lc-4r8ZAAAAAD_iX9zuocu9AI4aGciv9XV-k-pe';
-$scrt = '6Lc-4r8ZAAAAAGb9BAhnlZROKcknHs26m__Yx122';
-?>
-
 <!DOCTYPE html>
 <html class="html" lang="en">
 <head>
@@ -11,14 +5,13 @@ $scrt = '6Lc-4r8ZAAAAAGb9BAhnlZROKcknHs26m__Yx122';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <script src="https://www.google.com/recaptcha/api.js"></script>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
   <?php wp_head(); ?>
 </head>
-<body class="body" id="body" <?php body_class(); ?>>
+<body <?php body_class('body'); ?> id="body">
 
 	<view id="load" class="load">
 			<div class="circle"></div>

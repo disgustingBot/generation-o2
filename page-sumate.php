@@ -128,7 +128,7 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
 
 
 
-    <button class="btn" type="submit">Sumarme</button>
+    <button class="btn buttonSend" disabled type="submit">Sumarme</button>
 </form>
 
 <?php get_footer(); ?>

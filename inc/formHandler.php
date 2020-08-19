@@ -15,14 +15,40 @@ function lt_form_handler() {
 	} else {
     $email='molinerozadkiel@gmail.com';
 
-		$subject='Form from '. $link;
-		$message='';
+    
 
-    foreach ($_POST as $key => $value) {
-      if ( $key != 'a00' && $key != 'action' && $key != 'link' && $key != 'status' && $key != 'submit' && $key != 'g-recaptcha-response' ) {
-        $message=$message.'<strong>'.$key.':</strong> '.$value.' - <br>';
-      }
+
+
+
+
+		// $message='';
+
+    // foreach ($_POST as $key => $value) {
+    //   if ( $key != 'a00' && $key != 'action' && $key != 'link' && $key != 'status' && $key != 'submit' && $key != 'g-recaptcha-response' ) {
+    //     $message=$message.'<strong>'.$key.':</strong> '.$value.' - <br>';
+    //   }
+    // }
+
+    $the_slug = 'contact-response';
+    $args=array(
+      'name'           => $the_slug,
+      'post_type'      => 'mail',
+      'post_status'    => 'publish',
+      'posts_per_page' => 1,
+    );
+    $mail=new WP_Query();
+    $mail->query($args);
+  
+    while($mail->have_posts()){$mail->the_post();
+      $subject = get_the_title();
+      $message = $message . get_the_content();
     }
+
+
+
+
+
+
 
     $headers = array('Content-Type: text/html; charset=UTF-8');
 

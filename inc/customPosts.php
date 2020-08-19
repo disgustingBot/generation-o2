@@ -142,6 +142,8 @@ function lt_custom_posts() {
 	lt_new_custom_post( 'equipo', 'dashicons-groups', array( 'area' ) );
 	lt_new_custom_post( 'colaborador', 'dashicons-heart', array( 'entidad' ) );
 
+	lt_new_custom_post( 'mail', 'dashicons-email' );
+
 
 
 	$lt_meta_short_description_labels = array(
@@ -172,6 +174,10 @@ function lt_custom_posts() {
 		'label'       => 'Fondos desde principio de año',
 		'description' => 'Insertar valor numérico sin divisa',
 	);
+	$lt_meta_order = array(
+		'label'       => 'Orden',
+		'description' => 'Orden de aparicion',
+	);
 	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'departamento', $meta_fields = array(
 		'lt_meta_short_description' => $lt_meta_short_description_labels,
 		'lt_meta_banner' => $lt_meta_banner_labels,
@@ -179,5 +185,9 @@ function lt_custom_posts() {
 		'lt_meta_img'    => $lt_meta_squad_labels,
 		'lt_meta_initial_founds'    => $lt_meta_initial_founds_labels,
 		'lt_meta_yearly_founds'    => $lt_meta_yearly_founds_labels,
+		'lt_meta_order'    => $lt_meta_order,
+	) );
+	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'area', $meta_fields = array(
+		'lt_meta_order'    => $lt_meta_order,
 	) );
 }
