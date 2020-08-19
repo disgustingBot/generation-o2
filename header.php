@@ -47,16 +47,7 @@
       <ul class="hidden_list_menu">
         <p class="close_hidden_list" onclick="altClassFromSelector('active', '.hidden_list_menu')">+</p>
         <li class="hidden_list_menu_item">
-          <a href="#" class="hidden_list_menu_link">&#187;Donar 10€</a>
-        </li>
-        <li class="hidden_list_menu_item">
-          <a href="#" class="hidden_list_menu_link">&#187;Donar 20€</a>
-        </li>
-        <li class="hidden_list_menu_item">
-          <a href="#" class="hidden_list_menu_link">&#187;Donar 50€!</a>
-        </li>
-        <li class="hidden_list_menu_item">
-          <a href="#" class="hidden_list_menu_link">&#187;Donar 100€!</a>
+          <a href="https://www.teaming.net/asociaciongo2" target="_blank" class="hidden_list_menu_link">&#187;Donar 1€</a>
         </li>
       </ul>
     </div>

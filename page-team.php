@@ -4,7 +4,7 @@
   <img class="rowcol1 lazy equipo_ATF_img" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
   <hgroup class="headline_hgroup rowcol1">
     <h1 class="title">Equipo de Generaci<span class="secondary_color">ó</span>n o2</h1>
-    <h5 class="txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan.</h5>
+    <h5 class="txt"><?php echo get_the_excerpt() ?></h5>
   </hgroup>
 
   <div class="know_us_btn rowcol1">
