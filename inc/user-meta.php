@@ -30,8 +30,8 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr> -->
-        
-        
+
+
         <tr>
             <th>
                 <label for="lt_dni">DNI / NIE</label>
@@ -49,7 +49,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_ciudad">Ciudad</label>
@@ -67,7 +67,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_codigo_postal">Codigo Postal</label>
@@ -85,7 +85,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_domicilio">Domicilio</label>
@@ -103,7 +103,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_cuenta">Cuenta Bancaria</label>
@@ -121,7 +121,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_telefono">Telefono</label>
@@ -139,7 +139,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <!-- <tr>
             <th>
                 <label for="lt_number">Numero</label>
@@ -157,7 +157,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr> -->
-        
+
         <tr>
             <th>
                 <label for="lt_socio">Socio</label>
@@ -181,14 +181,14 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_cantidad">Cantidad a donar</label>
             </th>
             <td>
 
-                
+
                 <select name="cantidad" id="lt_cantidad">
                     <option value="10" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "10" ) { echo "selected"; } ?>>10 euros al mes</option>
                     <option value="20" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "20" ) { echo "selected"; } ?>>20 euros al mes</option>
@@ -201,14 +201,14 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_dia_de_pago">Dia de pago</label>
             </th>
             <td>
 
-                
+
                 <select name="dia_de_pago" id="lt_dia_de_pago">
                     <option value="05" <?php if ( get_user_meta( $user->ID, 'dia_de_pago', true ) == "05" ) { echo "selected"; } ?>>El 05 de cada mes</option>
                     <option value="10" <?php if ( get_user_meta( $user->ID, 'dia_de_pago', true ) == "10" ) { echo "selected"; } ?>>El 10 de cada mes</option>
@@ -221,20 +221,20 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_departamento">Departamento</label>
             </th>
             <td>
 
-                
+
                 <select name="departamento" id="lt_departamento">
-                    <option value="d_ela" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_ela" ) { echo "selected"; } ?>>Departamento ELA</option>
-                    <option value="i_ela" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_ela" ) { echo "selected"; } ?>>Investigacion ELA</option>
-                    <option value="i_vih" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_vih" ) { echo "selected"; } ?>>Investigacion VIH</option>
-                    <option value="i_nma" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "i_nma" ) { echo "selected"; } ?>>Investigacion Niños mariposa</option>
-                    <option value="e_prp" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "e_prp" ) { echo "selected"; } ?>>Eleccion propia</option>
+                    <option value="d_salud" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_salud" ) { echo "selected"; } ?>>Salud</option>
+                    <option value="d_lgbt" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_lgbt" ) { echo "selected"; } ?>>LGBTI+</option>
+                    <option value="d_bienestar" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_bienestar" ) { echo "selected"; } ?>>Bienestar</option>
+                    <option value="d_nosotras" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_nosotras" ) { echo "selected"; } ?>>Nosotras</option>
+                    <option value="d_nosotras" <?php if ( get_user_meta( $user->ID, 'departamento', true ) == "d_nosotras" ) { echo "selected"; } ?>>Sostenibilidad</option>
                 </select>
 
 
@@ -245,8 +245,8 @@ function wporg_usermeta_form_field_birthday( $user )
         </tr>
 
 
-        
-        
+
+
         <tr>
             <th>
                 <label for="lt_nota">Nota</label>
@@ -262,7 +262,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
     </table>
     <?php
 }
@@ -281,7 +281,7 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
         return false;
     }
 
-    $metas = array( 
+    $metas = array(
         'dni'                => $_POST[ 'dni' ],
         'ciudad'             => $_POST[ 'ciudad' ],
         'codigo_postal'      => $_POST[ 'codigo_postal' ],
@@ -295,7 +295,7 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
         'nota'               => $_POST[ 'nota' ],
     );
 
-    
+
     // update_user_meta( $user_id, 'dni', $dni );
     // update_user_meta( $user_id, 'ciudad', $ciudad );
     // update_user_meta( $user_id, 'codigo_postal', $codigo_postal );
@@ -307,7 +307,7 @@ function wporg_usermeta_form_field_birthday_update( $user_id )
     // update_user_meta( $user_id, 'cantidad', $cantidad );
     // update_user_meta( $user_id, 'dia_de_pago', $dia_de_pago );
     // update_user_meta( $user_id, 'departamento', $departamento );
-    
+
     // update_user_meta( $user_id, 'nota', $nota );
 
     foreach($metas as $key => $value) {
@@ -399,11 +399,11 @@ function filter_by_meta( $which )
         <option value="">%s</option>%s</select>';
 
     // generate options
-    $options = '<option value="d_ela">Departamento ELA</option>
-                <option value="i_ela">Investigacion ELA</option>
-                <option value="i_vih">Investigacion VIH</option>
-                <option value="i_nma">Investigacion Niños mariposa</option>
-                <option value="e_prp">Eleccion propia</option>';
+    $options = '<option value="d_salud">Departamento ELA</option>
+                <option value="d_lgbt">Investigacion ELA</option>
+                <option value="d_bienestar">Investigacion VIH</option>
+                <option value="d_nosotras">Investigacion Niños mariposa</option>
+                <option value="d_nosotras">Eleccion propia</option>';
 
     // combine template and options
     $select = sprintf( $st, $which, __( 'Options...' ), $options );
@@ -412,7 +412,7 @@ function filter_by_meta( $which )
     echo $select;
 
 
-    
+
     // template for filtering
     $st = '<select name="lt_subscription_type_filter_%s" style="float:none;margin-left:10px;">
         <option value="">%s</option>%s</select>';
@@ -427,7 +427,7 @@ function filter_by_meta( $which )
 
     // output <select> and submit button
     echo $select;
-    
+
     submit_button(__( 'Filter' ), null, $which, false);
 }
 

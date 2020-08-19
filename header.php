@@ -5,7 +5,7 @@ $scrt = '6Lc-4r8ZAAAAAGb9BAhnlZROKcknHs26m__Yx122';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="html" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
