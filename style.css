@@ -208,7 +208,11 @@ FIN DE MAPA DE CONTENIDOS */
   --equipo_ATF_headline: 1rem auto;
   --equipoATFImgWidth: 100%;
   --equipoATFHgroupWidth: 100%;
-  --know_us_btn_margin: 1rem auto;
+  --know_us_btn_margin: 0 auto;
+  --filter_menu_FD: column;
+  --hamburguer_selector_container_FD: column;
+  --filter_menu_transform: unset;
+  --filter_menu_opacity: 1;
 
 
   /* NOTICIAS ATF */
@@ -390,6 +394,12 @@ FIN DE MAPA DE CONTENIDOS */
     --noticiasFeaturedPost3GC: 2;
     --noticiasFeaturedPost3GR: 3;
 
+    --filter_menu_FD: row;
+    --hamburguer_selector_container_FD: row;
+    --filter_menu_transform: translateX(105%);
+    --filter_menu_opacity: 0;
+
+
 
 
     /* ?DPTOS ATF */
@@ -544,8 +554,8 @@ FIN DE MAPA DE CONTENIDOS */
   padding:0;
   font-family: 'Montserrat', sans-serif;
 }
-
-body{display:grid; overflow-x: hidden;}
+.html{overflow-x: hidden}
+body{display:grid;overflow-x: hidden}
 img{object-fit:cover;width:100%}
 a{text-decoration:none}
 ul,ol{list-style:none}
@@ -809,7 +819,7 @@ main ul ul {list-style-type: square;}
 
 .hamburger_menu_equipo {
   padding: 16px;
-  display: flex;
+  display: var(--onlyDesktopF);
   justify-content: center;
   align-items: center;
   grid-column: 1/-1;
@@ -1192,7 +1202,7 @@ main ul ul {list-style-type: square;}
 }
 .sharing_card_top {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  /* grid-template-columns: 4fr 1fr; */
   padding: 10px;
 }
 .sharing_card_share_link {
@@ -1200,6 +1210,7 @@ main ul ul {list-style-type: square;}
   width: max-content;
   margin: 0 auto;
   color: var(--grey3);
+  display: none;
 }
 .sharing_card_title_cont {
   display: grid;
@@ -1410,6 +1421,11 @@ main ul ul {list-style-type: square;}
   @media {.sumarme_textarea .form_input {height: calc(100% - 4px)}}
 }
 .form .btn {grid-column: 1/-1;}
+
+.g-recaptcha {
+  grid-column: 1/-1;
+  margin: auto;
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1642,6 +1658,17 @@ main ul ul {list-style-type: square;}
                           6.8.4) =filter_menu:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+.hamburguer_selector_container {
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: var(--hamburguer_selector_container_FD);
+  grid-gap: 1rem;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
+}
+
 .filterable{
   padding:1rem var(--lateral);
   display:grid;
@@ -1655,29 +1682,44 @@ main ul ul {list-style-type: square;}
   grid-column:1/-1;
 }
 .filter_menu{
-  display: grid;
-  position: absolute;
-  top:calc(60px + 1rem);
-  right:var(--lateral);
+  display: flex;
+  flex-direction: var(--filter_menu_FD);
+  flex-wrap: wrap;
+  position: static;
   background: white;
   border-radius: 8px;
-  border:1px solid var(--grey8);
-  padding:.7rem 1.4rem;
+  border: 1px solid var(--grey8);
+  padding: .7rem 1.4rem;
   z-index: 3;
-  grid-gap:.3rem;
+  grid-gap: 1rem;
   font-size: 16px;
-  transform: translateX(105%);
+  transform: var(--filter_menu_transform);
   transition: .25s;
-  opacity: 0;
+  opacity: var(--filter_menu_opacity);
+  margin: 1rem auto;
 }
 .active .filter_menu{
   transform: translateX(0);
   opacity: 1;
 }
 .filter_menu_but{
+  position: relative;
   cursor: pointer;
 }
-
+.filter_menu_but::after{
+  content: ' ';
+  width: 100%;
+  transform: scale(0);
+  background: var(--grey3);
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  transition: .25s;
+}
+.filter_menu_but:hover::after {
+  transform: scaleX(1);
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1697,6 +1739,7 @@ main ul ul {list-style-type: square;}
 .countNumber {
   font-size: 2rem;
   font-weight: 700;
+  color: var(--primaryColor);
 }
 .countTxt {
   font-size: 16px;
@@ -1771,10 +1814,12 @@ main ul ul {list-style-type: square;}
 }
 
 
+/* TRANSLATEPRESS */
 
-
-
-
+#trp-floater-ls .trp-with-flags .trp-flag-image {
+  width: auto;
+}
 
 
 .g-recaptcha{grid-column:1/-1}
+
