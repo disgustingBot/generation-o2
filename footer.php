@@ -29,15 +29,15 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
       <h3 class="form_title">Contáctanos</h3>
       <div class="form_imp">
           <label class="form_label" for="foot_sumate_name">Nombre</label>
-          <input class="form_input" type="text" name="nombre" id="foot_sumate_name">
+          <input class="form_input" type="text" name="nombre" id="foot_sumate_name" required>
       </div>
       <div class="form_imp">
           <label class="form_label" for="foot_sumate_mail">E-mail</label>
-          <input class="form_input" type="email" name="email" id="foot_sumate_mail">
+          <input class="form_input" type="email" name="email" id="foot_sumate_mail" required>
       </div>
       <div class="form_imp sumarme_textarea">
           <label class="form_label" for="foot_sumate_nota">Nota</label>
-          <textarea class="form_input" type="text" id="foot_sumate_nota" name="nota"></textarea>
+          <textarea class="form_input" type="text" id="foot_sumate_nota" name="nota"  required></textarea>
       </div>
       <div class="form_checkbox">
         <input type="checkbox" required>
@@ -49,7 +49,7 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
 
       <input class="btn contact_btn buttonSend" disabled type="submit" name="submit" value="ENVIAR">
     </form>
-    <p class="copyright">© Copyright 2019 - Todos los derechos reservados</p>
+    <p class="copyright">Asociación Generación o2 - CIF / NIF: G67418350.</p>
   </footer>
   <!-- <sign class="signature">
     <p>&#60;&#47;&#62; width ❤️ by <a href="https://lattedev.com/" target="_blank" class="latteLink">Latte</a></p>

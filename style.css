@@ -30,7 +30,8 @@ Version: 1.1
 5.1.1) =Front Page ATF:
 5.1.2) =Equipo ATF:
 5.1.3) =Noticias ATF:
-5.1.4) =dpto_ATF:
+5.1.4) =dpto ATF:
+5.1.5) =colaboradores ATF:
 
 6) =COMPONENTES:
 6.0) =load:
@@ -574,7 +575,7 @@ main h6,
 main ul,
 main li{margin:unset;padding:unset}
 main ul,main ol{list-style:unset}
-
+main ul {margin-left:var(--lateral);font-size: 16px;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5) =ESTRUCTURA:
@@ -872,7 +873,7 @@ main ul ul {list-style-type: square;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                              5.1.4) =dpto_ATF:
+                              5.1.4) =dpto ATF:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .depto_ATF{
@@ -911,6 +912,21 @@ main ul ul {list-style-type: square;}
   align-items:center;
   padding: 0 1rem;
 }
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                              5.1.4) =colaboradores ATF:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.colaboradores_section .hover_card_img {
+  padding: 10px;
+}
+
+.colaboradores_section .hover_card{
+  text-align: center;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               6) =COMPONENTES:
@@ -1680,6 +1696,7 @@ main ul ul {list-style-type: square;}
 .filter_container{
   position: relative;
   grid-column:1/-1;
+  width: 100%;
 }
 .filter_menu{
   display: flex;
@@ -1791,7 +1808,7 @@ main ul ul {list-style-type: square;}
 .copyright {
   grid-column: 1/-1;
   margin: auto;
-  font-size: var(--smallTxt);
+  font-size: var(--extraSmallTxt);
 }
 .latteLink {
   color: var(--secondaryColor);
@@ -1820,6 +1837,14 @@ main ul ul {list-style-type: square;}
   width: auto;
 }
 
+.trp-ls-language-name {
+	font-size: 10px!important;
+	text-decoration: underline;
+}
+.trp-language-switcher-container {
+	margin-right: 0
+}
+
+
 
 .g-recaptcha{grid-column:1/-1}
-

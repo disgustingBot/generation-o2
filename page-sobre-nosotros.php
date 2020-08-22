@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <hgroup class="headline_hgroup section_padding">
-  <h1 class="hedline_title">Generaci<span class="secondary_color">ó</span>n O2</h1>
-  <h5 class="hedline_txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan</h5>
+  <h1 class="hedline_title">Generaci<span class="secondary_color">ó</span>n o2</h1>
+  <h5 class="hedline_txt"><?php echo get_the_excerpt() ?></h5>
 </hgroup>
 
 <section class="grid_1_2">
