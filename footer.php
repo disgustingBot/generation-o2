@@ -49,7 +49,7 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
 
       <input class="btn contact_btn buttonSend" disabled type="submit" name="submit" value="ENVIAR">
     </form>
-    <p class="copyright">© Copyright 2019 - Todos los derechos reservados</p>
+    <p class="copyright">Asociación Generación o2 - CIF / NIF: G67418350.</p>
   </footer>
   <!-- <sign class="signature">
     <p>&#60;&#47;&#62; width ❤️ by <a href="https://lattedev.com/" target="_blank" class="latteLink">Latte</a></p>

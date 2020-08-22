@@ -575,7 +575,7 @@ main h6,
 main ul,
 main li{margin:unset;padding:unset}
 main ul,main ol{list-style:unset}
-
+main ul {margin-left:var(--lateral);font-size: 16px;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5) =ESTRUCTURA:
@@ -1808,7 +1808,7 @@ main ul ul {list-style-type: square;}
 .copyright {
   grid-column: 1/-1;
   margin: auto;
-  font-size: var(--smallTxt);
+  font-size: var(--extraSmallTxt);
 }
 .latteLink {
   color: var(--secondaryColor);
@@ -1836,6 +1836,15 @@ main ul ul {list-style-type: square;}
 #trp-floater-ls .trp-with-flags .trp-flag-image {
   width: auto;
 }
+
+.trp-ls-language-name {
+	font-size: 10px!important;
+	text-decoration: underline;
+}
+.trp-language-switcher-container {
+	margin-right: 0
+}
+
 
 
 .g-recaptcha{grid-column:1/-1}
