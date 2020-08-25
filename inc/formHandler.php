@@ -41,7 +41,7 @@ function lt_form_handler() {
   
     while($mail->have_posts()){$mail->the_post();
       $subject = get_the_title();
-      $message = $message . get_the_content();
+      $message = get_the_content();
     }
 
 

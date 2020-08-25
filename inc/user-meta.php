@@ -139,25 +139,7 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
-        <!-- <tr>
-            <th>
-                <label for="lt_number">Numero</label>
-            </th>
-            <td>
-                <input type="number"
-                    class="regular-text ltr"
-                    id="lt_number"
-                    name="lt_number"
-                    value="<?= esc_attr( get_user_meta( $user->ID, 'lt_number', true ) ) ?>"
-                    title="Enter some number."
-                    required>
-                <p class="description">
-                    Please enter your number.
-                </p>
-            </td>
-        </tr> -->
-        
+
         <tr>
             <th>
                 <label for="lt_socio">Socio</label>
@@ -181,20 +163,18 @@ function wporg_usermeta_form_field_birthday( $user )
                 </p>
             </td>
         </tr>
-        
+
         <tr>
             <th>
                 <label for="lt_cantidad">Cantidad a donar</label>
             </th>
             <td>
 
-                
                 <select name="cantidad" id="lt_cantidad">
                     <option value="10" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "10" ) { echo "selected"; } ?>>10 euros al mes</option>
                     <option value="20" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "20" ) { echo "selected"; } ?>>20 euros al mes</option>
                     <option value="otro" <?php if ( get_user_meta( $user->ID, 'cantidad', true ) == "otro" ) { echo "selected"; } ?>>otro</option>
                 </select>
-
 
                 <p class="description">
                     Por favor ingrese aqui la cantidad que el socio quiere donar.
@@ -394,16 +374,23 @@ add_action('restrict_manage_users', 'filter_by_meta');
 
 function filter_by_meta( $which )
 {
+    
+    // figure out which button was clicked. The $which in filter_by_job_role()
+    $top = $_GET['lt_cantidad_filter_top'] ? $_GET['lt_cantidad_filter_top'] : null;
+    $bottom = $_GET['lt_cantidad_filter_bottom'] ? $_GET['lt_cantidad_filter_bottom'] : null;
+    $selected = false;
+    if (!empty($top) OR !empty($bottom)){
+        $selected = !empty($top) ? $top : $bottom;
+    }
+
     // template for filtering
-    $st = '<select name="lt_departamento_filter_%s" style="float:none;margin-left:10px;">
+    $st = '<select name="lt_cantidad_filter_%s" style="float:none;margin-left:10px;">
         <option value="">%s</option>%s</select>';
 
     // generate options
-    $options = '<option value="d_ela">Departamento ELA</option>
-                <option value="i_ela">Investigacion ELA</option>
-                <option value="i_vih">Investigacion VIH</option>
-                <option value="i_nma">Investigacion Niños mariposa</option>
-                <option value="e_prp">Eleccion propia</option>';
+    $options = '<option value="10"'   . ( $selected == '10'   ? ' selected' : '') .'>€10 al mes</option>
+                <option value="20"'   . ( $selected == '20'   ? ' selected' : '') .'>€20 al mes</option>
+                <option value="otro"' . ( $selected == 'otro' ? ' selected' : '') .'>otra cantidad</option>';
 
     // combine template and options
     $select = sprintf( $st, $which, __( 'Options...' ), $options );
@@ -413,14 +400,20 @@ function filter_by_meta( $which )
 
 
     
+    $top = $_GET['lt_subscription_type_filter_top'] ? $_GET['lt_subscription_type_filter_top'] : null;
+    $bottom = $_GET['lt_subscription_type_filter_bottom'] ? $_GET['lt_subscription_type_filter_bottom'] : null;
+    $selected = false;
+    if (!empty($top) OR !empty($bottom)){
+        $selected = !empty($top) ? $top : $bottom;
+    }
     // template for filtering
     $st = '<select name="lt_subscription_type_filter_%s" style="float:none;margin-left:10px;">
         <option value="">%s</option>%s</select>';
 
     // generate options
-    $options = '<option value="socio">Socio</option>
-                <option value="voluntario">Voluntario</option>
-                <option value="socio_voluntario">Ambos</option>';
+    $options = '<option value="socio"' . ( $selected == 'socio'   ? ' selected' : '') . '>Socio</option>
+                <option value="voluntario"' . ( $selected == 'voluntario'   ? ' selected' : '') . '>Voluntario</option>
+                <option value="socio_voluntario"' . ( $selected == 'socio_voluntario' ? ' selected' : '') . '>Ambos</option>';
 
     // combine template and options
     $select = sprintf( $st, $which, __( 'Options...' ), $options );
@@ -437,19 +430,43 @@ function filter_users_by_job_role_section($query)
 {
     global $pagenow;
     if ( is_admin() && $pagenow == 'users.php' ) {
-    // figure out which button was clicked. The $which in filter_by_job_role()
+        // figure out which button was clicked. The $which in filter_by_job_role()
         $top = $_GET['lt_subscription_type_filter_top'] ? $_GET['lt_subscription_type_filter_top'] : null;
         $bottom = $_GET['lt_subscription_type_filter_bottom'] ? $_GET['lt_subscription_type_filter_bottom'] : null;
+
+        $meta_query = array();
         if (!empty($top) OR !empty($bottom)){
             $section = !empty($top) ? $top : $bottom;
 
             // change the meta query based on which option was chosen
-            $meta_query = array (array (
+            $subscription = array(
                 'key' => 'subscription_type',
                 'value' => $section,
                 'compare' => 'LIKE'
-            ));
-            $query->set('meta_query', $meta_query);
+            );
+            array_push($meta_query, $subscription );
+            // $meta_query = array (array (
+            //     'key' => 'subscription_type',
+            //     'value' => $section,
+            //     'compare' => 'LIKE'
+            // ));
         }
+
+        // figure out which button was clicked. The $which in filter_by_job_role()
+        $top = $_GET['lt_cantidad_filter_top'] ? $_GET['lt_cantidad_filter_top'] : null;
+        $bottom = $_GET['lt_cantidad_filter_bottom'] ? $_GET['lt_cantidad_filter_bottom'] : null;
+
+        if (!empty($top) OR !empty($bottom)){
+            $section = !empty($top) ? $top : $bottom;
+
+            // change the meta query based on which option was chosen
+            $cantidad = array(
+                'key' => 'cantidad',
+                'value' => $section,
+                'compare' => 'LIKE'
+            );
+            array_push($meta_query, $cantidad );
+        }
+        $query->set('meta_query', $meta_query);
     }
 }
