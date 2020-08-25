@@ -178,6 +178,7 @@ function lt_custom_posts() {
 		'label'       => 'Orden',
 		'description' => 'Orden de aparicion',
 	);
+
 	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'departamento', $meta_fields = array(
 		'lt_meta_short_description' => $lt_meta_short_description_labels,
 		'lt_meta_banner' => $lt_meta_banner_labels,

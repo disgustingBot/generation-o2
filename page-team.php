@@ -4,7 +4,7 @@
   <img class="rowcol1 lazy equipo_ATF_img" data-url="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración Generación o2">
   <hgroup class="headline_hgroup rowcol1">
     <h1 class="title">Equipo de Generaci<span class="secondary_color">ó</span>n o2</h1>
-    <h5 class="txt">Somos una organización no gubernamental sin ánimo de lucro, apolítica y laica con el objetivo de ayudar a quienes más lo necesitan.</h5>
+    <h5 class="txt"><?php echo get_the_excerpt() ?></h5>
   </hgroup>
 
   <div class="know_us_btn rowcol1">
@@ -40,29 +40,29 @@
 
 
 <section class="filterable" id="filterable">
-
-  <div class="filter_container" id="filter_container">
-    <div class="filter_menu" id="filter_menu">
-
-      <?php $terms = get_terms( array(
-        'taxonomy' => 'area',
-        'parent'   => 0
-      ) );
-      foreach ($terms as $term) {
-        echo '<style>';
-        echo ".$term->slug .$term->slug{display:grid}";
-        echo "[class='filterable'] .$term->slug{display:grid}";
-        echo '</style>';
-        ?>
-      <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')"><span style="font-weight:bolder;font-size: 12px;">>></span> <?php echo $term->name; ?></p>
-    <?php } ?>
-    </div>
-
-    <div class="hamburger_menu_equipo">
+  <div class="hamburguer_selector_container">
+    <div class="hamburger_menu_equipo rowcol1">
       <div class="hamburger_menu" onclick="altClassFromSelector('active','#filter_container')">
         <span class="hamStripe"></span>
         <span class="hamStripe"></span>
         <span class="hamStripe"></span>
+      </div>
+    </div>
+    <div class="filter_container" id="filter_container">
+      <div class="filter_menu" id="filter_menu">
+
+        <?php $terms = get_terms( array(
+          'taxonomy' => 'area',
+          'parent'   => 0
+        ) );
+        foreach ($terms as $term) {
+          echo '<style>';
+          echo ".$term->slug .$term->slug{display:grid}";
+          echo "[class='filterable'] .$term->slug{display:grid}";
+          echo '</style>';
+          ?>
+        <p class="filter_menu_but" onclick="altClassFromSelector('<?php echo $term->slug; ?>','#filterable', 'filterable')">&#8226; <?php echo $term->name; ?></p>
+      <?php } ?>
       </div>
     </div>
   </div>
