@@ -181,6 +181,7 @@ FIN DE MAPA DE CONTENIDOS */
   --navigation_menu_height: calc(100vh - 90px);
   --navigation_menu_transform_x: translateX(100%);
   --navigation_menu_GTR: 1fr min-content;
+  --navigation_menu_padding: 2rem 0;
 
 
 
@@ -189,7 +190,6 @@ FIN DE MAPA DE CONTENIDOS */
   --logo_height: 50px;
   --header_auto_columns: 1fr;
   --hidden_list_menu_active_top: 50px;
-  --navigation_menu_padding: 2rem 0;
 
 
   /* ATFS */
@@ -361,6 +361,7 @@ FIN DE MAPA DE CONTENIDOS */
     --navigation_menu_height: unset;
     --navigation_menu_transform_x: translateX(0);
     --navigation_menu_GTR: unset;
+    --navigation_menu_padding: unset;
 
 
 
@@ -370,7 +371,6 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?HEADER */
     --header_auto_columns: unset;
     --hidden_list_menu_active_top: 70px;
-    --navigation_menu_padding: unset;
 
 
 

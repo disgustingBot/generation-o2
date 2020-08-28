@@ -36,7 +36,7 @@
     <?php
     $args=array(
       'post_type' => 'colaborador',
-      // 'posts_per_page'=> 4,
+      'posts_per_page'=> -1,
     );
     $colaboradores=new WP_Query();
     $colaboradores->query($args);
