@@ -13,7 +13,6 @@ function lt_form_handler() {
 	if($_POST['a00'] != ""){
 		$link = add_query_arg( array('no' => 'go',), $link );
 	} else {
-    $email='molinerozadkiel@gmail.com';
 
     
 
@@ -29,23 +28,12 @@ function lt_form_handler() {
     //   }
     // }
 
-    $the_slug = 'contact-response';
-    $args=array(
-      'name'           => $the_slug,
-      'post_type'      => 'mail',
-      'post_status'    => 'publish',
-      'posts_per_page' => 1,
-    );
-    $mail=new WP_Query();
-    $mail->query($args);
-  
-    while($mail->have_posts()){$mail->the_post();
-      $subject = get_the_title();
-      $message = get_the_content();
-    }
+    $email='molinerozadkiel@gmail.com';
+
+    $subject = "Mail desde Generacion o2";
 
 
-
+    require_once 'mail.php';
 
 
 
