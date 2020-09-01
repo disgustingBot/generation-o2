@@ -312,25 +312,28 @@ function lt_sumate(){
           update_user_meta( $user_id, $key, $value );
       }
       
-      // $hash = hash ( 'sha256' , time() . $mail );
-      // update_user_meta( $user_id, 'confirmation', $hash );
 
 
-      // Set the role
-      // $user = new WP_User( $user_id );
-      // $user->set_role( 'subscriber' );
 
-      // Email the user
-      // $message='';
-      // $message=$message.'Your Password: ' . $pass;
-      // $message=$message.'<br>';
-      // $message=$message.'activation Code: ';
-      // $message=$message.'<br>';
-      // $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
-      // $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
-      // $message=$message.'<br>';
-      // $headers = array('Content-Type: text/html; charset=UTF-8');
+      
+    // $email='molinerozadkiel@gmail.com';
 
+    $subject = "Mail desde Generacion o2";
+
+
+    require_once 'inc/mail.php';
+
+
+
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+
+      if (wp_mail( $email , $subject , $message , $headers )) {
+      // if (wp_mail( $_POST['email'] , $subject , $message , $headers )) {
+        $mail = 'sent';
+      } else {
+        $mail = 'error';
+      }
       // wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
 
 
@@ -342,7 +345,7 @@ function lt_sumate(){
   $link = add_query_arg( array(
     // 'status' => $status,
     'status' => $action,
-    // 'mail'   => $mail,
+    'mail'   => $mail,
     // 'resultado' => username_exists( $mail ),
   ), $link );
   wp_redirect($link);

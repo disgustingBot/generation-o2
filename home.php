@@ -3,7 +3,7 @@
 <section class="grid noticias_ATF section_greyF5">
   <hgroup class="headline_hgroup section_padding">
     <h2 class="hedline_title"><?php single_post_title(); ?></h2>
-    <h5 class="hedline_txt"><?php echo get_the_excerpt('17', '1_blog_texto', true); ?></h5>
+    <h5 class="hedline_txt"><?php echo get_the_excerpt('24', '1_blog_texto', true); ?></h5>
   </hgroup>
 
   <?php
