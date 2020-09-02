@@ -20,20 +20,20 @@ function lt_form_handler() {
 
 
 
-		// $message='';
+		$message='';
 
-    // foreach ($_POST as $key => $value) {
-    //   if ( $key != 'a00' && $key != 'action' && $key != 'link' && $key != 'status' && $key != 'submit' && $key != 'g-recaptcha-response' ) {
-    //     $message=$message.'<strong>'.$key.':</strong> '.$value.' - <br>';
-    //   }
-    // }
+    foreach ($_POST as $key => $value) {
+      if ( $key != 'a00' && $key != 'action' && $key != 'link' && $key != 'status' && $key != 'submit' && $key != 'g-recaptcha-response' ) {
+        $message=$message.'<strong>'.$key.':</strong> '.$value.' - <br>';
+      }
+    }
 
     $email='molinerozadkiel@gmail.com';
 
-    $subject = "Mail desde Generacion o2";
+    $subject = "Mail de Generacion o2";
 
 
-    require_once 'mail.php';
+    // require_once 'mail.php';
 
 
 
@@ -49,12 +49,12 @@ function lt_form_handler() {
 
     $result = json_decode($payload,true);
     if ($result['success']!=1) {
-    $link = add_query_arg( array( 'status' => 'bot' , ), $link );
+      $link = add_query_arg( array( 'status' => 'bot' , ), $link );
     } else {
 
 
-      // if (wp_mail( $email , $subject , $message , $headers )) {
-      if (wp_mail( $_POST['email'] , $subject , $message , $headers )) {
+      if (wp_mail( $email , $subject , $message , $headers )) {
+      // if (wp_mail( $_POST['email'] , $subject , $message , $headers )) {
         $link = add_query_arg( array( 'status' => 'sent' , ), $link );
       } else {
         $link = add_query_arg( array( 'status' => 'error', ), $link );

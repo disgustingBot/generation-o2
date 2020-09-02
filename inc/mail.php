@@ -246,7 +246,7 @@ The email background color (#222222) is defined in three places:
       <!-- Hero Image, Flush : BEGIN -->
       <tr>
         <td style='background-color: #ffffff;'>
-          <img src='https://generacion-o2.org/wp-content/uploads/2020/08/email-header-scaled.jpg' width='600' height='' alt='alt_text' border='0' style='width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;' class='g-img'>
+          <img src='https://generacion-o2.org/wp-content/uploads/2020/09/header_mail_1-scaled.jpg' width='600' height='' alt='alt_text' border='0' style='width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;' class='g-img'>
         </td>
       </tr>
 
@@ -312,17 +312,17 @@ The email background color (#222222) is defined in three places:
                             <tbody><tr style='border-collapse:collapse'>
                               <td valign='top' align='center' style='padding:0;Margin:0;padding-right:10px'>
                                 <a target='_blank' href='https://www.facebook.com/generacion.o2.barcelona/' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, \"helvetica neue\", helvetica, sans-serif;font-size:12px;text-decoration:underline;color:#CCCCCC'>
-                                  <img title='Facebook' src='https://generacion-o2.org/wp-content/uploads/2020/08/Facebook.png' alt='Enlace a Facebook' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
+                                  <img title='Facebook' src='https://generacion-o2.org/wp-content/uploads/2020/09/facebook_mail_1.png' alt='Enlace a Facebook' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
                                 </a>
                               </td>
                               <td valign='top' align='center' style='padding:0;Margin:0;padding-right:10px'>
                                 <a target='_blank' href='https://twitter.com/generaciono2?lang=es' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, \"helvetica neue\", helvetica, sans-serif;font-size:12px;text-decoration:underline;color:#CCCCCC'>
-                                  <img title='Twitter' src='https://generacion-o2.org/wp-content/uploads/2020/08/Twitter.png' alt='Enlace a Linkedin' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
+                                  <img title='Twitter' src='https://generacion-o2.org/wp-content/uploads/2020/09/twitter_mail_1.png' alt='Enlace a Linkedin' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
                                 </a>
                               </td>
                               <td valign='top' align='center' style='padding:0;Margin:0'>
                                 <a target='_blank' href='https://www.instagram.com/generacion_o2/?hl=es' style='-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, \"helvetica neue\", helvetica, sans-serif;font-size:12px;text-decoration:underline;color:#CCCCCC'>
-                                  <img title='Instagram' src='https://generacion-o2.org/wp-content/uploads/2020/08/Frame.png' alt='Enlace a Instagram' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
+                                  <img title='Instagram' src='https://generacion-o2.org/wp-content/uploads/2020/09/instagram_mail_1.png' alt='Enlace a Instagram' width='32' height='32' style='display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic'>
                                 </a>
                               </td>
                             </tr>
