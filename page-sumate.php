@@ -39,7 +39,7 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
     </div>
 
     <div class="form_imp">
-        <label class="form_label" for="sumate_telefono">Telefono</label>
+        <label class="form_label" for="sumate_telefono">Teléfono</label>
         <input class="form_input" type="text" name="telefono" id="sumate_telefono" required>
     </div>
 
@@ -69,7 +69,7 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_voluntario"
           name="subscription_type" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?> required>
-          <label for="lt_voluntario">Volunario</label>
+          <label for="lt_voluntario">Voluntario</label>
         </div>
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_socio_voluntario"
@@ -120,15 +120,13 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
 
     <div class="form_checkbox">
       <input type="checkbox" required>
-      <p class="termsDescription">Acepto los <a href="https://generacion-o2.org/politica-privacidad/" target="_blank" style="text-decoration: underline;"> terminos y condiciones</a> de Generación o2</p>
+      <p class="termsDescription">Acepto los <a href="https://generacion-o2.org/politica-privacidad/" target="_blank" style="text-decoration: underline;"> Términos y condiciones</a> de Generación o2</p>
     </div>
 
     <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
     <input class="recaptcha" type="text" hidden value="">
 
-
-
-    <button class="btn buttonSend" disabled type="submit">Sumarme</button>
+    <button class="btn buttonSend" disabled type="submit"><?php _e('sumarme', 'lt_domain'); ?></button>
 </form>
 
 <?php get_footer(); ?>
