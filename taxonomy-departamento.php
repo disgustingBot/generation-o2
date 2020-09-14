@@ -6,8 +6,8 @@
     <div class="depto_ATF_transp rowcol1"  style="--background_from_php:rgba(var(--<?php echo get_queried_object()->slug; ?>_color_rgb), .5)">
       <img class="depto_ATF_icon rowcol1 lazy" data-url="<?php echo wp_get_attachment_url( get_img_id_by_slug(get_term_meta( get_queried_object()->term_id, 'lt_meta_icon', true ))); ?>" alt="">
       <div class="depto_ATF_caption">
-        <h2><?php _e(get_the_archive_title(), get_queried_object()->slug); ?> - Generacion o2</h2>
-        <p><?php echo get_queried_object()->description; ?></p>
+        <h2><?php _e(get_the_archive_title(), get_queried_object()->slug); ?> - Generación o2</h2>
+        <p><?php _e(get_queried_object()->description, get_queried_object()->slug); ?></p>
       </div>
     </div>
   <?php
@@ -31,7 +31,7 @@
 
 <section class="section_padding grid_1_2_3">
   <hgroup class="headline_hgroup section_padding grid_1_2_3_title">
-    <h1 class="hedline_title">Proyectos <?php echo get_the_archive_title(); ?></h1>
+    <h1 class="hedline_title">Proyectos <?php _e(get_the_archive_title(), get_queried_object()->slug); ?></h1>
   </hgroup>
   <?php while(have_posts()){the_post(); ?>
 
