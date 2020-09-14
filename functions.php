@@ -206,6 +206,7 @@ function lt_sumate(){
   $cuenta        = $_POST['cuenta'];
   $departamento  = $_POST['departamento'];
   $nota          = $_POST['nota'];
+  $subscription_type = $_POST['subscription_type'];
   // var_dump($_POST);
   // echo '<br>';
   // echo '<br>';
@@ -334,6 +335,16 @@ function lt_sumate(){
       } else {
         $mail = 'error';
       }
+
+
+      $notification_email = 'junta.directiva@generacion-o2.org';
+      $notification_subject = 'Nuevo '. $subscription_type;
+      $notification_message = "
+        <p><strong>Nombre:</strong> $nombre $apellido</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Tipo de suscripcion:</strong> $subscription_type</p>
+      ";
+      wp_mail( $notification_email , $notification_subject , $notification_message , $headers );
       // wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
 
 
