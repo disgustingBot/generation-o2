@@ -251,6 +251,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* ?overlap card */
 
   --overlap_card_caption_width: 90%;
+  --overlap_card_caption_translate_Y:80%;
   --overlap_card_caption_GTC: 1fr;
   --vertical_line_display: none;
   --overlap_card_caption_GG: 0;
@@ -427,6 +428,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?overlap card */
 
     --overlap_card_caption_width: 60%;
+    --overlap_card_caption_translate_Y:75%;
 
   }
 }
@@ -1293,12 +1295,12 @@ main ul ul {list-style-type: square;}
 .overlap_card_caption {
   display: grid;
   grid-template-columns: var(--overlap_card_caption_GTC);
-  padding: 1rem;
+  padding:.4rem 1rem;
   grid-gap: var(--overlap_card_caption_GG);
   width: var(--overlap_card_caption_width);
   margin: auto auto 0 auto;
   box-shadow: var(--DP4);
-  transform: translateY(50%);
+  transform: translateY(var(--overlap_card_caption_translate_Y));
   border-radius: 8px;
   background: var(--greyF);
 }

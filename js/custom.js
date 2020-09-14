@@ -82,7 +82,18 @@ for (i = 0; i < acc.length; i++) {
 }
 
 
-
+const subscription_type_handler = (input)=>{
+  let hideable = d.querySelectorAll('.hideable');
+  if ( input.value == 'voluntario' ){
+    hideable.forEach((elemento)=>{
+      elemento.style.display='none';
+    })
+  } else {
+    hideable.forEach((elemento)=>{
+      elemento.style.display='grid';
+    })
+  }
+}
 
 
 

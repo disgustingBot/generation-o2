@@ -63,43 +63,43 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
       <div class="form_sumarme_como_options">
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_socio"
-          name="subscription_type" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?> required>
+          name="subscription_type" onchange="subscription_type_handler(this)" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?> required>
           <label for="lt_socio">Socio</label>
         </div>
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_voluntario"
-          name="subscription_type" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?> required>
+          name="subscription_type" onchange="subscription_type_handler(this)" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?> required>
           <label for="lt_voluntario">Voluntario</label>
         </div>
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_socio_voluntario"
-          name="subscription_type" value="socio_voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio_voluntario' ) { echo "checked"; } ?> required>
+          name="subscription_type" onchange="subscription_type_handler(this)" value="socio_voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio_voluntario' ) { echo "checked"; } ?> required>
           <label for="lt_socio_voluntario">Ambos</label>
         </div>
       </div>
     </div>
 
-    <div class="form_select_container">
+    <div class="form_select_container hideable" style="display:none">
         <label class="form_label" for="sumate_cantidad">Donar</label>
-        <select class="form_imp" id="sumate_cantidad" name="cantidad" required>
+        <select class="form_imp" id="sumate_cantidad" name="cantidad">
             <option value="10">Cuota 10 euros</option>
             <option value="20">Cuota 20 euros</option>
             <option value="otro">Otra cantidad</option>
         </select>
     </div>
 
-    <div class="form_select_container">
+    <div class="form_select_container hideable" style="display:none">
         <label class="form_label" for="sumate_dia_pago">Dia de pago</label>
-        <select class="form_imp" id="sumate_dia_pago" name="dia_de_pago" required>
+        <select class="form_imp" id="sumate_dia_pago" name="dia_de_pago">
             <option value="05">El 05 de cada mes</option>
             <option value="10">El 10 de cada mes</option>
             <option value="15">El 15 de cada mes</option>
         </select>
     </div>
 
-    <div class="form_imp">
+    <div class="form_imp hideable" style="display:none">
         <label class="form_label" for="sumate_cuenta_bancaria">Cuenta bancaria</label>
-        <input class="form_input" type="text" id="sumate_cuenta_bancaria" name="cuenta" required>
+        <input class="form_input" type="text" id="sumate_cuenta_bancaria" name="cuenta">
     </div>
 
     <div class="form_select_container">

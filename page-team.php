@@ -70,7 +70,9 @@
   <?php
   $args=array(
     'post_type' => 'equipo',
-    'order' => 'DESC',
+    'order' => 'ASC',
+    'orderby' => 'meta_value_num',
+    'meta_key'=> 'order',
     'posts_per_page'=> -1,
   );
   $equipo=new WP_Query();
