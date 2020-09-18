@@ -44,7 +44,7 @@
     </div>
 
     <div class="btn_dona">
-      <p class="dona_p" onclick="altClassFromSelector('active', '.hidden_list_menu')">(Dona)</p>
+      <p class="dona_p" onclick="altClassFromSelector('active', '.hidden_list_menu')"><?php echo get_post_meta('21', '5-palabra-dona', true); ?></p>
       <ul class="hidden_list_menu">
         <p class="close_hidden_list" onclick="altClassFromSelector('active', '.hidden_list_menu')">+</p>
         <li class="hidden_list_menu_item">
