@@ -62,14 +62,14 @@ $scrt = '6LeE7b8ZAAAAALYT37X6JwPR0gbVFLpU7I-J-DOk';
       <p class="form_sumarme_como_txt">Sumarme como:</p>
       <div class="form_sumarme_como_options">
         <div class="form_sumarme_como_option">
-          <input class="form_sumarme_como_radio" type="radio" id="lt_socio"
-          name="subscription_type" onchange="subscription_type_handler(this)" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?> required>
-          <label for="lt_socio">Socio</label>
-        </div>
-        <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_voluntario"
           name="subscription_type" onchange="subscription_type_handler(this)" value="voluntario" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'voluntario' ) { echo "checked"; } ?> required>
           <label for="lt_voluntario">Voluntario</label>
+        </div>
+        <div class="form_sumarme_como_option">
+          <input class="form_sumarme_como_radio" type="radio" id="lt_socio"
+          name="subscription_type" onchange="subscription_type_handler(this)" value="socio" <?php if ( get_user_meta( $user->ID, 'subscription_type', true ) == 'socio' ) { echo "checked"; } ?> required>
+          <label for="lt_socio">Socio</label>
         </div>
         <div class="form_sumarme_como_option">
           <input class="form_sumarme_como_radio" type="radio" id="lt_socio_voluntario"
