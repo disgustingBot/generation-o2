@@ -245,6 +245,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* ?FOOTER */
   --grid_1_1-2_GTC: 1fr;
   --grid_1_2_GTC: 1fr;
+  --grid_1_2_centered_txt_container_fix_order: 1;
   --footerFormGC: unset;
 
 
@@ -423,6 +424,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* ?FOOTER */
     --grid_1_1-2_GTC: 1fr 2fr;
     --grid_1_2_GTC: 1fr 1fr;
+    --grid_1_2_centered_txt_container_fix_order: unset;
     --footerFormGC: 2/4;
 
     /* ?overlap card */
@@ -649,6 +651,7 @@ main ul {margin-left:var(--lateral);font-size: 16px;}
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
 .grid_1_2_centered_txt_container {
@@ -659,6 +662,7 @@ main ul {margin-left:var(--lateral);font-size: 16px;}
   padding: 1rem;
   text-align: center;
 }
+.grid_1_2_centered_txt_container_fix {order: var(--grid_1_2_centered_txt_container_fix_order);}
 .dady_break {
   display: flex;
   flex-wrap: wrap;

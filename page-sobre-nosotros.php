@@ -18,7 +18,7 @@
   </div>
 </section>
 <section class="grid_1_2">
-  <div class="grid_1_2_centered_txt_container">
+  <div class="grid_1_2_centered_txt_container grid_1_2_centered_txt_container_fix">
     <h2 class="hedline_title"><?php echo get_post_meta($post->ID, 'F_bloque_2_titulo', true); ?></h2>
     <p class="hedline_txt_small"><?php echo get_post_meta($post->ID, 'G_bloque_2_parrafo_1', true); ?></p>
     <p class="hedline_txt_small"><?php echo get_post_meta($post->ID, 'H_bloque_2_parrafo_2', true); ?></p>
