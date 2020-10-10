@@ -14,7 +14,7 @@ function lt_form_handler() {
 		$link = add_query_arg( array('no' => 'go',), $link );
 	} else {
 
-    
+
 
 
 
@@ -28,7 +28,10 @@ function lt_form_handler() {
       }
     }
 
-    $email='molinerozadkiel@gmail.com';
+		// $email='molinerozadkiel@gmail.com';
+		$email='info@generacion-o2.org';
+
+
 
     $subject = "Mail de Generacion o2";
 
@@ -118,7 +121,7 @@ function lt_ajax_mail() {
         $finalPrice = number_format($finalPrice, 2, ',', ' ') . ' ' . $currency;
         // $singlePrice = $value->singlePrice . ' ' . $currency;
 
-        
+
         $singlePrice = number_format($value->singlePrice, 2, ',', ' ') . ' ' . $currency;
 
       } else {
@@ -129,7 +132,7 @@ function lt_ajax_mail() {
       if($key & 1){
         $clase = 'budget-row-colored';
       }
-      
+
     # code...
       // $tablaDePrecios = $tablaDePrecios . $key . " - " . $value . "<br>";
       $tablaDePrecios = $tablaDePrecios . "
