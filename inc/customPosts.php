@@ -97,11 +97,27 @@ function lt_add_meta_fields_to_taxonomy( $taxonomy_slug , $meta_fields = array()
 	add_action( $taxonomy_slug . '_edit_form_fields', function ($term) use( $taxonomy_slug, $meta_fields ) {
 		//getting term ID
 		$term_id = $term->term_id;
-		foreach ( $meta_fields as $name => $labels ) { ?>
+		$checked = '';
+		foreach ( $meta_fields as $name => $labels ) {
+			if(!isset($labels['type'])){
+				$labels['type']='text';
+			}
+			if ($labels['type'] == 'checkbox' AND get_term_meta($term_id, $name, true)){
+				$checked = ' checked';
+			}
+			?>
 			<tr class="form-field">
 				<th scope="row" valign="top"><label for="<?php echo $name ?>"><?php echo $labels['label']; ?></label></th>
 				<td>
-				<input type="text" name="<?php echo $name ?>" id="<?php echo $name ?>" value="<?php echo get_term_meta($term_id, $name, true); ?>">
+					<input
+						type="<?php echo $labels['type']; ?>"
+						name="<?php echo $name ?>"
+						id="<?php echo $name ?>"
+						<?php if($labels['type'] != 'checkbox') {
+							echo 'value="' . get_term_meta($term_id, $name, true) . '"';
+						} else {
+							echo $checked;
+						} ?>>
 					<p class="description"><?php echo $labels['description']; ?></p>
 				</td>
 			</tr>
@@ -114,7 +130,7 @@ function lt_add_meta_fields_to_taxonomy( $taxonomy_slug , $meta_fields = array()
 		foreach ( $meta_fields as $name => $labels ) { ?>
 			<div class="form-field">
 				<label for="<?php echo $name ?>"><?php echo _e($labels['label'], 'lt'); ?></label>
-				<input type="text" name="<?php echo $name ?>" id="<?php echo $name ?>">
+				<input type="<?php echo $labels['type']; ?>" name="<?php echo $name ?>" id="<?php echo $name ?>">
 				<p class="description"><?php echo _e($labels['description'], 'lt'); ?></p>
 			</div>
 		<?php }
@@ -179,6 +195,12 @@ function lt_custom_posts() {
 		'description' => 'Orden de aparicion',
 	);
 
+	$lt_meta_hidden = array(
+		'label'       => 'Ocultar',
+		'description' => 'Ocultar de la vista',
+		'type'        => 'checkbox',
+	);
+
 	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'departamento', $meta_fields = array(
 		'lt_meta_short_description' => $lt_meta_short_description_labels,
 		'lt_meta_banner' => $lt_meta_banner_labels,
@@ -187,6 +209,7 @@ function lt_custom_posts() {
 		'lt_meta_initial_founds'    => $lt_meta_initial_founds_labels,
 		'lt_meta_yearly_founds'    => $lt_meta_yearly_founds_labels,
 		'lt_meta_order'    => $lt_meta_order,
+		'lt_meta_hidden'    => $lt_meta_hidden,
 	) );
 	lt_add_meta_fields_to_taxonomy( $taxonomy_slug = 'area', $meta_fields = array(
 		'lt_meta_order'    => $lt_meta_order,

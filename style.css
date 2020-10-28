@@ -54,6 +54,7 @@ Version: 1.1
 6.8.3) =column_nav_bar:
 6.8.4) =filter_menu:
 6.9) =count:
+6.42) =grid_to_flex:
 6.69) =redDot:
 6.99) =footer
 
@@ -1766,6 +1767,25 @@ main ul ul {list-style-type: square;}
 }
 .countTxt {
   font-size: 16px;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.42) =grid_to_flex:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.grid_to_flex{
+  padding: 1rem var(--lateral);
+  display: flex;
+  justify-content: space-around;
+}
+.grid_to_flex > article:first-child{margin-left:0}
+.grid_to_flex > article{
+  max-width: 250px;
+  flex: 1 1 0;
+  margin-left: 10px;
 }
 
 /* ---------------------------------------------------------------------------
