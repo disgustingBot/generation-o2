@@ -29,7 +29,8 @@ function lt_form_handler() {
     }
 
 		// $email='molinerozadkiel@gmail.com';
-		$email='info@generacion-o2.org';
+		// $email='info@generacion-o2.org';
+		$email='socios@generacion-o2.org';
 
 
 
